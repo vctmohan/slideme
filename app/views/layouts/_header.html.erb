@@ -1,0 +1,41 @@
+<header class="global-header ">
+  <div class="wrapper">
+    <h1 class="logo-animation open">
+      <a class="symbol" href="/">
+        <div class="box-1"></div>
+        <div class="box-2"></div>
+        <div class="box-3"></div>
+      </a>
+      <a class="word" href="/"></a>
+    </h1>
+    <ul class="nav ">
+      <li class="nav-item" data-page-id="home/explore">
+        <a class="nav-item-anchor" href="/explore"><span class="nav-item-label">Explore</span></a>
+      </li>
+      <li class="nav-item-divider"></li>
+
+      <% if not logged_in? %>
+    <li class="nav-item" data-page-id="sessions/new">
+        <a class="nav-item-anchor" href="/users/sign_in"><span class="nav-item-label">Log in</span></a>
+      </li>
+      <li class="nav-item nav-item-highlighted nav-item-secondary" data-page-id="static/pricing">
+        <%= link_to( { :controller => "users", :action => "new" }, class: "nav-item-anchor") do %>
+            <span class="nav-item-label">Sign up</span>
+        <% end %>
+      </li>
+      <% else %>
+          <li class="nav-item profile-button">
+            <%= link_to(profile_url(current_user.username),class: "nav-item-anchor") do %>
+                <span class="nav-item-label"><%= current_user.username %></span>
+            <span class="nav-item-burger">
+              <span class="nav-item-burger-1"></span>
+              <span class="nav-item-burger-2"></span>
+              <span class="nav-item-burger-3"></span>
+            </span>
+            <% end %>
+
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</header>

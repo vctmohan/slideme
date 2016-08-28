@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="sl-root <%= yield(:html_class) %>" data-editor-version="2" data-visibility="all">
+<head>
+  <meta name="viewport" content="width=1024, user-scalable=no"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Deveal">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"/>
+  <%= csrf_meta_tags %>
+
+
+  <title><%= yield(:title) %></title>
+
+  <!--    <link href="css/app.css" media="all" rel="stylesheet"/>
+      <link href="css/editor/editor.css" media="all" rel="stylesheet"/>-->
+  <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '/deveal/fonticons/slides/slides', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= yield(:css_add) %>
+
+</head>
+
+
+<body>
+<div id="container" class="container">
+  <%= render 'layouts/header' %>
+
+  <div id="main" class="main" role="main">
+    <%= yield %>
+  </div>
+
+  <%= render 'layouts/footer' %>
+</div> <!--! end of #container -->
+
+<%= render 'layouts/js' %>
+</body>
+</html>

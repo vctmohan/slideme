@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  present_controls: false
+  present_upsizing: false
+  present_notes: false
+  editor_grid: false
+  editor_snap: false
+  developer_mode: false
+
+two:
+  user_id: 
+  present_controls: false
+  present_upsizing: false
+  present_notes: false
+  editor_grid: false
+  editor_snap: false
+  developer_mode: false

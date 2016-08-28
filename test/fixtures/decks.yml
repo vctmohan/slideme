@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  data: MyText
+  comments_enabled: 1
+  forking_enabled: 1
+  auto_slide_interval: 1
+  transition: MyString
+  background_transition: MyString
+  theme_font: MyString
+  theme_color: MyString
+  should_loop: 1
+  rtl: 1
+  share_notes: 1
+  slide_number: 1
+  rolling_links: 1
+  center: 1
+
+two:
+  title: MyString
+  description: MyString
+  data: MyText
+  comments_enabled: 1
+  forking_enabled: 1
+  auto_slide_interval: 1
+  transition: MyString
+  background_transition: MyString
+  theme_font: MyString
+  theme_color: MyString
+  should_loop: 1
+  rtl: 1
+  share_notes: 1
+  slide_number: 1
+  rolling_links: 1
+  center: 1

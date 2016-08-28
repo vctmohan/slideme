@@ -1,0 +1,89 @@
+<% provide(:title, "Account Settings") %>
+<% provide(:html_class, "registrations edit") %>
+
+<div class="column wide">
+      <hgroup class="funnel-intro"><h2>Create an account</h2></hgroup>
+
+
+
+      <section class="auth">
+        <div class="auth-options">
+          <div class="auth-option">
+            <%= form_for(@user) do |f| %>
+                <%= render 'shared/error_messages' %>
+
+                <div class="unit text" data-validate="username" data-required >
+                  <%= f.label :username %>
+                  <%= f.text_field :username %>
+                </div>
+
+                <div class="unit text" data-validate="email" data-required >
+                  <%= f.label :email %>
+                  <%= f.text_field :email %>
+                </div>
+
+                <div class="unit text" data-validate="password" data-required >
+                  <%= f.label :password %>
+                  <%= f.password_field :password %>
+
+                  <%= f.label :password_confirmation, "Confirmation" %>
+                  <%= f.password_field :password_confirmation %>
+                </div>
+
+                <div class="actions">
+                  <%= f.button "Submit", class: "button xl ladda-button", data_style: "expand-right", name: "button", type:"submit" %>
+                </div>
+
+            <% end %>
+          </div>
+
+          <div class="clear"></div>
+        </div>
+      </section>
+    </div>
+
+<div id="main" class="main" role="main">
+  <div class="column thin">
+    <section>
+      <h2>Account settings</h2>
+
+      <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <div class="unit text" data-validate="username" data-required >
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+          </div>
+
+          <div class="unit text" data-validate="email" data-required >
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          </div>
+
+          <div class="unit text" data-validate="password" data-required >
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation %>
+          </div>
+
+          <div class="actions">
+            <%= f.button "Submit", class: "button xl ladda-button", data_style: "expand-right", name: "button", type:"submit" %>
+            <%= link_to "Cancel",profile_url(current_user.username),class: "button outline low-contrast xl"  %>
+          </div>
+
+      <% end %>
+
+      <div class="devise-links">
+        <a href="#" class="delete-account-toggle">Delete account</a>
+      </div>
+
+      <div class="delete-account">
+        <p>Your account including all of your decks will be permanently deleted. This can <b>not</b> be undone.</p>
+        <a class="button negative grey" data-confirm="Are you sure you want to delete your account?" data-method="delete" href="/users" rel="nofollow">I understand, delete my account</a>
+      </div>
+
+    </section>
+  </div>
+</div>

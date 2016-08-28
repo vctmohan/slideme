@@ -1,0 +1,31 @@
+{
+  "name": "tether",
+  "version": "v1.3.3",
+  "homepage": "http://github.hubspot.com/tether",
+  "authors": [
+    "Zack Bloom <zackbloom@gmail.com>",
+    "Adam Schwartz <adam.flynn.schwartz@gmail.com>"
+  ],
+  "maintainers": [
+    "Nicholas Hwang <nick.joosung.hwang@gmail.com>",
+    "Trevor Burnham <trevorburnham@gmail.com>"
+  ],
+  "description": "A client-side library to make absolutely positioned elements attach to elements in the page efficiently.",
+  "keywords": [
+    "javascript"
+  ],
+  "license": "MIT",
+  "main": "dist/js/tether.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_source": "nexus+https://nexus-3.datys.cu/repository/bower-mirror/tether",
+  "_target": "^v1.3.3",
+  "_release": "v1.3.3",
+  "_originalSource": "tether",
+  "_direct": true
+}

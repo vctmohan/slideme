@@ -1,0 +1,43 @@
+<% provide(:title, "Create an account") %>
+<% provide(:html_class, "users new") %>
+
+<div class="column wide">
+      <hgroup class="funnel-intro"><h2>Create an account</h2></hgroup>
+
+
+
+      <section class="auth">
+        <div class="auth-options">
+          <div class="auth-option">
+            <%= form_for(@user) do |f| %>
+                <%= render 'shared/error_messages' %>
+
+                <div class="unit text" data-validate="username" data-required >
+                  <%= f.label :username %>
+                  <%= f.text_field :username %>
+                </div>
+
+                <div class="unit text" data-validate="email" data-required >
+                  <%= f.label :email %>
+                  <%= f.text_field :email %>
+                </div>
+
+                <div class="unit text" data-validate="password" data-required >
+                  <%= f.label :password %>
+                  <%= f.password_field :password %>
+
+                  <%= f.label :password_confirmation, "Confirmation" %>
+                  <%= f.password_field :password_confirmation %>
+                </div>
+
+                <div class="actions">
+                  <%= f.button "Submit", class: "button xl ladda-button", data_style: "expand-right", name: "button", type:"submit" %>
+                </div>
+
+            <% end %>
+          </div>
+
+          <div class="clear"></div>
+        </div>
+      </section>
+    </div>

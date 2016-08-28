@@ -1,0 +1,46 @@
+<% provide(:title, "Log in") %>
+
+<div class="column wide">
+      <hgroup class="funnel-intro">
+        <h2>Welcome back!</h2>
+        <h3>Let's get you signed in</h3>
+      </hgroup>
+
+      <section class="auth">
+        <div class="auth-options">
+          <div class="auth-option left">
+            <%= form_for(:session, url: "/users/sign_in") do |f| %>
+
+                <div class="unit text" data-validate="email" data-required>
+                  <%= f.label :email %>
+                  <%= f.text_field :email, autofocus: "autofocus" %>
+                </div>
+
+                <div class="unit text">
+                  <%= f.label :password %>
+                  <%= f.password_field :password %>
+                </div>
+
+                <div class="unit checkbox">
+                  <%= f.label :remember_me %>
+                  <%= f.check_box :remember_me %>
+                </div>
+
+                <div class="actions">
+                  <%= f.button "Log in", class: "button xl ladda-button", data_style:"expand-right" ,name:"button", type:"submit" %>
+
+                </div>
+            <% end %>
+
+          </div>
+          <div class="auth-divider"></div>
+
+          <div class="clear"></div>
+        </div>
+
+        <div class="devise-links">
+          <a href="/users/password/new">Forgot your password?</a>
+        </div>
+
+      </section>
+    </div>

@@ -1,0 +1,115 @@
+<%= render 'layouts/slconfig' %>
+
+<script>
+  window.SL = function (t) {
+    t = t.split(".");
+    for (var e = SL; t.length;) {
+      var i = t.shift();
+      e[i] || (e[i] = {}), e = e[i]
+    }
+    return e
+  };
+</script>
+
+<%= javascript_include_tag '/deveal/bower_components/jquery/dist/jquery.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/moment/moment', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/headjs/dist/1.0.0/head.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/reveal.js/lib/js/classList', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/reveal.js/js/reveal', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/lib/signals', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/modernizr', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/webfon', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/tynicolor', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/throttle', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/pasteImageReader', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/class', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/spinner', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/ladda', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/CryptoJS', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/v_event', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/spectrum', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/changeElementType', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/vkbeautify', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/lib/ckeditor/ckeditor', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/util/util', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/device', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/html', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/deck', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/color', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/user', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/string', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/trig', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/svg', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/dom', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/math', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/selection', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/util/anim', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/collections/collection', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/collections/loadable', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/collections/media_tags', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/collections/media', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/models/model', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/user_membership', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/user_settings', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/user', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/deck', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/media_tag', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/media', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/theme', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/models/template', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/data/templates', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/helpers/file_uploader', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/helpers/page_loader', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/helpers/poll_job', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/helpers/theme_controller', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/helpers/stream_editor', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/helpers/stream_live', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/helpers/fullscreen', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/popup/popup', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/popup/all', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/components/header', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/menu', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/scroll_shadow', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/templates_page', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/templates', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/notification', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/retry_notification', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/text_editor', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/theme_options', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/prompt', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/context_menu', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/collab/collaboration', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/components/collab/all', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/views/base', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/sl/config', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/settings', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/keyboard', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/pointer', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/routes', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/session', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/warnings', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/draganddrop', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/fonts', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/visibility', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/templates', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/markup', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/sidebar', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/activity', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/analytics', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/locale', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/notify', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/sl/tooltip', 'data-turbolinks-track' => true %>
+
+<%= yield(:js_add) %>
+
+<%= javascript_include_tag '/deveal/js/app', 'data-turbolinks-track' => true %>

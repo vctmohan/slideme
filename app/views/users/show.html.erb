@@ -1,0 +1,36 @@
+<% provide(:title, "Presentations by " + @user.username) %>
+<% provide(:html_class, "users show") %>
+
+<% content_for :js_add do %>
+    <%= javascript_include_tag '/deveal/js/sl/views/users.show', 'data-turbolinks-track' => true %>
+<% end %>
+
+<div class="column">
+  <section class="presentations">
+
+    <div class="user-info">
+      <a class="icon i-cog edit" href="/users/edit" data-tooltip="Account settings"></a>
+      <div class="picture" style="background-image: url(https://www.gravatar.com/avatar/d56b941ba90e3d9ea677a36aa3823260.png)"></div>
+      <div class="text">
+        <h3 class="title">
+          <%= link_to current_user.username,profile_url(current_user.username),class: "username"  %>
+        </h3>
+        <p class="description"></p>
+        <ul class="links">
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="deck-filters sl-form">
+      <div class="deck-filters-search-wrapper">
+        <input class="deck-filters-search" type="text" placeholder="Search..." required>
+        <span class="deck-filters-search-clear icon i-x-altx-alt" data-tooltip="Clear"></span>
+      </div>
+      <button class="button outline deck-filters-sort">Newest first</button>
+    </div>
+
+    <%= render 'deck/decks.list' %>
+
+  </section>
+</div>

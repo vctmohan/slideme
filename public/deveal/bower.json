@@ -1,0 +1,29 @@
+{
+  "name": "deveal",
+  "authors": [
+    "Rubisel Prieto Dupeyron <rubisel.prieto@datys.cu>"
+  ],
+  "description": "Editor GUI for reveal.js",
+  "main": "js/deveal.js",
+  "keywords": [
+    "Editor",
+    "GUI",
+    "reveal.js",
+    "slide"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.2",
+    "reveal.js": "^3.3.0",
+    "tether": "^v1.3.3",
+    "moment": "^2.14.1"
+  }
+}

@@ -1,0 +1,37 @@
+<% provide(:title, "Slideme") %>
+<% provide(:html_class, "home index") %>
+
+<% content_for :js_add do %>
+    <%= javascript_include_tag '/deveal/js/sl/views/home.index', 'data-turbolinks-track' => true %>
+<% end %>
+
+<div id="main" class="main" role="main">
+    <div class="marquee">
+
+      <div class="marquee-background"></div>
+      <div class="marquee-inner">
+
+        <div class="description">
+          <h2 class="description-title">Make better presentations.</h2>
+
+          <h3 class="description-subtitle">Slides is a place for creating, presenting and sharing slide decks.</h3>
+
+          <a class="button xxl description-cta" href="/new">Create a presentation</a>
+
+          <a href="#features" class="button white xxl description-cta-secondary" data-scroll-to-offset="0" data-scroll-to="" data-scroll-to-duration="500">Learn
+            more</a>
+        </div>
+      </div>
+
+      <a class="scroll-promotion" href="#features" data-scroll-to="" data-scroll-to-duration="500">
+        <div class="scroll-promotion-arrow bounce">
+          <i class="line line-1"></i>
+          <i class="line line-2"></i>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+
+

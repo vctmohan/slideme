@@ -1,0 +1,2 @@
+https://s3.amazonaws.com/static.slid.es/fonts/montserrat/montserrat.css
+https://s3.amazonaws.com/static.slid.es/fonts/opensans/opensans.css
