@@ -15,11 +15,11 @@
 
     <!--    <link href="css/app.css" media="all" rel="stylesheet"/>
         <link href="css/editor/editor.css" media="all" rel="stylesheet"/>-->
-    <%= stylesheet_link_tag '/deveal/css_orig/application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag '/deveal/fonticons/slides/slides', media: 'all', 'data-turbolinks-track' => true %>
 
     <%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag '/deveal/css_orig/deck-v2', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag '/deveal/css/deck-v2', media: 'all', 'data-turbolinks-track' => true %>
 
 </head>
 <body>
@@ -41,10 +41,13 @@
 </div>
 
 <%= render 'layouts/js' %>
-<%= javascript_include_tag '/deveal/js/sl/views/live.client', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag '/deveal/js/sl/views/live.server', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag '/deveal/js/lib/socket.io/socket.io', 'data-turbolinks-track' => true %>
+<% if logged_in? %>
+    <%= javascript_include_tag '/deveal/js/sl/views/live.server', 'data-turbolinks-track' => true %>
+<% else %>
+    <%= javascript_include_tag '/deveal/js/sl/views/live.client', 'data-turbolinks-track' => true %>
+<% end %>
 
+<%= javascript_include_tag '/deveal/js/lib/socket.io/socket.io', 'data-turbolinks-track' => true %>
 
 </body>
 </html>
