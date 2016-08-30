@@ -71,7 +71,7 @@ SL("helpers").StreamLive = Class.extend({
     },
     setupSocket: function () {
         if (this.options.subscriber) {
-            var host = SL.config.STREAM_ENGINE_HOST + "/" + SL.config.STREAM_ENGINE_LIVE_NAMESPACE;
+            var host = SL.config.STREAM_ENGINE_HOST; //+ "/" + SL.config.STREAM_ENGINE_LIVE_NAMESPACE;
             this.log("socket attempting to connect to", host);
             this.socket = io.connect(host, {reconnectionDelayMax: 10000});
             this.socket.on("connect", this.onSocketConnected.bind(this));
@@ -87,6 +87,7 @@ SL("helpers").StreamLive = Class.extend({
         if (this.publishable) {
             var state = this.options.reveal.getState();
             state.publisher_id = this.options.publisherID;
+            console.log(this.socketIsDisconnected)
             state = $.extend(state, e);
             if (this.socketIsDisconnected === true) {
                 return this.publishAfterReconnect = true;
@@ -151,10 +152,10 @@ SL("helpers").StreamLive = Class.extend({
     },
     onSocketStateMessage: function (t) {
         try {
-            var e = JSON.parse(t.data);
-            if (e.publisher_id != this.options.publisherID) {
-                this.log("sync", "from: " + e.publisher_id, "to: " + this.options.publisherID);
-                this.setState(e);
+            var state = JSON.parse(t.data);
+            if (state.publisher_id != this.options.publisherID) {
+                this.log("sync", "from: " + state.publisher_id, "to: " + this.options.publisherID);
+                this.setState(state);
             }
         } catch (i) {
             this.log("unable to parse streamed deck state as JSON.");

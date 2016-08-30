@@ -5,7 +5,7 @@ class CreatePublishers < ActiveRecord::Migration
       t.integer :indexv
       t.boolean :paused
       t.boolean :overview
-      t.string  :identifier
+      t.string  :publisher_id
       t.references :deck, index: true, foreign_key: true
 
       t.timestamps null: false

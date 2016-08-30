@@ -15,6 +15,7 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
             progress: SL.current_user.settings.get("present_controls"),
             maxScale: SL.current_user.settings.get("present_upsizing") ? SL.config.PRESENT_UPSIZING_MAX_SCALE : 1
         });
+
         this.stream = new SL.helpers.StreamLive({
             publisher: true,
             showErrors: false
@@ -26,7 +27,7 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
 
     },
     render: function () {
-        this.presentationControls = $(['<div class="presentation-controls">', '<div class="presentation-controls-content">', "<h2>Presentation Controls</h2>", '<div class="presentation-controls-section">', "<h2>Speaker View</h2>", '<p>The control panel for your presentation. Includes speaker notes, an upcoming slide preview and more. It can be used as a remote control when opened from a mobile device. <a href="' + this.strings.speakerViewHelpURL + '" target="_blank">Learn more.</a></p>', '<a class="button l outline" href="' + this.strings.speakerViewURL + '" target="_blank">Open speaker view</a>', "</div>", '<div class="presentation-controls-section">', "<h2>Present Live</h2>", '<p class="live-description">Share this link with your audience to have them follow along with the presentation in real-time. <a href="' + this.strings.liveViewHelpURL + '" target="_blank">Learn more.</a></p>', '<div class="live-share"></div>', "</div>", '<div class="presentation-controls-section sl-form">', "<h2>Options</h2>", '<div class="sl-checkbox outline fullscreen-toggle">', '<input id="fullscreen-checkbox" type="checkbox">', '<label for="fullscreen-checkbox">Fullscreen</label>', "</div>", '<div class="sl-checkbox outline controls-toggle" data-tooltip="Hide the presentation control arrows and progress bar." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">', '<input id="controls-checkbox" type="checkbox">', '<label for="controls-checkbox">Hide controls</label>', "</div>", '<div class="sl-checkbox outline notes-toggle" data-tooltip="Hide your speaker notes from the audience." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">', '<input id="controls-checkbox" type="checkbox">', '<label for="controls-checkbox">Hide notes</label>', "</div>", '<div class="sl-checkbox outline upsizing-toggle" data-tooltip="Your content is automatically scaled up to fill as much of the browser window as possible. This option disables that scaling and favors the original authored at size." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="300">', '<input id="upsizing-checkbox" type="checkbox">', '<label for="upsizing-checkbox">Disable upsizing</label>', "</div>", "</div>", "</div>", '<footer class="presentation-controls-footer">', '<button class="button xl positive start-presentation">Start presentation</button>', "</footer>", "</div>"].join("")).appendTo(document.body), this.presentationControlsExpander = $(['<div class="presentation-controls-expander" data-tooltip="Show menu" data-tooltip-alignment="r">', '<span class="icon i-chevron-right"></span>', "</div>"].join("")).appendTo(document.body);
+        this.presentationControls = $(['<div class="presentation-controls">', '<div class="presentation-controls-content">', "<h2>Presentation Controls</h2>", '<div class="presentation-controls-section">', "<h2>Speaker View</h2>", '<p>The control panel for your presentation. Includes speaker notes, an upcoming slide preview and more. It can be used as a remote control when opened from a mobile device. <a href="' + this.strings.speakerViewHelpURL + '" target="_blank">Learn more.</a></p>', '<a class="button l outline" href="' + this.strings.speakerViewURL + '" target="_blank">Open speaker view</a>', "</div>", '<div class="presentation-controls-section">', "</div>", '<div class="presentation-controls-section sl-form">', "<h2>Options</h2>", '<div class="sl-checkbox outline fullscreen-toggle">', '<input id="fullscreen-checkbox" type="checkbox">', '<label for="fullscreen-checkbox">Fullscreen</label>', "</div>", '<div class="sl-checkbox outline controls-toggle" data-tooltip="Hide the presentation control arrows and progress bar." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">', '<input id="controls-checkbox" type="checkbox">', '<label for="controls-checkbox">Hide controls</label>', "</div>", '<div class="sl-checkbox outline notes-toggle" data-tooltip="Hide your speaker notes from the audience." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">', '<input id="controls-checkbox" type="checkbox">', '<label for="controls-checkbox">Hide notes</label>', "</div>", '<div class="sl-checkbox outline upsizing-toggle" data-tooltip="Your content is automatically scaled up to fill as much of the browser window as possible. This option disables that scaling and favors the original authored at size." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="300">', '<input id="upsizing-checkbox" type="checkbox">', '<label for="upsizing-checkbox">Disable upsizing</label>', "</div>", "</div>", "</div>", '<footer class="presentation-controls-footer">', '<button class="button xl positive start-presentation">Start presentation</button>', "</footer>", "</div>"].join("")).appendTo(document.body), this.presentationControlsExpander = $(['<div class="presentation-controls-expander" data-tooltip="Show menu" data-tooltip-alignment="r">', '<span class="icon i-chevron-right"></span>', "</div>"].join("")).appendTo(document.body);
         $(".global-header").prependTo(this.presentationControls);
         this.presentationControlsScrollShadow = new SL.components.ScrollShadow({
             parentElement: this.presentationControls,
@@ -37,7 +38,6 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
         SL.helpers.Fullscreen.isEnabled() === false && this.presentationControls.find(".fullscreen-toggle").hide();
         SL.current_deck.get("share_notes") || this.presentationControls.find(".notes-toggle").hide();
         this.syncPresentationControls();
-        this.renderLiveShare();
     },
     bind: function () {
         this.presentationControls.find(".live-view-url").on("mousedown", this.onLiveURLMouseDown.bind(this));
@@ -56,33 +56,6 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
         this.presentationControls.find(".controls-toggle input").prop("checked", !SL.current_user.settings.get("present_controls"));
         this.presentationControls.find(".upsizing-toggle input").prop("checked", !SL.current_user.settings.get("present_upsizing"));
         this.presentationControls.find(".notes-toggle input").prop("checked", !SL.current_user.settings.get("present_notes"));
-    },
-    renderLiveShare: function () {
-        this.liveShareElement = this.presentationControls.find(".live-share");
-        if (SL.current_deck.isVisibilityAll()) {
-            this.showLiveShareLink(SL.current_deck.getURL({view: "live"}));
-        } else {
-            this.showLiveShareLinkGenerator();
-        }
-    },
-    showLiveShareLinkGenerator: function () {
-        this.presentationControls.find(".live-description").html('Share a link with your audience to have them follow along with the presentation in real-time. Note that all private links you share point to the same live presentation session. <a href="' + this.strings.liveViewHelpURL + '" target="_blank">Learn more.</a>');
-        this.liveShareButton = $('<button class="button l outline ladda-button" data-style="zoom-out" data-spinner-color="#222">Share link</button>');
-        this.liveShareButton.appendTo(this.liveShareElement);
-        this.liveShareButton.on("vclick", function () {
-            if("undefined" != typeof SLConfig && "string" == typeof SLConfig.deck.user.username && "string" == typeof SLConfig.deck.slug){
-                SL.popup.open(SL.components.decksharer.DeckSharer, {
-                    deck: SL.current_deck,
-                    deckView: "live"
-                });
-            }else{
-                SL.notify(SL.locale.get("GENERIC_ERROR"), "negative");
-            }
-        }.bind(this));
-    },
-    showLiveShareLink: function (t) {
-        this.liveShareElement.html('<input class="live-view-url input-field" type="text" value="' + t + '" readonly />');
-        this.liveShareElement.find(".live-view-url").on("mousedown", this.onLiveURLMouseDown.bind(this));
     },
     showStatus: function (t) {
         if(this.statusElement){

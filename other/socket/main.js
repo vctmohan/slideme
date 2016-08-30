@@ -3,27 +3,22 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var messages = [{
-    id: 1,
-    text: "Hola soy un mensaje",
-    author: "Carlos Azaustre"
-}];
-
-app.use(express.static('public'));
-
-app.get('/hello', function(req, res) {
-    res.status(200).send("Hello World!");
-});
-
 io.on('connection', function(socket) {
     console.log('Alguien se ha conectado con Sockets');
-    socket.emit('messages', messages);
-
-    socket.on('new-message', function(data) {
-        messages.push(data);
-
-        io.sockets.emit('messages', messages);
+    //socket.emit('messages', messages);
+    socket.on('subscribe', function(data) {
+        deck_id = data.deck_id;
+        publisher = data.options.publisher;
     });
+
+    setTimeout(function () {
+        io.sockets.emit('connect');
+    }, 100);
+
+    setTimeout(function () {
+        io.sockets.emit('message', {"indexh":1,"indexv":0,"paused":false,"overview":false,"publisher_id":"1472596923459-75033"});
+    }, 1000);
+
 });
 
 server.listen(8080, function() {

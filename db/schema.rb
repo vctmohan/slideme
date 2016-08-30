@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831114156) do
+ActiveRecord::Schema.define(version: 20160831114157) do
 
   create_table "decks", force: :cascade do |t|
     t.string   "title"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 20160831114156) do
     t.integer  "indexv"
     t.boolean  "paused"
     t.boolean  "overview"
-    t.string   "identifier"
+    t.string   "publisher_id"
     t.integer  "deck_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "publishers", ["deck_id"], name: "index_publishers_on_deck_id"
@@ -99,8 +99,12 @@ ActiveRecord::Schema.define(version: 20160831114156) do
     t.text     "description"
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

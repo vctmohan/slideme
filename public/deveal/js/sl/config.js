@@ -357,7 +357,8 @@ SL.config = {
     AJAX_COMMENTS_DELETE: function (t, e) {
         return "/api/v1/decks/" + t + "/comments/" + e + ".json"
     },
-    STREAM_ENGINE_HOST: window.location.protocol + "//stream2.slides.com",
+    //STREAM_ENGINE_HOST: window.location.protocol + "//stream2.slides.com",
+    STREAM_ENGINE_HOST: window.location.protocol + "//localhost:8080",
     STREAM_ENGINE_LIVE_NAMESPACE: "live",
     STREAM_ENGINE_EDITOR_NAMESPACE: "editor",
     APP_HOST: "slides.com",

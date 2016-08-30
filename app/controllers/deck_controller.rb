@@ -157,44 +157,6 @@ class DeckController < ApplicationController
     end
   end
 
-  def live
-    username = params[:user]
-    slug = params[:slug]
-
-    @user = User.where(:username => username).first
-    @deck = Deck.where(:slug => slug, :user_id => @user.id).first
-    render "live", :layout => false
-  end
-
-  def stream
-    if request.get? and params[:id]
-      deck = Deck.find(params[:id])
-      publisher = Publisher.where(:deck => deck).last
-      if not publisher
-        render :file => "#{Rails.root}/public/404.html",  :status => 404
-      end
-    end
-
-    if request.put? and params[:id] and params[:state]
-
-    end
-
-    if publisher
-      respond_to do |format|
-        format.json { render json: {
-            id: deck.user_id,
-            deck_id: deck.id,
-            state: "{\"indexh\":0,\"indexv\":0,\"paused\":false,\"overview\":false,\"publisher_id\":\"1471433970558-425119\"}",
-            created_at: deck.created_at,
-            updated_at: deck.updated_at
-        }
-        }
-
-      end
-    end
-
-  end
-
   def show
     if request.get? and params[:user] and params[:slug]
       @user = User.where(:username => params[:user]).first

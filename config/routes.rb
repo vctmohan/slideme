@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   match ':username/new', :controller => 'editor', :action => 'new', :via => [:get], as: :new_deck
   match ':user/:slug/edit', :controller => 'editor', :action => 'edit', :via => [:get]
-  match ':user/:slug/live', :controller => 'deck', :action => 'live', :via => [:get], as: :live
+  match ':user/:slug/live', :controller => 'live', :action => 'live', :via => [:get], as: :live
   match ':user/:slug', :controller => 'deck', :action => 'show', :via => [:get], as: :show_deck
 
   match 'api/v1/decks', :controller => 'deck', :action => 'decks', :via => [:post]
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   match 'api/v1/decks/:id/thumbnails', :controller => 'deck', :action => 'thumbnails', :via => [:get, :post]
   match 'api/v1/decks/:id/fork', :controller => 'deck', :action => 'fork', :via => [:post]
   match 'api/v1/decks/:id/publish', :controller => 'deck', :action => 'publish', :via => [:post]
-  match 'api/v1/decks/:id/stream', :controller => 'deck', :action => 'stream', :via => [:get,:put]
+  match 'api/v1/decks/:id/stream', :controller => 'live', :action => 'stream', :via => [:get,:put]
   match 'api/v1/status', :controller => 'deck', :action => 'status', :via => [:get]
   match 'api/v1/slide_templates', :controller => 'template', :action => 'slide_templates', :via => [:get]
   match 'api/v1/user_settings' , :controller => 'settings', :action => 'update', :via => [:put]
