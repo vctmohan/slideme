@@ -8,6 +8,7 @@ SL("helpers").StreamLive = Class.extend({
             publisherID: Date.now() + "-" + Math.round(1000000 * Math.random()),
             deckID: SL.current_deck.get("id")
         }, t);
+
         this.ready = new signals.Signal;
         this.stateChanged = new signals.Signal;
         this.statusChanged = new signals.Signal;
@@ -84,18 +85,18 @@ SL("helpers").StreamLive = Class.extend({
     },
     publish: function (t, e) {
         if (this.publishable) {
-            var i = this.options.reveal.getState();
-            i.publisher_id = this.options.publisherID;
-            i = $.extend(i, e);
+            var state = this.options.reveal.getState();
+            state.publisher_id = this.options.publisherID;
+            state = $.extend(state, e);
             if (this.socketIsDisconnected === true) {
                 return this.publishAfterReconnect = true;
             }
             this.log("publish stalled while disconnected");
 
-            this.log("publish", i.publisher_id), $.ajax({
+            this.log("publish", state.publisher_id), $.ajax({
                 url: "/api/v1/decks/" + this.options.deckID + "/stream.json",
                 type: "PUT",
-                data: {state: JSON.stringify(i)},
+                data: {state: JSON.stringify(state)},
                 success: t
             });
         }

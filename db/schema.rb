@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815230624) do
+ActiveRecord::Schema.define(version: 20160831114156) do
 
   create_table "decks", force: :cascade do |t|
     t.string   "title"
@@ -58,6 +58,19 @@ ActiveRecord::Schema.define(version: 20160815230624) do
   add_index "media", ["tags_id"], name: "index_media_on_tags_id"
   add_index "media", ["user_id"], name: "index_media_on_user_id"
   add_index "media", [nil, "created_at"], name: "index_media_on_tag_id_and_created_at"
+
+  create_table "publishers", force: :cascade do |t|
+    t.integer  "indexh"
+    t.integer  "indexv"
+    t.boolean  "paused"
+    t.boolean  "overview"
+    t.string   "identifier"
+    t.integer  "deck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "publishers", ["deck_id"], name: "index_publishers_on_deck_id"
 
   create_table "settings", force: :cascade do |t|
     t.integer  "user_id"

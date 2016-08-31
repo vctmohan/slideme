@@ -169,6 +169,17 @@ class DeckController < ApplicationController
   def stream
     if request.get? and params[:id]
       deck = Deck.find(params[:id])
+      publisher = Publisher.where(:deck => deck).last
+      if not publisher
+        render :file => "#{Rails.root}/public/404.html",  :status => 404
+      end
+    end
+
+    if request.put? and params[:id] and params[:state]
+
+    end
+
+    if publisher
       respond_to do |format|
         format.json { render json: {
             id: deck.user_id,
@@ -176,10 +187,12 @@ class DeckController < ApplicationController
             state: "{\"indexh\":0,\"indexv\":0,\"paused\":false,\"overview\":false,\"publisher_id\":\"1471433970558-425119\"}",
             created_at: deck.created_at,
             updated_at: deck.updated_at
-          }
         }
+        }
+
       end
     end
+
   end
 
   def show

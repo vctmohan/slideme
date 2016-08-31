@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  indexh: 1
+  indexv: 1
+  paused: false
+  overview: false
+  deck_id: 
+
+two:
+  indexh: 1
+  indexv: 1
+  paused: false
+  overview: false
+  deck_id: 
