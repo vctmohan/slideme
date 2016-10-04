@@ -123,9 +123,9 @@ SL("helpers").StreamLive = Class.extend({
             }
         }.bind(this), 1);
     },
-    setStatus: function (t) {
-        if (this.status !== t) {
-            this.status = t;
+    setStatus: function (status) {
+        if (this.status !== status) {
+            this.status = status;
             this.statusChanged.dispatch(this.status);
         }
     },

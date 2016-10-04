@@ -1,0 +1,68 @@
+<% provide(:title, "Slideme") %>
+<% provide(:html_class, "home explore") %>
+
+<% content_for :js_add do %>
+    <%= javascript_include_tag '/deveal/js/sl/components/search', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag '/deveal/js/sl/views/home.explore', 'data-turbolinks-track' => true %>
+<% end %>
+
+<div id="main" class="main" role="main">
+    <div class="column">
+
+      <section class="search">
+        <form class="search-form">
+          <table>
+            <tbody><tr>
+              <td>
+                <input type="search" class="search-term xl" placeholder="Search for decks...">
+              </td>
+              <td>
+                <button type="submit" class="search-submit button xxl ladda-button" data-style="zoom-out">
+                  <span class="icon i-magnifying-glass"></span>
+                </button>
+              </td>
+            </tr>
+            </tbody></table>
+        </form>
+
+        <div class="search-results deck-list multiline left-align">
+          <header>
+            <h3 class="search-results-title"></h3>
+            <div class="search-results-sorting sl-form">
+              <div class="unit radio">
+                <input type="radio" name="sort-on" value="date" id="date" checked="">
+                <label for="date">Most recent</label>
+
+                <input type="radio" name="sort-on" value="views" id="views">
+                <label for="views">Most views</label>
+              </div>
+            </div>
+          </header>
+          <ul class="search-results-list carousel"></ul>
+        </div>
+      </section>
+
+      <section class="deck-section deck-list multiline left-align">
+        <h2>Popular decks</h2>
+        <ul class="carousel">
+          <% @popular_decks.each do |deck| %>
+              <%= render :partial => 'deck/thumbnail', :locals => {:deck => deck}  %>
+          <% end %>
+        </ul>
+      </section>
+
+      <section class="deck-section deck-list multiline left-align">
+        <h2>Recently created</h2>
+        <ul class="carousel">
+          <% @recently_decks.each do |deck| %>
+              <%= render :partial => 'deck/thumbnail', :locals => {:deck => deck} %>
+          <% end %>
+        </ul>
+      </section>
+
+    </div>
+
+  </div>
+
+
+

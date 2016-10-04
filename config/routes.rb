@@ -2,10 +2,13 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
+  match 'preview/:id', :controller => 'deck', :action => 'preview', :via => [:get], as: :preview_deck
   get 'users/sign_up' => 'users#new', :as => :signup
   get ':username' => 'users#show', as: :profile
   post 'users' => 'users#create'
-  match 'users/edit' => 'users#edit', :via => [:post, :get]
+  match 'users/edit' => 'users#edit', :via => [:put, :get] , as: :edit_user
+  match 'users' => 'users#delete', :via => [:delete]
+  match 'users.json' =>  'users#update', :via => [:put]
   get 'users/sign_in' => 'sessions#new'
   post 'users/sign_in' => 'sessions#create'
   get 'users/sign_out' => 'sessions#destroy'
@@ -17,7 +20,7 @@ Rails.application.routes.draw do
 
   match 'api/v1/decks', :controller => 'deck', :action => 'decks', :via => [:post]
   match 'api/v1/decks/:id', :controller => 'deck', :action => 'decks', :via => [:put, :get, :delete]
-  match 'api/v1/decks/:id/thumbnails', :controller => 'deck', :action => 'thumbnails', :via => [:get, :post]
+  match 'api/v1/decks/:id/thumbnails', :controller => 'deck', :action => 'thumbnails', :via => [:get, :post], as: :deck_thumb
   match 'api/v1/decks/:id/fork', :controller => 'deck', :action => 'fork', :via => [:post]
   match 'api/v1/decks/:id/publish', :controller => 'deck', :action => 'publish', :via => [:post]
   match 'api/v1/decks/:id/stream', :controller => 'live', :action => 'stream', :via => [:get,:put]

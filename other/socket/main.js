@@ -8,7 +8,7 @@ io.on('connection', function(socket) {
     //socket.emit('messages', messages);
     socket.on('subscribe', function(data) {
         deck_id = data.deck_id;
-        publisher = data.options.publisher;
+        publisher = data.publisher;
     });
 
     setTimeout(function () {

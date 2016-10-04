@@ -23,9 +23,9 @@ SL("views.decks").LiveClient = SL.views.Base.extend({
         this.stream.connect();
     },
     render: function () {
-        var t = SL.current_deck.get("user");
-        e = SL.routes.DECK(t.username, SL.current_deck.get("slug"));
-        i = t.thumbnail_url;
+        var user = SL.current_deck.get("user");
+        e = SL.routes.DECK(user.username, SL.current_deck.get("slug"));
+        i = user.thumbnail_url;
         this.summaryBubble = $(['<a class="summary-bubble hidden" href="' + e + '" target="_blank">', '<div class="summary-bubble-picture" style="background-image: url(' + i + ')"></div>', '<div class="summary-bubble-content"></div>', "</a>"].join("")).appendTo(document.body);
         this.summaryBubbleContent = this.summaryBubble.find(".summary-bubble-content");
         this.renderUserSummary();
@@ -106,8 +106,8 @@ SL("views.decks").LiveClient = SL.views.Base.extend({
             this.setPresentUpsizing(t.present_upsizing);
         }
     },
-    onStreamStatusChanged: function (t) {
-        if (t === SL.helpers.StreamLive.STATUS_WAITING_FOR_PUBLISHER) {
+    onStreamStatusChanged: function (status) {
+        if (status === SL.helpers.StreamLive.STATUS_WAITING_FOR_PUBLISHER) {
             this.renderWaitingSummary();
             this.expandSummaryError();
             this.startUpdatingTimer();

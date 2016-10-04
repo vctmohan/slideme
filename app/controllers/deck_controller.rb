@@ -26,6 +26,7 @@ class DeckController < ApplicationController
       deck = Deck.find(params[:id])
       deck_forking = deck.dup
       deck_forking.title = "Copy of " + deck.title
+      deck_forking.slug = deck.slug + "_copy"
       deck_forking.save
 
       redirect_to profile_url(current_user.username)
@@ -121,29 +122,29 @@ class DeckController < ApplicationController
     end
   end
 
+  # Ver como manejar las peticiones al preview
   def thumbnails
-    deck = Deck.find(params[:id])
-    html = deck.data
-
-    kit = IMGKit.new(html, :width => 240, :height => 230)
-    img = kit.to_img(:png)
-
+    @deck = Deck.find(params[:id])
     if request.get?
-      send_data(img, :type => "image/png", :disposition => 'inline')
+      file = File.open(@deck.thumbnail.path, 'r')
+      send_data(file.read, :type => "image/png", :disposition => 'inline')
     end
 
     if request.post?
 
-      file = Tempfile.new(["thumbnail_#{deck.id}", 'png'], 'tmp',
+      kit = IMGKit.new('http://localhost:4000/preview/'+ params[:id], :width => 240, :height => 230)
+      img = kit.to_img(:png)
+
+      file = Tempfile.new(["thumbnail_#{@deck.id}", 'png'], 'tmp',
                           :encoding => 'ascii-8bit')
       file.write(img)
       file.flush
-      deck.thumbnail = file
-      deck.save
+      @deck.thumbnail = file
+      @deck.save
       file.unlink
+      render :nothing => true
     end
 
-    render :nothing => true
   end
 
   def publish
@@ -161,7 +162,13 @@ class DeckController < ApplicationController
     if request.get? and params[:user] and params[:slug]
       @user = User.where(:username => params[:user]).first
       @deck = Deck.where(:slug => params[:slug], :user_id => @user.id).first
+      @user_decks = Deck.where(:user_id => @user.id).where.not(id: @deck.id)
     end
+  end
+
+  def preview()
+    @deck = Deck.find(params[:id])
+    render "preview", :layout => false
   end
 
   private

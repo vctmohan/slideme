@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
   has_attached_file :avatar,
                     :styles => {
@@ -59,5 +59,13 @@ class User < ActiveRecord::Base
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def get_name
+    if name
+      name
+    else
+      username
+    end
   end
 end

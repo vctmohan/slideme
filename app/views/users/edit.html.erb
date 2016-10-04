@@ -1,76 +1,68 @@
 <% provide(:title, "Account Settings") %>
 <% provide(:html_class, "registrations edit") %>
 
-<div class="column wide">
-      <hgroup class="funnel-intro"><h2>Create an account</h2></hgroup>
-
-
-
-      <section class="auth">
-        <div class="auth-options">
-          <div class="auth-option">
-            <%= form_for(@user) do |f| %>
-                <%= render 'shared/error_messages' %>
-
-                <div class="unit text" data-validate="username" data-required >
-                  <%= f.label :username %>
-                  <%= f.text_field :username %>
-                </div>
-
-                <div class="unit text" data-validate="email" data-required >
-                  <%= f.label :email %>
-                  <%= f.text_field :email %>
-                </div>
-
-                <div class="unit text" data-validate="password" data-required >
-                  <%= f.label :password %>
-                  <%= f.password_field :password %>
-
-                  <%= f.label :password_confirmation, "Confirmation" %>
-                  <%= f.password_field :password_confirmation %>
-                </div>
-
-                <div class="actions">
-                  <%= f.button "Submit", class: "button xl ladda-button", data_style: "expand-right", name: "button", type:"submit" %>
-                </div>
-
-            <% end %>
-          </div>
-
-          <div class="clear"></div>
-        </div>
-      </section>
-    </div>
+<% content_for :js_add do %>
+    <%= javascript_include_tag '/deveal/js/sl/util/validate', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag '/deveal/js/sl/components/form_unit', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag '/deveal/js/sl/views/devise.all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag '/deveal/js/sl/views/devise.edit', 'data-turbolinks-track' => true %>
+<% end %>
 
 <div id="main" class="main" role="main">
   <div class="column thin">
     <section>
       <h2>Account settings</h2>
 
-      <%= form_for(@user) do |f| %>
+      <%= form_for @user, :url => edit_user_url(@user), :method => :put do |f| %>
           <%= render 'shared/error_messages' %>
 
-          <div class="unit text" data-validate="username" data-required >
+          <div class="unit name" data-required="">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+
+          <div class="unit text" data-validate="username" data-required>
             <%= f.label :username %>
             <%= f.text_field :username %>
           </div>
 
-          <div class="unit text" data-validate="email" data-required >
+          <div class="unit text" data-validate="description">
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+          </div>
+
+          <div class="photo-editor" data-photo-type="avatar">
+            <p class="form-label">Profile photo</p>
+            <div class="profile-photo">
+              <div class="picture" style="background-image: url(<%= @user.avatar.url(:thumb) %>)"></div>
+              <div class="description">
+                <%= f.file_field :avatar %>
+              </div>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+
+          <div class="unit text" data-validate="email" data-required="">
             <%= f.label :email %>
             <%= f.text_field :email %>
           </div>
 
-          <div class="unit text" data-validate="password" data-required >
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-
-            <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation %>
+          <div class="unit text" data-validate="password">
+            <label for="user_password">New password</label>
+            <input autocomplete="off" id="user_password" name="user[password]" placeholder="leave blank if you don't want to change it" type="password">
           </div>
 
+          <div class="unit text hidden" data-validate="password" data-required="">
+            <label for="user_current_password">Current password</label>
+            <input autocomplete="off" id="user_current_password" name="user[current_password]" placeholder="needed to confirm your changes" type="password">
+          </div>
+
+          <div class="clear"></div>
+
           <div class="actions">
-            <%= f.button "Submit", class: "button xl ladda-button", data_style: "expand-right", name: "button", type:"submit" %>
-            <%= link_to "Cancel",profile_url(current_user.username),class: "button outline low-contrast xl"  %>
+            <%= f.button "Submit", class: "button xl ladda-button", data_style: "expand-right", name: "button", type: "submit" %>
+            <%= link_to "Cancel", profile_url(current_user.username), class: "button outline low-contrast xl" %>
           </div>
 
       <% end %>
@@ -81,7 +73,8 @@
 
       <div class="delete-account">
         <p>Your account including all of your decks will be permanently deleted. This can <b>not</b> be undone.</p>
-        <a class="button negative grey" data-confirm="Are you sure you want to delete your account?" data-method="delete" href="/users" rel="nofollow">I understand, delete my account</a>
+        <a class="button negative grey" data-confirm="Are you sure you want to delete your account?" data-method="delete" href="/users" rel="nofollow">I
+          understand, delete my account</a>
       </div>
 
     </section>

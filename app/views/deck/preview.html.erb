@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+  <meta name="viewport" content="width=1024, user-scalable=no"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Slides">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"/>
+  <%= csrf_meta_tags %>
+
+
+  <title><%= @deck.title %></title>
+
+  <!--    <link href="css/app.css" media="all" rel="stylesheet"/>
+      <link href="css/editor/editor.css" media="all" rel="stylesheet"/>-->
+  <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '/deveal/css/deck-v2', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+<body>
+
+<div class="reveal-viewport theme-font-montserrat theme-color-white-blue">
+  <div class="reveal">
+    <div class="slides">
+      <% if @deck and @deck.data %><%= raw @deck.data %><% else %><section></section><% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag '/deveal/bower_components/jquery/dist/jquery.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/moment/moment', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/headjs/dist/1.0.0/head.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/reveal.js/lib/js/classList', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/bower_components/reveal.js/js/reveal', 'data-turbolinks-track' => true %>
+
+<script>
+  Reveal.initialize({
+        controls: false
+      }
+  );
+</script>
+
+</body>
+</html>

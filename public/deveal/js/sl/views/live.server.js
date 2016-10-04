@@ -27,15 +27,50 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
 
     },
     render: function () {
-        this.presentationControls = $(['<div class="presentation-controls">', '<div class="presentation-controls-content">', "<h2>Presentation Controls</h2>", '<div class="presentation-controls-section">', "<h2>Speaker View</h2>", '<p>The control panel for your presentation. Includes speaker notes, an upcoming slide preview and more. It can be used as a remote control when opened from a mobile device. <a href="' + this.strings.speakerViewHelpURL + '" target="_blank">Learn more.</a></p>', '<a class="button l outline" href="' + this.strings.speakerViewURL + '" target="_blank">Open speaker view</a>', "</div>", '<div class="presentation-controls-section">', "</div>", '<div class="presentation-controls-section sl-form">', "<h2>Options</h2>", '<div class="sl-checkbox outline fullscreen-toggle">', '<input id="fullscreen-checkbox" type="checkbox">', '<label for="fullscreen-checkbox">Fullscreen</label>', "</div>", '<div class="sl-checkbox outline controls-toggle" data-tooltip="Hide the presentation control arrows and progress bar." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">', '<input id="controls-checkbox" type="checkbox">', '<label for="controls-checkbox">Hide controls</label>', "</div>", '<div class="sl-checkbox outline notes-toggle" data-tooltip="Hide your speaker notes from the audience." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">', '<input id="controls-checkbox" type="checkbox">', '<label for="controls-checkbox">Hide notes</label>', "</div>", '<div class="sl-checkbox outline upsizing-toggle" data-tooltip="Your content is automatically scaled up to fill as much of the browser window as possible. This option disables that scaling and favors the original authored at size." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="300">', '<input id="upsizing-checkbox" type="checkbox">', '<label for="upsizing-checkbox">Disable upsizing</label>', "</div>", "</div>", "</div>", '<footer class="presentation-controls-footer">', '<button class="button xl positive start-presentation">Start presentation</button>', "</footer>", "</div>"].join("")).appendTo(document.body), this.presentationControlsExpander = $(['<div class="presentation-controls-expander" data-tooltip="Show menu" data-tooltip-alignment="r">', '<span class="icon i-chevron-right"></span>', "</div>"].join("")).appendTo(document.body);
+        this.presentationControls = $(['<div class="presentation-controls">',
+            '<div class="presentation-controls-content">',
+            //"<h2>Presentation Controls</h2>",
+            //'<div class="presentation-controls-section">',
+            //"<h2>Speaker View</h2>",
+           // '<p>The control panel for your presentation. Includes speaker notes, an upcoming slide preview and more. It can be used as a remote control when opened from a mobile device. <a href="' + this.strings.speakerViewHelpURL + '" target="_blank">Learn more.</a></p>',
+           // '<a class="button l outline" href="' + this.strings.speakerViewURL + '" target="_blank">Open speaker view</a>',
+           // "</div>",
+            //'<div class="presentation-controls-section">',
+            //"</div>",
+            '<div class="presentation-controls-section sl-form">',
+            "<h2>Options</h2>",
+            '<div class="sl-checkbox outline fullscreen-toggle">',
+            '<input id="fullscreen-checkbox" type="checkbox">',
+            '<label for="fullscreen-checkbox">Fullscreen</label>',
+            "</div>",
+            '<div class="sl-checkbox outline controls-toggle" data-tooltip="Hide the presentation control arrows and progress bar." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">',
+            '<input id="controls-checkbox" type="checkbox">',
+            '<label for="controls-checkbox">Hide controls</label>',
+            "</div>",
+            '<div class="sl-checkbox outline notes-toggle" data-tooltip="Hide your speaker notes from the audience." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">',
+            '<input id="controls-checkbox" type="checkbox">',
+            '<label for="controls-checkbox">Hide notes</label>',
+            "</div>",
+            '<div class="sl-checkbox outline upsizing-toggle" data-tooltip="Your content is automatically scaled up to fill as much of the browser window as possible. This option disables that scaling and favors the original authored at size." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="300">',
+            '<input id="upsizing-checkbox" type="checkbox">',
+            '<label for="upsizing-checkbox">Disable upsizing</label>',
+            "</div>",
+            "</div>",
+            "</div>",
+            '<footer class="presentation-controls-footer">',
+            '<button class="button xl positive start-presentation">Start presentation</button>',
+            "</footer>",
+            "</div>"].join("")).appendTo(document.body);
+
+        this.presentationControlsExpander = $(['<div class="presentation-controls-expander" data-tooltip="Show menu" data-tooltip-alignment="r">',
+            '<span class="icon i-chevron-right"></span>',
+            "</div>"].join("")).appendTo(document.body);
+
         $(".global-header").prependTo(this.presentationControls);
-        this.presentationControlsScrollShadow = new SL.components.ScrollShadow({
-            parentElement: this.presentationControls,
-            headerElement: this.presentationControls.find(".global-header"),
-            contentElement: this.presentationControls.find(".presentation-controls-content"),
-            footerElement: this.presentationControls.find(".presentation-controls-footer")
-        });
-        SL.helpers.Fullscreen.isEnabled() === false && this.presentationControls.find(".fullscreen-toggle").hide();
+
+        if(SL.helpers.Fullscreen.isEnabled() === false){
+            this.presentationControls.find(".fullscreen-toggle").hide();
+        }
         SL.current_deck.get("share_notes") || this.presentationControls.find(".notes-toggle").hide();
         this.syncPresentationControls();
     },
@@ -58,16 +93,16 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
         this.presentationControls.find(".notes-toggle input").prop("checked", !SL.current_user.settings.get("present_notes"));
     },
     showStatus: function (t) {
-        if(this.statusElement){
+        if (this.statusElement) {
             this.statusElement.find(".stream-status-message").html(t);
-        }else{
+        } else {
             this.statusElement = $(['<div class="stream-status">', '<p class="stream-status-message">' + t + "</p>", "</div>"].join("")).appendTo(document.body);
         }
     },
     clearStatus: function () {
-        if(this.statusElement){
+        if (this.statusElement) {
             this.statusElement.remove();
-        this.statusElement = null;
+            this.statusElement = null;
         }
     },
     savePresentOption: function (t) {

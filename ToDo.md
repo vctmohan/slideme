@@ -10,8 +10,6 @@ Ver que datos se envian en las revisiones /api/v1/decks/9/revisions.json?page=1
 Emportar
 importar
 
-
-
 #Socket
 Cuando emitir el evento
                 this.socket.on("connect", this.onSocketConnected.bind(this));
@@ -19,3 +17,12 @@ Cuando emitir el evento
                 this.socket.on("disconnect", this.onSocketDisconnected.bind(this));
                 this.socket.on("reconnect_attempt", this.onSocketReconnectAttempt.bind(this));
                 this.socket.on("reconnect_failed", this.onSocketReconnectFailed.bind(this));
+
+#Validaciones
+Que el slug sea unico por usuario y asignarle uno diferente cuando se copie
+
+#Por Hacer Completo
+kudos
+views
+speaker
+comentarios

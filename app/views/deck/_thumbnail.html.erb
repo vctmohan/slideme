@@ -1,0 +1,14 @@
+<li class="deck-thumbnail">
+  <div class="deck-image" style="background-image: url(<%= deck_thumb_url(deck) %>)">
+    <%= link_to "", show_deck_url(deck.user.username, deck.slug), class: "deck-link" %>
+  </div>
+  <footer class="deck-details">
+    <a class="author" href="<%= current_user.username %>">
+      <span class="picture" style="background-image: url(<%= deck.user.avatar.url(:thumb) %>)"></span>
+      <span class="name"><% if deck.user.name %><%= deck.user.name %><% else %><%= deck.user.username %><% end %></span>
+    </a>
+    <div class="stats">
+      <div>7,730<span class="icon i-eye"></span></div>
+    </div>
+  </footer>
+</li>

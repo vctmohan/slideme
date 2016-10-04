@@ -1,5 +1,12 @@
 <% provide(:title, @deck.title + " by " + @user.username) %>
 <% provide(:html_class, "decks show") %>
+
+<% content_for :css_add do %>
+    <%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag '/deveal/css/deck-v2', media: 'all', 'data-turbolinks-track' => true %>
+
+<% end %>
+
 <% content_for :js_add do %>
     <%= javascript_include_tag '/deveal/js/sl/views/decks.show', 'data-turbolinks-track' => true %>
 <% end %>
@@ -10,7 +17,10 @@
     <div class="reveal-viewport theme-font-montserrat theme-color-white-blue">
       <div class="reveal">
         <div class="slides">
-          <% if @deck and @deck.data %><%= raw @deck.data %><% else %><section></section><% end %>
+          <% if @deck and @deck.data %><%= raw @deck.data %>
+          <% else %>
+              <section></section>
+          <% end %>
         </div>
       </div>
     </div>
@@ -26,11 +36,11 @@
   </div>
 
   <div class="pill summary-pill">
-    <div class="pill-picture" style="background-image: url(https://www.gravatar.com/avatar/d56b941ba90e3d9ea677a36aa3823260?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+    <div class="pill-picture" style="background-image: url(<%= @deck.user.avatar.url(:thumb) %>)"></div>
     <div class="pill-content">
-      <h4 class="pill-title">Pruebas Usabilidad</h4>
+      <h4 class="pill-title"><%= @deck.title %></h4>
 
-      <p class="pill-description">By ruby232</p>
+      <p class="pill-description">By <%= @deck.user.get_name %></p>
     </div>
   </div>
 
@@ -48,30 +58,30 @@
 <div class="column">
   <header class="deck-info">
     <div class="deck-promotion">
-      <a class="button cta" data-tooltip="Open the Present view" href="/ruby232/pruebas-usabilidad/live">Present</a>
+      <a class="button cta" data-tooltip="Open the Present view" href="<%= live_url(@deck.user.username, @deck.slug) %>">Present</a>
     </div>
 
     <div class="deck-options">
       <a class="fullscreen-button" data-tooltip="Fullscreen" href="#"><span class="icon i-fullscreen"></span></a>
       <a class="comment-button" data-tooltip="Comments" data-scroll-to href="#comments" data-scroll-to data-scroll-to-offset="-90"><span class="icon i-comment-stroke"></span></a>
       <a class="fork-button" data-tooltip="Fork this deck" href="#"><span class="icon i-fork"></span></a>
-      <a class="share-button" data-tooltip="Share" href="#"><span class="icon i-share"></span></a>
-      <a class="edit-button" data-tooltip="Edit" href="/ruby232/pruebas-usabilidad/edit"><span class="icon i-pen-alt2"></span></a>
+      <a class="edit-button" data-tooltip="Edit" href="/<%= @deck.user.username %>/<%= @deck.slug %>/edit"><span class="icon i-pen-alt2"></span></a>
     </div>
 
     <div class="clear"></div>
 
     <div class="details">
       <div class="deck-info">
-        <h3 class="title">Pruebas Usabilidad</h3>
+        <h3 class="title"><%= @deck.title %></h3>
 
         <p class="description">
-          <a class="" href="/ruby232/pruebas-usabilidad/edit?l=settings">Edit deck title &amp; description</a>
+          <a class="" href="/<%= @deck.user.username %>/<%= @deck.slug %>/edit?l=settings">Edit deck title &amp;
+            description</a>
         </p>
         <ul class="deck-meta">
           <li data-tooltip="Published date" data-tooltip-delay="500">
             <span class="icon i-clock"></span>
-            <time class="value ago" datetime="2016-08-04 16:27:32 UTC"></time>
+            <time class="value ago" datetime="<%= @deck.created_at  %>"></time>
           </li>
           <li data-tooltip="Kudos" data-tooltip-delay="500">
             <span class="icon i-heart-fill"></span>
@@ -85,18 +95,18 @@
       </div>
 
       <div class="user-info">
+        <% if current_user.id == @deck.user.id %>
         <a class="icon i-cog edit" href="/users/edit" data-tooltip="Account settings"></a>
+            <% end %>
 
-        <div class="picture" style="background-image: url(https://www.gravatar.com/avatar/d56b941ba90e3d9ea677a36aa3823260?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+        <div class="picture" style="background-image: url(<%= @deck.user.avatar.url(:thumb) %>)"></div>
         <div class="text">
           <h3 class="title">
-            <a href="/ruby232" class="username">ruby232</a>
+            <a href="/<%= @deck.user.username %>" class="username"><%= @deck.user.get_name %></a>
           </h3>
 
-          <p class="description"></p>
+          <p class="description"><%= @deck.user.description %></p>
           <ul class="links">
-
-
           </ul>
         </div>
         <div class="clear"></div>
@@ -111,39 +121,11 @@
   </section>
 
   <section class="deck-list">
-    <h2>More from <a href="/ruby232">ruby232</a></h2>
+    <h2>More from <a href="/<%= @deck.user.username %>" ><%= @deck.user.get_name %></a></h2>
     <ul class="carousel">
-      <li class="deck-thumbnail">
-        <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/e6485fd234ec05a67a004ebc3f2fb117/thumb.jpg)">
-          <a class="deck-link" href="/ruby232/pruebas-usabilidad-1-2"></a>
-        </div>
-        <footer class="deck-details">
-          <a class="author" href="/ruby232">
-            <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/d56b941ba90e3d9ea677a36aa3823260?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
-            <span class="name">ruby232</span>
-          </a>
-
-          <div class="stats">
-            <div>0<span class="icon i-eye"></span></div>
-          </div>
-        </footer>
-      </li>
-      <li class="deck-thumbnail">
-        <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/e6485fd234ec05a67a004ebc3f2fb117/thumb.jpg)">
-          <a class="deck-link" href="/ruby232/pruebas-usabilidad-1"></a>
-        </div>
-        <footer class="deck-details">
-          <a class="author" href="/ruby232">
-            <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/d56b941ba90e3d9ea677a36aa3823260?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
-            <span class="name">ruby232</span>
-          </a>
-
-          <div class="stats">
-            <div>0<span class="icon i-eye"></span></div>
-          </div>
-        </footer>
-      </li>
-
+      <% @user_decks.each do |deck| %>
+          <%= render :partial => 'deck/thumbnail', :locals => {:deck => deck}  %>
+      <% end %>
     </ul>
   </section>
 

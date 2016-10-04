@@ -10,7 +10,7 @@
 
     <div class="user-info">
       <a class="icon i-cog edit" href="/users/edit" data-tooltip="Account settings"></a>
-      <div class="picture" style="background-image: url(https://www.gravatar.com/avatar/d56b941ba90e3d9ea677a36aa3823260.png)"></div>
+      <div class="picture" style="background-image: url(<%= @user.avatar.url(:thumb) %>)"></div>
       <div class="text">
         <h3 class="title">
           <%= link_to current_user.username,profile_url(current_user.username),class: "username"  %>
@@ -30,7 +30,7 @@
       <button class="button outline deck-filters-sort">Newest first</button>
     </div>
 
-    <%= render 'deck/decks.list' %>
+    <%= render 'deck/list' %>
 
   </section>
 </div>

@@ -12,10 +12,10 @@
               data-user-id="<%= deck.user.id %>"
               data-username="<%= deck.user.username %>">
 
-            <%= link_to "", show_deck_url(current_user.username, deck.slug), class: "deck-link" %>
+            <%= link_to "", show_deck_url(deck.user.username, deck.slug), class: "deck-link" %>
 
             <div class="deck-thumbnail">
-              <div class="deck-image" data-image-url="<%= deck.thumbnail.url %>"></div>
+              <div class="deck-image" data-image-url="<%= deck_thumb_url(deck) %>"></div>
             </div>
 
             <h2 class="deck-title">
@@ -46,7 +46,7 @@
                   <span class="icon i-lock-stroke"></span></button>
               </div>
               <button class="button outline edit l" data-tooltip="Edit"><span class="icon i-pen-alt2"></span></button>
-              <%= link_to(live_url(current_user.username, deck.slug), class: "button outline present l", tooltip: "Present") do %>
+              <%= link_to(live_url(deck.user.username, deck.slug), class: "button outline present l", tooltip: "Present") do %>
                   <span class="icon i-play"></span>
               <% end %>
 
