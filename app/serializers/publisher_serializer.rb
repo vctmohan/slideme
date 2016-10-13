@@ -1,3 +1,10 @@
 class PublisherSerializer < ActiveModel::Serializer
-  attributes :indexh, :indexv, :paused, :overview, :publisher_id
+  attributes :publisher_id, :state, :status
+
+=begin
+  attribute :publisher_status do
+    object.status
+  end
+=end
+
 end

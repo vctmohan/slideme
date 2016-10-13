@@ -6,6 +6,7 @@ SL("helpers").StreamLive = Class.extend({
             subscriber: true,
             publisher: false,
             publisherID: Date.now() + "-" + Math.round(1000000 * Math.random()),
+            publisher_status: "initial",
             deckID: SL.current_deck.get("id")
         }, t);
 
@@ -38,15 +39,17 @@ SL("helpers").StreamLive = Class.extend({
             url: "/api/v1/decks/" + this.options.deckID + "/stream.json",
             type: "GET",
             context: this
-        }).done(function (t) {
+        }).done(function (publisher) {
             this.log("found existing stream");
-            this.setState(JSON.parse(t.state), true);
-            this.setupSocket();
+            this.options.publisherID = publisher.publisher_id;
+            this.options.publisher_status = publisher.status;
+            this.setState(JSON.parse(publisher.state), true);
+            //this.setupSocket();
             this.ready.dispatch();
         }).error(function () {
             this.log("no existing stream, publishing state");
             this.publish(function () {
-                this.setupSocket();
+                //this.setupSocket();
                 this.ready.dispatch();
             }.bind(this));
         })
@@ -56,10 +59,12 @@ SL("helpers").StreamLive = Class.extend({
             url: "/api/v1/decks/" + this.options.deckID + "/stream.json",
             type: "GET",
             context: this
-        }).done(function (t) {
+        }).done(function (publisher) {
             this.log("found existing stream");
             this.setStatus(SL.helpers.StreamLive.STATUS_NONE);
-            this.setState(JSON.parse(t.state), true);
+            this.setState(JSON.parse(publisher.state), true);
+            this.options.publisherID = publisher.publisher_id;
+            this.options.publisher_status = publisher.status;
             this.setupSocket();
             this.ready.dispatch();
         }).error(function () {
@@ -83,22 +88,25 @@ SL("helpers").StreamLive = Class.extend({
             this.socket.on("subscribers", this.onSocketSubscribersMessage.bind(this));
         }
     },
-    publish: function (t, e) {
+    publish: function (success_callback, data) {
         if (this.publishable) {
             var state = this.options.reveal.getState();
             state.publisher_id = this.options.publisherID;
-            console.log(this.socketIsDisconnected)
-            state = $.extend(state, e);
+            state = $.extend(state, data);
+
             if (this.socketIsDisconnected === true) {
                 return this.publishAfterReconnect = true;
             }
-            this.log("publish stalled while disconnected");
 
             this.log("publish", state.publisher_id), $.ajax({
                 url: "/api/v1/decks/" + this.options.deckID + "/stream.json",
                 type: "PUT",
-                data: {state: JSON.stringify(state)},
-                success: t
+                data: {
+                    state: JSON.stringify(state),
+                    status:this.options.publisher_status,
+                    publisher_id: this.options.publisherID
+                },
+                success: success_callback
             });
         }
     },
@@ -128,6 +136,13 @@ SL("helpers").StreamLive = Class.extend({
             this.status = status;
             this.statusChanged.dispatch(this.status);
         }
+    },
+    setPublishStatus: function (status) {
+        this.options.publisher_status = status;
+        this.publish(null,{});
+    },
+    getPublishStatus: function (status) {
+        return this.options.publisher_status;
     },
     getRetryStartTime: function () {
         return this.retryStartTime;

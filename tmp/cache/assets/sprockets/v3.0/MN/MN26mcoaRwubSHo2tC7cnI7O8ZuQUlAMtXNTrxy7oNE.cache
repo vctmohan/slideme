@@ -1,0 +1,43 @@
+{:uriI"¥file://app/assets/deveal/bower_components/tether/examples/out-of-bounds/index.html?type=text/html&id=8147a28b42839085ba36a0beab68c7d18033a3800eb3b7f0a8d1eb7b07cf22de:ET:load_pathI"app/assets/deveal;T:filenameI"Papp/assets/deveal/bower_components/tether/examples/out-of-bounds/index.html;T:	nameI"9bower_components/tether/examples/out-of-bounds/index;T:logical_pathI">bower_components/tether/examples/out-of-bounds/index.html;T:content_typeI"text/html;T:sourceI"÷<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="../resources/css/base.css" />
+        <link rel="stylesheet" href="../common/css/style.css" />
+        <style>
+            .tether-element.tether-out-of-bounds {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="instructions">Resize the screen to see the tethered element disappear when it can't fit.</div>
+
+        <div class="element"></div>
+        <div class="target"></div>
+
+        <script src="//github.hubspot.com/tether/dist/js/tether.js"></script>
+        <script>
+            var tether = new Tether({
+                element: '.element',
+                target: '.target',
+                attachment: 'top left',
+                targetAttachment: 'top right',
+                constraints: [{
+                    to: 'window',
+                    attachment: 'together'
+                }]
+            });
+            tether.on('update', function(event) {
+                console.log(event);
+            });
+        </script>
+    </body>
+</html>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"^file-digest://app/assets/deveal/bower_components/tether/examples/out-of-bounds/index.html;TTF:charsetI"
+utf-8;F:digest"%|™ƒ	rXÃÐò;6¦V­ Ix?Çd-ÔÛ™„¥"|:lengthi÷:dependencies_digest"%f‚£hµ¹®l¦¢·&?M‚,°#Ûñ¬ÿLñI¶–êÓ:idI"E8147a28b42839085ba36a0beab68c7d18033a3800eb3b7f0a8d1eb7b07cf22de;F:
+mtimel+fÓ‡W

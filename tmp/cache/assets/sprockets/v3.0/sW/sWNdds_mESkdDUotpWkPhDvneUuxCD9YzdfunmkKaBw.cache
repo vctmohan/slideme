@@ -1,0 +1,69 @@
+{:uriI"ßfile://app/assets/deveal/bower_components/tether/examples/content-visible/index.html?type=text/html&id=8c89ea8eadff8f513c7e7e82691e50b0ec6bba471a6b29c349582b0999a4c01e:ET:load_pathI"app/assets/deveal;T:filenameI"Rapp/assets/deveal/bower_components/tether/examples/content-visible/index.html;T:	nameI";bower_components/tether/examples/content-visible/index;T:logical_pathI"@bower_components/tether/examples/content-visible/index.html;T:content_typeI"text/html;T:sourceI"ù<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../resources/css/base.css" />
+    </head>
+    <body>
+
+    <div class="instructions">Scroll the page</div>
+
+    <style>
+      .instructions {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        padding: 15px;
+        background-color: rgba(210, 180, 140, 0.4);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 1200vh;
+        height: 100%;
+      }
+
+      .content-box {
+        width: 600px;
+        border: 10px solid #999;
+        height: 600vh;
+        background-color: #439CCC;
+        margin: 200vh auto;
+      }
+      .element {
+        border: 10px solid #999;
+        background-color: #FFDC00;
+        width: 300px;
+        height: 200px;
+        padding: 0 15px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+
+    <div class="content-box">
+      <div class="element">
+        <p>This is some sort of crazy dialog.</p>
+
+        <p>It's setup to align with the center of the visible part of the blue area.</p>
+      </div>
+    </div>
+
+    <script src="//github.hubspot.com/tether/dist/js/tether.js"></script>
+    <script>
+      new Tether({
+        element: '.element',
+        target: '.content-box',
+        attachment: 'middle center',
+        targetAttachment: 'middle center',
+        targetModifier: 'visible'
+      });
+    </script>
+  </body>
+</html>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"`file-digest://app/assets/deveal/bower_components/tether/examples/content-visible/index.html;TTF:charsetI"
+utf-8;F:digest"%9≤.Á¿”rD„y„‚…ªYÂ¬ÚZ ⁄Ÿü›Üñ‡∞"&:lengthiù:dependencies_digest"%ÿä¨∑^#∑´óe‚Q«3›∑˙(˙ÿuÑÄ ˝¥áü:idI"E8c89ea8eadff8f513c7e7e82691e50b0ec6bba471a6b29c349582b0999a4c01e;F:
+mtimel+f”áW

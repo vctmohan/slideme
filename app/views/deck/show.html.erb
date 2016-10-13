@@ -95,7 +95,7 @@
       </div>
 
       <div class="user-info">
-        <% if current_user.id == @deck.user.id %>
+        <% if current_user and current_user.id == @deck.user.id %>
         <a class="icon i-cog edit" href="/users/edit" data-tooltip="Account settings"></a>
             <% end %>
 

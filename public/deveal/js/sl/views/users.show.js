@@ -2,7 +2,6 @@ SL("views.users").Show = SL.views.Base.extend({
     init: function () {
         this._super();
         SL.util.device.IS_PHONE && $("html").addClass("is-mobile-phone");
-        this.setupAnnouncement();
         this.setupTabs();
         this.setupFilters();
         this.setupDecks();
@@ -12,22 +11,19 @@ SL("views.users").Show = SL.views.Base.extend({
         });
         $(window).on("scroll", this.onWindowScroll.bind(this));
     },
-    setupAnnouncement: function () {
-        if (Modernizr.localstorage && SL.current_user.isEnterpriseManager() && SL.current_team && SL.current_team.get("beta_new_editor") === false) {
-            var t = "slides-team-has-seen-new-editor-announcement";
-            if (!localStorage.getItem(t)) {
-                var e = $(['<section class="announcement">', "<h3>New Editor</h3>", '<p>We have released a new and greatly improved presentation editor. Have a look at the <a href="http://slides.com/news/new-editor/" target="_blank">demo presentation</a> for a quick overview.</p>', "<p>To enable the new editor, please visit the team settings page.</p>", '<a class="button positive" href="/edit#beta-features">Team settings</a>', '<a class="button grey dismiss-button">Dismiss</a>', "</section>"].join(""));
-                e.find(".dismiss-button").on("click", function () {
-                    e.remove(), localStorage.setItem(t, "completed")
-                }), $(".main section").first().before(e)
-            }
-        }
-    }, setupTabs: function () {
+    setupTabs: function () {
         $(".deck-filters-tab").on("vclick", function (t) {
-            this.selectTab($(t.currentTarget).attr("data-tab-id"))
-        }.bind(this)), this.tabValueDefault = $(".deck-filters-tab").first().attr("data-tab-id")
-    }, setupFilters: function () {
-        this.onSortOptionSelected = this.onSortOptionSelected.bind(this), this.sortDecks = this.sortDecks.bind(this), this.searchDecks = $.throttle(this.searchDecks.bind(this), 300), this.saveFilters = $.throttle(this.saveFilters.bind(this), 1e3), this.setupSortOptions(), $(".deck-filters-sort").on("vclick", function (t) {
+            this.selectTab($(t.currentTarget).attr("data-tab-id"));
+        }.bind(this));
+        this.tabValueDefault = $(".deck-filters-tab").first().attr("data-tab-id");
+    },
+    setupFilters: function () {
+        this.onSortOptionSelected = this.onSortOptionSelected.bind(this);
+        this.sortDecks = this.sortDecks.bind(this);
+        this.searchDecks = $.throttle(this.searchDecks.bind(this), 300);
+        this.saveFilters = $.throttle(this.saveFilters.bind(this), 1e3);
+        this.setupSortOptions();
+        $(".deck-filters-sort").on("vclick", function (t) {
             return this.sortOptions.forEach(function (t) {
                 t.selected = t.value === this.sortValue
             }.bind(this)), SL.prompt({
@@ -39,14 +35,22 @@ SL("views.users").Show = SL.views.Base.extend({
                 multiselect: false,
                 optional: true
             }), false
-        }.bind(this)), $(".deck-filters-search").on("vclick", function (t) {
-            $(this).focus(), t.preventDefault(), SL.analytics.track("User.show: Search")
-        }), $(".deck-filters-search").on("input", function (t) {
-            this.searchDecks($(t.currentTarget).val())
-        }.bind(this)), $(".deck-filters-search-clear").on("vclick", function (t) {
-            this.searchDecks(""), $(".deck-filters-search").val(""), t.preventDefault()
-        }.bind(this))
-    }, setupSortOptions: function () {
+        }.bind(this));
+        $(".deck-filters-search").on("vclick", function (t) {
+            $(this).focus();
+            t.preventDefault();
+            SL.analytics.track("User.show: Search");
+        });
+        $(".deck-filters-search").on("input", function (t) {
+            this.searchDecks($(t.currentTarget).val());
+        }.bind(this));
+        $(".deck-filters-search-clear").on("vclick", function (t) {
+            this.searchDecks("");
+            $(".deck-filters-search").val("");
+            t.preventDefault();
+        }.bind(this));
+    },
+    setupSortOptions: function () {
         this.sortOptions = [], this.sortOptions.push({
             value: "created",
             title: "Newest first",
@@ -54,41 +58,68 @@ SL("views.users").Show = SL.views.Base.extend({
             method: function (t, e) {
                 return moment(this.getDeckData(e).created_at).unix() - moment(this.getDeckData(t).created_at).unix()
             }.bind(this)
-        }), this.sortOptions.push({
+        });
+        this.sortOptions.push({
             value: "created-reverse",
             title: "Oldest first",
             callback: this.onSortOptionSelected,
             method: function (t, e) {
                 return moment(this.getDeckData(t).created_at).unix() - moment(this.getDeckData(e).created_at).unix()
             }.bind(this)
-        }), $('.deck[data-visibility="all"]').length && this.sortOptions.push({
-            value: "views",
-            title: "Most views",
-            callback: this.onSortOptionSelected,
-            method: function (t, e) {
-                var i = this.getDeckData(t), n = this.getDeckData(e), s = i.visibility === SL.models.Deck.VISIBILITY_ALL ? i.view_count : -1, o = n.visibility === SL.models.Deck.VISIBILITY_ALL ? n.view_count : -1;
-                return o - s
-            }.bind(this)
-        }), this.sortOptions.push({
+        });
+        if ($('.deck[data-visibility="all"]').length) {
+            this.sortOptions.push({
+                value: "views",
+                title: "Most views",
+                callback: this.onSortOptionSelected,
+                method: function (t, e) {
+                    var i = this.getDeckData(t), n = this.getDeckData(e), s = i.visibility === SL.models.Deck.VISIBILITY_ALL ? i.view_count : -1, o = n.visibility === SL.models.Deck.VISIBILITY_ALL ? n.view_count : -1;
+                    return o - s
+                }.bind(this)
+            });
+        }
+
+        this.sortOptions.push({
             value: "az",
             title: "Alphabetically",
             callback: this.onSortOptionSelected,
             method: function (t, e) {
-                return t = this.getDeckData(t).title.trim().toLowerCase(), e = this.getDeckData(e).title.trim().toLowerCase(), e > t ? -1 : t > e ? 1 : 0
+                return t = this.getDeckData(t).title.trim().toLowerCase();
+                e = this.getDeckData(e).title.trim().toLowerCase();
+                e > t ? -1 : t > e ? 1 : 0
             }.bind(this)
-        }), this.sortValueDefault = this.sortOptions[0].value, this.sortValue = this.sortValueDefault
-    }, setupDecks: function () {
+        });
+        this.sortValueDefault = this.sortOptions[0].value;
+        this.sortValue = this.sortValueDefault;
+    },
+    setupDecks: function () {
         $(".decks .deck").each(function (t, e) {
-            e = $(e), e.find(".edit").on("vclick", this.onEditClicked.bind(this, e)), e.find(".share").on("vclick", this.onShareClicked.bind(this, e)), e.find(".fork").on("vclick", this.onForkClicked.bind(this, e)), e.find(".clone").on("vclick", this.onCloneClicked.bind(this, e)), e.find(".delete").on("vclick", this.onDeleteClicked.bind(this, e)), e.find(".deck-lock-icon").on("vclick", this.onVisibilityClicked.bind(this, e)), e.find(".visibility").on("vclick", this.onVisibilityClicked.bind(this, e)), e.hasClass("is-owner") && (e.find(".deck-title-value").attr({
-                "data-tooltip": "Click to edit",
-                "data-tooltip-alignment": "l",
-                "data-tooltip-delay": 200
-            }), e.find(".deck-title-value").on("click", this.onDeckTitleClicked.bind(this, e)), e.find(".deck-description-value").attr({
-                "data-tooltip": "Click to edit",
-                "data-tooltip-alignment": "l",
-                "data-tooltip-delay": 200
-            }), e.find(".deck-description-value").on("click", this.onDeckDescriptionClicked.bind(this, e)))
-        }.bind(this)), this.loadImagesInView(), this.loadImagesInView = $.throttle(this.loadImagesInView, 200)
+            e = $(e);
+            e.find(".edit").on("vclick", this.onEditClicked.bind(this, e));
+            e.find(".share").on("vclick", this.onShareClicked.bind(this, e));
+            e.find(".fork").on("vclick", this.onForkClicked.bind(this, e));
+            e.find(".clone").on("vclick", this.onCloneClicked.bind(this, e));
+            e.find(".delete").on("vclick", this.onDeleteClicked.bind(this, e));
+            e.find(".deck-lock-icon").on("vclick", this.onVisibilityClicked.bind(this, e));
+            e.find(".visibility").on("vclick", this.onVisibilityClicked.bind(this, e));
+            if (e.hasClass("is-owner")) {
+                e.find(".deck-title-value").attr({
+                    "data-tooltip": "Click to edit",
+                    "data-tooltip-alignment": "l",
+                    "data-tooltip-delay": 200
+                });
+                e.find(".deck-title-value").on("click", this.onDeckTitleClicked.bind(this, e));
+                e.find(".deck-description-value").attr({
+                    "data-tooltip": "Click to edit",
+                    "data-tooltip-alignment": "l",
+                    "data-tooltip-delay": 200
+                });
+                e.find(".deck-description-value").on("click", this.onDeckDescriptionClicked.bind(this, e));
+            }
+
+        }.bind(this));
+        this.loadImagesInView();
+        this.loadImagesInView = $.throttle(this.loadImagesInView, 200);
     }, loadImagesInView: function () {
         var t = 300, e = -t, i = window.innerHeight + t;
         $(".decks .deck [data-image-url]").each(function (t, n) {
@@ -177,9 +208,12 @@ SL("views.users").Show = SL.views.Base.extend({
         })
     }, onEditClicked: function (t, e) {
         e.preventDefault(), window.location = t.attr("data-url") + "/edit"
-    }, onDeleteClicked: function (t, e) {
-        e.preventDefault(), t.addClass("hover");
-        var i = this.getDeckData(t), n = SL.prompt({
+    }, 
+    onDeleteClicked: function (t, e) {
+        e.preventDefault();
+        t.addClass("hover");
+        var i = this.getDeckData(t);
+        n = SL.prompt({
             anchor: $(e.currentTarget),
             title: SL.locale.get("DECK_DELETE_CONFIRM", {title: SL.util.escapeHTMLEntities(i.title)}),
             type: "select",
@@ -213,8 +247,10 @@ SL("views.users").Show = SL.views.Base.extend({
         });
         n.canceled.add(function () {
             t.removeClass("hover")
-        }), SL.analytics.track("User.show: Delete deck")
-    }, onVisibilityClicked: function (t, e) {
+        });
+        SL.analytics.track("User.show: Delete deck");
+    }, 
+    onVisibilityClicked: function (t, e) {
         e.preventDefault(), t.addClass("hover");
         var i = this.getDeckData(t), n = [];
         n.push({

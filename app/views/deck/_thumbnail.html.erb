@@ -3,7 +3,7 @@
     <%= link_to "", show_deck_url(deck.user.username, deck.slug), class: "deck-link" %>
   </div>
   <footer class="deck-details">
-    <a class="author" href="<%= current_user.username %>">
+    <a class="author" href="<%= deck.user.username %>">
       <span class="picture" style="background-image: url(<%= deck.user.avatar.url(:thumb) %>)"></span>
       <span class="name"><% if deck.user.name %><%= deck.user.name %><% else %><%= deck.user.username %><% end %></span>
     </a>

@@ -19,16 +19,49 @@ SL("components").TemplatesPage = Class.extend({
             label: "Duplicate",
             html: e || ""
         }), t)
-    }, renderTemplate: function (t, e) {
+    }, 
+    renderTemplate: function (t, e) {
         e = $.extend({prepend: false, editable: true, container: this.templateList}, e);
         var i = $('<div class="template-item">');
-        i.html(['<div class="template-item-thumb themed">', '<div class="template-item-thumb-content reveal reveal-thumbnail">', '<div class="slides">', t.get("html"), "</div>", '<div class="backgrounds"></div>', "</div>", "</div>"].join("")), i.data("template-model", t), i.on("vclick", this.onTemplateSelected.bind(this, i)), i.find('.sl-block[data-block-type="code"] pre').addClass("hljs"), t.get("label") && i.append('<span class="template-item-label">' + t.get("label") + "</span>"), e.replaceTemplate ? e.replaceTemplate.replaceWith(i) : e.replaceTemplateAt ? e.container.find(".template-item").eq(e.replaceTemplateAt).replaceWith(i) : e.prepend ? e.container.prepend(i) : e.container.append(i);
-        var n = i.find("section").attr("data-background-color"), s = i.find("section").attr("data-background-image"), o = i.find("section").attr("data-background-size"), a = $('<div class="slide-background present template-item-thumb-background">');
+        i.html([
+            '<div class="template-item-thumb themed">', 
+            '<div class="template-item-thumb-content reveal reveal-thumbnail">', 
+            '<div class="slides">', 
+            t.get("html"), 
+            "</div>", 
+            '<div class="backgrounds"></div>', 
+            "</div>", 
+            "</div>"
+        ].join(""));
+        i.data("template-model", t);
+        i.on("vclick", this.onTemplateSelected.bind(this, i));
+        i.find('.sl-block[data-block-type="code"] pre').addClass("hljs");
+        t.get("label") && i.append('<span class="template-item-label">' + t.get("label") + "</span>");
+        if(e.replaceTemplate){
+            e.replaceTemplate.replaceWith(i)
+        }else{
+            if(e.replaceTemplateAt){
+                e.container.find(".template-item").eq(e.replaceTemplateAt).replaceWith(i);
+            }
+            else{
+                if(e.prepend){e.container.prepend(i)}else{
+                    e.container.append(i);
+                }
+            }
+        }
+        
+        var n = i.find("section").attr("data-background-color");
+        s = i.find("section").attr("data-background-image");
+        o = i.find("section").attr("data-background-size");
+        a = $('<div class="slide-background present template-item-thumb-background">');
         if (a.addClass(i.find(".template-item-thumb .reveal section").attr("class")), a.appendTo(i.find(".template-item-thumb .reveal>.backgrounds")), (n || s) && (n && a.css("background-color", n), s && a.css("background-image", 'url("' + s + '")'), o && a.css("background-size", o)), this.isEditable() && e.editable) {
-            var r = $('<div class="template-item-options"></div>').appendTo(i), l = $('<div class="option"><span class="icon i-trash-stroke"></span></div>');
+            var r = $('<div class="template-item-options"></div>').appendTo(i);
+            l = $('<div class="option"><span class="icon i-trash-stroke"></span></div>');
             if (l.attr("data-tooltip", "Delete this template"), l.on("vclick", this.onTemplateDeleteClicked.bind(this, i)), l.appendTo(r), this.isTeamTemplates() && SL.current_user.getThemes().size() > 1) {
                 var c = $('<div class="option"><span class="icon i-ellipsis-v"></span></div>');
-                c.attr("data-tooltip", "Theme availability"), c.on("vclick", this.onTemplateThemeClicked.bind(this, i)), c.appendTo(r)
+                c.attr("data-tooltip", "Theme availability");
+                c.on("vclick", this.onTemplateThemeClicked.bind(this, i));
+                c.appendTo(r)
             }
         }
         return i

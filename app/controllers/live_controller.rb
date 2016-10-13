@@ -11,29 +11,45 @@ class LiveController < ApplicationController
   end
 
   def stream
+
     if params[:id]
       deck = Deck.find(params[:id])
-    end
-
-    if request.get? and params[:id]
-      publisher = Publisher.where(:deck => deck).last
-      if not publisher
-        render :file => "#{Rails.root}/public/404.html", :status => 404
+      if params[:publisher_id]
+        publisher = Publisher.where(:publisher_id => params[:publisher_id]).last
+      else
+        publisher = Publisher.where(:deck => deck).last
       end
-    end
 
-    if request.put? and params[:id] and params[:state]
-      publisher = Publisher.new
-      publisher.from_json(params[:state])
-      publisher.deck = deck
+      if request.get?
+        if not publisher or publisher.status == "finish"
+          publisher = Publisher.new
+          publisher.status = "initial"
+          publisher.state = "{\"indexh\":0,\"indexv\":0}"
+
+          d = DateTime.new(2007,11,19,8,37,48,"-06:00")
+          prng = Random.new
+          publisher.publisher_id = d.strftime("%Y%m%d") + "-" + prng.rand(1000000).to_s
+          publisher.deck = deck
+          #render :file => "#{Rails.root}/public/404.html", :status => 404
+        end
+      end
+
+      if request.put?
+        if params[:state]
+          publisher.state = params[:state]
+        end
+        if params[:status]
+          publisher.status = params[:status]
+        end
+      end
+
       publisher.save
-    end
-
-    if publisher
+      render json: publisher, serializer: PublisherSerializer
+=begin
       publisher_json = PublisherSerializer.new(publisher).to_json
       respond_to do |format|
         format.json { render json: {
-            id: deck.user_id,
+            id: publisher.id,
             deck_id: deck.id,
             state: publisher_json,
             created_at: deck.created_at,
@@ -41,6 +57,7 @@ class LiveController < ApplicationController
           }
         }
       end
+=end
     end
 
   end

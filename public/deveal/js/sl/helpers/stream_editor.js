@@ -1,10 +1,21 @@
 SL("helpers").StreamEditor = Class.extend({
     init: function (t) {
-        this.options = $.extend({}, t), this.statusChanged = new signals.Signal, this.reconnecting = new signals.Signal, this.messageReceived = new signals.Signal, this.debugMode = !!SL.util.getQuery().debug
-    }, connect: function () {
-        if (this.socket)this.isConnected() || (this.log("manual reconnect", t), this.socket.io.close(), this.socket.io.open()); else {
+        this.options = $.extend({}, t);
+        this.statusChanged = new signals.Signal;
+        this.reconnecting = new signals.Signal;
+        this.messageReceived = new signals.Signal;
+        this.debugMode = !!SL.util.getQuery().debug;
+    },
+    connect: function () {
+        if (this.socket) {
+            this.isConnected();
+            this.log("manual reconnect", t);
+            this.socket.io.close();
+            this.socket.io.open();
+        } else {
             var t = SL.config.STREAM_ENGINE_HOST + "/" + SL.config.STREAM_ENGINE_EDITOR_NAMESPACE;
-            this.log("connecting to", t), this.socket = io.connect(t, {reconnectionDelayMax: 1e4}), this.socket.on("connect", this.onSocketConnect.bind(this)), this.socket.on("reconnect_attempt", this.onSocketReconnectAttempt.bind(this)), this.socket.on("reconnect_failed", this.onSocketReconnectFailed.bind(this)), this.socket.on("reconnect", this.onSocketReconnect.bind(this)), this.socket.on("disconnect", this.onSocketDisconnect.bind(this)), this.socket.on("message", this.onSocketMessage.bind(this))
+            this.log("connecting to", t);
+        this.socket = io.connect(t, {reconnectionDelayMax: 1e4}), this.socket.on("connect", this.onSocketConnect.bind(this)), this.socket.on("reconnect_attempt", this.onSocketReconnectAttempt.bind(this)), this.socket.on("reconnect_failed", this.onSocketReconnectFailed.bind(this)), this.socket.on("reconnect", this.onSocketReconnect.bind(this)), this.socket.on("disconnect", this.onSocketDisconnect.bind(this)), this.socket.on("message", this.onSocketMessage.bind(this))
         }
         return this.isConnected() ? Promise.resolve() : new Promise(function (t, e) {
             var i = function () {

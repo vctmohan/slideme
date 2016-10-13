@@ -1,0 +1,36 @@
+{:uriI"›file://app/assets/deveal/bower_components/tether/examples/pin/index.html?type=text/html&id=ed712819ee02cf1cbe826e8f4ac55f1b8e018cdf2548ce5a087b7edd6338151c:ET:load_pathI"app/assets/deveal;T:filenameI"Fapp/assets/deveal/bower_components/tether/examples/pin/index.html;T:	nameI"/bower_components/tether/examples/pin/index;T:logical_pathI"4bower_components/tether/examples/pin/index.html;T:content_typeI"text/html;T:sourceI"<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="../resources/css/base.css" />
+        <link rel="stylesheet" href="../common/css/style.css" />
+    </head>
+    <body>
+        <div class="instructions">Resize the screen to see the tethered element stick to the edges of the screen when it's resized.</div>
+
+        <div class="element"></div>
+        <div class="target"></div>
+
+        <script src="//github.hubspot.com/tether/dist/js/tether.js"></script>
+        <script>
+            new Tether({
+                element: '.element',
+                target: '.target',
+                attachment: 'top left',
+                targetAttachment: 'top right',
+                constraints: [{
+                    to: 'window',
+                    pin: true
+                }]
+            });
+        </script>
+    </body>
+</html>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"Tfile-digest://app/assets/deveal/bower_components/tether/examples/pin/index.html;TTF:charsetI"
+utf-8;F:digest"%à€·Ëtî¢w!RÄA9Ä½ëêZ'¶’™?è
+÷®4×–:lengthi:dependencies_digest"%×üŒ7B(Øýœ2~V–‰öO/Ó‘³	²»‹n WPŒF:idI"Eed712819ee02cf1cbe826e8f4ac55f1b8e018cdf2548ce5a087b7edd6338151c;F:
+mtimel+fÓ‡W

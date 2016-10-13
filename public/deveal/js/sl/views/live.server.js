@@ -20,6 +20,7 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
             publisher: true,
             showErrors: false
         });
+        this.stream.stateChanged.add(this.onStreamStateChanged.bind(this));
         this.stream.connect();
         this.render();
         this.bind();
@@ -58,7 +59,8 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
             "</div>",
             "</div>",
             '<footer class="presentation-controls-footer">',
-            '<button class="button xl positive start-presentation">Start presentation</button>',
+            '<button class="button xl positive start-presentation" data-tooltip-delay="500" data-tooltip-alignment="t" data-tooltip="Start presentation"><span class="icon i-play"></span></button>',
+            '<button class="button xl negative finish-presentation" data-tooltip-delay="500" data-tooltip-alignment="r" data-tooltip="Finish presentation"><span class="icon i-stop"></button>',
             "</footer>",
             "</div>"].join("")).appendTo(document.body);
 
@@ -71,8 +73,19 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
         if(SL.helpers.Fullscreen.isEnabled() === false){
             this.presentationControls.find(".fullscreen-toggle").hide();
         }
-        SL.current_deck.get("share_notes") || this.presentationControls.find(".notes-toggle").hide();
+        if(SL.current_deck.get("share_notes")){
+            this.presentationControls.find(".notes-toggle").hide();
+        }
         this.syncPresentationControls();
+
+        if(this.stream.getPublishStatus() == 'start') {
+            $("html").addClass("presentation-started");
+            this.presentationStarted = true;
+        }
+
+        if(this.stream.getPublishStatus() == 'initial') {
+            this.presentationControls.find(".finish-presentation").hide();
+        }
     },
     bind: function () {
         this.presentationControls.find(".live-view-url").on("mousedown", this.onLiveURLMouseDown.bind(this));
@@ -81,7 +94,8 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
         this.presentationControls.find(".notes-toggle").on("vclick", this.onNotesToggled.bind(this));
         this.presentationControls.find(".upsizing-toggle").on("vclick", this.onUpsizingToggled.bind(this));
         this.presentationControls.find(".button.start-presentation").on("vclick", this.onStartPresentationClicked.bind(this));
-        this.presentationControlsExpander.on("vclick", this.onStopPresentationClicked.bind(this));
+        this.presentationControls.find(".button.finish-presentation").on("vclick", this.onStopPresentationClicked.bind(this, this.presentationControls));
+        this.presentationControlsExpander.on("vclick", this.onPausePresentationClicked.bind(this));
         $(document).on("webkitfullscreenchange mozfullscreenchange MSFullscreenChange fullscreenchange", this.onFullscreenChange.bind(this));
         $(document).on("mousemove", this.onMouseMove.bind(this));
         $(document).on("mouseleave", this.onMouseLeave.bind(this));
@@ -122,8 +136,17 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
     startPresentation: function () {
         $("html").addClass("presentation-started");
         this.presentationStarted = true;
+        this.presentationControls.find(".finish-presentation").show();
+        if(this.stream.getPublishStatus() != 'start') {
+            this.stream.setPublishStatus("start");
+        }
     },
     stopPresentation: function () {
+        this.stream.setPublishStatus("finish");
+        //moverse a algun lugar cuando se detiene la presentacion
+        $("a.word")[0].click();
+    },
+    pausePresentation: function () {
         $("html").removeClass("presentation-started");
         this.presentationStarted = false;
         this.presentationControlsExpander.removeClass("visible");
@@ -137,16 +160,16 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
     },
     onControlsToggled: function (t) {
         t.preventDefault();
-        var e = !Reveal.getConfig().controls;
-        SL.current_user.settings.set("present_controls", e);
+        var controls = !Reveal.getConfig().controls;
+        SL.current_user.settings.set("present_controls", controls);
         Reveal.configure({
-            controls: e,
-            progress: e,
-            slideNumber: SLConfig.deck.slide_number && e
+            controls: controls,
+            progress: controls,
+            slideNumber: SLConfig.deck.slide_number && controls
         });
         this.syncPresentationControls();
         this.savePresentOption("present_controls");
-        this.stream.publish(null, {present_controls: e});
+        this.stream.publish(null, {present_controls: controls});
     },
     onNotesToggled: function (t) {
         t.preventDefault();
@@ -177,13 +200,46 @@ SL("views.decks").LiveServer = SL.views.Base.extend({
     onStartPresentationClicked: function () {
         this.startPresentation();
     },
-    onStopPresentationClicked: function () {
-        this.stopPresentation();
+    onStopPresentationClicked: function (t, e) {
+        e.preventDefault();
+        t.addClass("hover");
+        n = SL.prompt({
+            anchor: $(e.currentTarget),
+            title: "Are you sure you want to stop Presentation?",
+            type: "select",
+            data: [{
+                html: "<h3>Cancel</h3>", callback: function () {
+                    t.removeClass("hover")
+                }.bind(this)
+            }, {
+                html: "<h3>Stop</h3>",
+                selected: true,
+                className: "negative",
+                callback: function () {
+                    this.stopPresentation();
+                    t.removeClass("hover");
+                }.bind(this)
+            }]
+        });
+
+        n.canceled.add(function () {
+            t.removeClass("hover")
+        });
+    },
+    onPausePresentationClicked: function () {
+        this.pausePresentation();
     },
     onMouseMove: function (t) {
         this.presentationControlsExpander.toggleClass("visible", this.hasStartedPresentation() && t.clientX < 50);
     },
     onMouseLeave: function () {
         this.presentationControlsExpander.removeClass("visible");
+    },
+    onStreamStateChanged: function (state) {
+        if(this.stream.getPublishStatus() == 'start') {
+            $("html").addClass("presentation-started");
+            this.presentationStarted = true;
+            this.presentationControls.find(".finish-presentation").show();
+        }
     }
 });
