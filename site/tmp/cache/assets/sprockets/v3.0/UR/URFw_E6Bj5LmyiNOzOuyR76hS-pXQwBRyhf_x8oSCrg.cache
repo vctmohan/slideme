@@ -1,40 +1,0 @@
-{:uriI"˜file://app/assets/deveal/bower_components/bootstrap/bower.json?type=application/json&id=8f153bdc161455d29c91a26d71596c676e2986b97c3f7c0aa918572818e84786:ET:load_pathI"app/assets/deveal;T:filenameI"<app/assets/deveal/bower_components/bootstrap/bower.json;T:	nameI"%bower_components/bootstrap/bower;T:logical_pathI"*bower_components/bootstrap/bower.json;T:content_typeI"application/json;T:sourceI"{
-  "name": "bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "keywords": [
-    "css",
-    "js",
-    "sass",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "framework",
-    "web"
-  ],
-  "homepage": "http://getbootstrap.com",
-  "license": "MIT",
-  "moduleType": "globals",
-  "main": [
-    "scss/bootstrap.scss",
-    "dist/js/bootstrap.js"
-  ],
-  "ignore": [
-    "/.*",
-    "_config.yml",
-    "CNAME",
-    "composer.json",
-    "CONTRIBUTING.md",
-    "docs",
-    "js/tests",
-    "test-infra"
-  ],
-  "dependencies": {
-    "jquery": "1.9.1 - 2"
-  }
-}
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Jfile-digest://app/assets/deveal/bower_components/bootstrap/bower.json;TTF:charsetI"
-utf-8;F:digest"%U&ºËÆNœ+W\¦	¶füœŽ*{¾½Q={;î°jE:lengthi:dependencies_digest"%ýÍŽ£ãÍÃÍÁ-šŠk“ÒÓÝò2y²½Dº
-ßj:idI"E8f153bdc161455d29c91a26d71596c676e2986b97c3f7c0aa918572818e84786;F:
-mtimel+ÂÅW

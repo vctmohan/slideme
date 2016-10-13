@@ -1,46 +1,0 @@
-{:uriI"ófile://app/assets/deveal/bower_components/tether/package.json?type=application/json&id=646dedbb1167e0d9b3552666524ba16ae2eb5fc244d31c632368ff63e65b9d1e:ET:load_pathI"app/assets/deveal;T:filenameI";app/assets/deveal/bower_components/tether/package.json;T:	nameI"$bower_components/tether/package;T:logical_pathI")bower_components/tether/package.json;T:content_typeI"application/json;T:sourceI"I{
-  "name": "tether",
-  "version": "1.3.3",
-  "description": "A client-side library to make absolutely positioned elements attach to elements in the page efficiently.",
-  "authors": [
-    "Zack Bloom <zackbloom@gmail.com>",
-    "Adam Schwartz <adam.flynn.schwartz@gmail.com>"
-  ],
-  "maintainers": [
-    "Nicholas Hwang <nick.joosung.hwang@gmail.com>",
-    "Trevor Burnham <trevorburnham@gmail.com>"
-  ],
-  "scripts": {
-    "reinstall": "del node_modules && npm install",
-    "watch": "gulp watch",
-    "build": "gulp build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/HubSpot/tether.git"
-  },
-  "license": "MIT",
-  "main": "dist/js/tether.js",
-  "devDependencies": {
-    "del": "^2.0.2",
-    "del-cli": "^0.2.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.1",
-    "gulp-babel": "^5.2.1",
-    "gulp-bump": "^0.3.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-header": "^1.7.1",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.4",
-    "gulp-uglify": "^1.4.1",
-    "gulp-wrap-umd": "^0.2.1"
-  }
-}
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Ifile-digest://app/assets/deveal/bower_components/tether/package.json;TTF:charsetI"
-utf-8;F:digest"%m1
-`Ajv∏dö3!êå{`\‡o+jëü^˙≠Ã»æ´:lengthiI:dependencies_digest"%Ö:¨ì≥ˇ –’¿—u¶µA+ãjF7∞9Á«ﬁ¯x:idI"E646dedbb1167e0d9b3552666524ba16ae2eb5fc244d31c632368ff63e65b9d1e;F:
-mtimel+f”áW

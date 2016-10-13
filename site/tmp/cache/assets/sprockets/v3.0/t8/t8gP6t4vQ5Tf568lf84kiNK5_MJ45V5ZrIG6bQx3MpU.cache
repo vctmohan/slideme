@@ -1,35 +1,0 @@
-{:uriI"•file://app/assets/deveal/bower_components/headjs/bower.json?type=application/json&id=d8f69d70604b24bf2f4ad119cda87c04338d3b11fd2a8b6b2cdd1951d6d424f8:ET:load_pathI"app/assets/deveal;T:filenameI"9app/assets/deveal/bower_components/headjs/bower.json;T:	nameI""bower_components/headjs/bower;T:logical_pathI"'bower_components/headjs/bower.json;T:content_typeI"application/json;T:sourceI"ì{
-  "name": "headjs",
-  "description": "HeadJS: Responsive Design, Feature Detections & Asset Loading. The only script in your <HEAD>",
-  "version": "1.0.3",
-  "license" : "MIT",
-  "authors": [
-    {"name": "Tero Piirainen"},
-	{"name": "Robert Hoffmann"}
-  ],
-  "homepage " : "http://headjs.com",
-  "main"  : ["./dist/1.0.0/head.min.js","./dist/1.0.0/head.min.js.map","./dist/1.0.0/changelog.txt"],
-  "ignore": [
-    "**",
-    "!/dist/1.0.0/*.js",
-    "!/dist/1.0.0/*.map",
-    "!/dist/1.0.0/*.txt"
-  ],
-  "directory": "public/scripts",
-  "repository": {
-    "type": "git", "url": "git://github.com/headjs/headjs.git"
-  },
-    "keywords": [
-    "loader",
-    "require",
-    "polyfill",
-    "html5",
-    "css3",
-    "feature",
-    "responsive"
-  ]
-};T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Gfile-digest://app/assets/deveal/bower_components/headjs/bower.json;TTF:charsetI"
-utf-8;F:digest"%ÈÃLV" Ó‚wñ42{$ø¸2ù6†dH›Á‹mšöÎ:lengthiì:dependencies_digest"%ó$ùr‘§k‘8 VÔn8Ø&Sšœˆìõ[‘NÚ§•ı:idI"Ed8f69d70604b24bf2f4ad119cda87c04338d3b11fd2a8b6b2cdd1951d6d424f8;F:
-mtimel+„]R

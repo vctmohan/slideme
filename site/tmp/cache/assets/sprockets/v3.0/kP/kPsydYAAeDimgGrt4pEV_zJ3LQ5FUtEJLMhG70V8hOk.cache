@@ -1,41 +1,0 @@
-{:uriI"Ÿfile://app/assets/deveal/bower_components/tether/examples/testbed/index.html?type=text/html&id=9bbf47fad343c682a51d3fbcff3ebe5988ca875cd744b9db4e93455b244f8afe:ET:load_pathI"app/assets/deveal;T:filenameI"Japp/assets/deveal/bower_components/tether/examples/testbed/index.html;T:	nameI"3bower_components/tether/examples/testbed/index;T:logical_pathI"8bower_components/tether/examples/testbed/index.html;T:content_typeI"text/html;T:sourceI"C<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="../resources/css/base.css" />
-        <link rel="stylesheet" href="../common/css/style.css" />
-    </head>
-    <body>
-
-        <div class="element">
-        </div>
-
-        <div class="container">
-            <div class="pad"></div>
-            <div class="target"></div>
-            <div class="pad"></div>
-            <div class="pad"></div>
-        </div>
-
-        <script src="//github.hubspot.com/tether/dist/js/tether.js"></script>
-        <script>
-            new Tether({
-                element: '.element',
-                target: '.target',
-                attachment: 'top center',
-                targetAttachment: 'bottom center',
-                constraints: [{
-                  to: 'scrollParent',
-                  attachment: 'together'
-                }]
-            });
-        </script>
-    </body>
-  </html>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"Xfile-digest://app/assets/deveal/bower_components/tether/examples/testbed/index.html;TTF:charsetI"
-utf-8;F:digest"%7;§VÊ×›¸ª‹äìfmç]Bs»öùHœéÑí:lengthiC:dependencies_digest"%x§t¬ÿ^à¾Ò>ÄÕ²r¦ÄÅPw½•¦ãU×ñ!:idI"E9bbf47fad343c682a51d3fbcff3ebe5988ca875cd744b9db4e93455b244f8afe;F:
-mtimel+fÓ‡W

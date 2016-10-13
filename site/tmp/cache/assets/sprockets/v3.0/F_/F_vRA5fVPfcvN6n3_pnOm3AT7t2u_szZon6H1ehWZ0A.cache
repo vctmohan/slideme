@@ -1,41 +1,0 @@
-{:uriI"êfile://app/assets/deveal/bower_components/jquery/LICENSE.txt?type=text/plain&id=5522e9c9ec39f9cd794711a2130c21fb65204c663db0b7588ad5e78010f7d1bc:ET:load_pathI"app/assets/deveal;T:filenameI":app/assets/deveal/bower_components/jquery/LICENSE.txt;T:	nameI"$bower_components/jquery/LICENSE;T:logical_pathI"(bower_components/jquery/LICENSE.txt;T:content_typeI"text/plain;T:sourceI"FCopyright jQuery Foundation and other contributors, https://jquery.org/
-
-This software consists of voluntary contributions made by many
-individuals. For exact contribution history, see the revision history
-available at https://github.com/jquery/jquery
-
-The following license applies to all parts of this software except as
-documented below:
-
-====
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-====
-
-All files located in the node_modules and external directories are
-externally maintained libraries used by this software which have their
-own licenses; we recommend you read them, as their terms may differ from
-the terms above.
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"4processors:type=text/plain&file_type=text/plain;TTI"Hfile-digest://app/assets/deveal/bower_components/jquery/LICENSE.txt;TTF:charsetI"
-utf-8;F:digest"%˘Ä£†XÅÃÄ_~mﬁDÁı)dw#}7—i®lÁ¿î:lengthiF:dependencies_digest"%n‰:‚9òûIôöS±∂á®,LÄèÀ¸ëõ=9Ç:idI"E5522e9c9ec39f9cd794711a2130c21fb65204c663db0b7588ad5e78010f7d1bc;F:
-mtimel+Í≈êW

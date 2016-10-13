@@ -1,31 +1,0 @@
-{:uriI"•file://app/assets/deveal/bower_components/tether/bower.json?type=application/json&id=6bb0b49cc2b06465cc04dc5685802c7f8e837018d8c206bd831b4d2e67a1ae46:ET:load_pathI"app/assets/deveal;T:filenameI"9app/assets/deveal/bower_components/tether/bower.json;T:	nameI""bower_components/tether/bower;T:logical_pathI"'bower_components/tether/bower.json;T:content_typeI"application/json;T:sourceI"…{
-  "name": "tether",
-  "version": "1.3.3",
-  "homepage": "http://github.hubspot.com/tether",
-  "authors": [
-    "Zack Bloom <zackbloom@gmail.com>",
-    "Adam Schwartz <adam.flynn.schwartz@gmail.com>"
-  ],
-  "maintainers": [
-    "Nicholas Hwang <nick.joosung.hwang@gmail.com>",
-    "Trevor Burnham <trevorburnham@gmail.com>"
-  ],
-  "description": "A client-side library to make absolutely positioned elements attach to elements in the page efficiently.",
-  "keywords": [
-    "javascript"
-  ],
-  "license": "MIT",
-  "main": "dist/js/tether.js",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
-}
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Gfile-digest://app/assets/deveal/bower_components/tether/bower.json;TTF:charsetI"
-utf-8;F:digest"%'(æ<<F±N6:°¾¸Œ˜l{ÌëO­¦!;òûÇ:lengthi…:dependencies_digest"%öS$Ã’â\ áÕåòa—ŠîžmEPTùÁÖW:idI"E6bb0b49cc2b06465cc04dc5685802c7f8e837018d8c206bd831b4d2e67a1ae46;F:
-mtimel+fÓ‡W

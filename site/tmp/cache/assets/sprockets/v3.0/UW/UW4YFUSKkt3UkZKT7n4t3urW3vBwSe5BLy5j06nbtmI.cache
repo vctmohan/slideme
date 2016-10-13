@@ -1,24 +1,0 @@
-{:uriI"«file://app/assets/deveal/bower_components/reveal.js/plugin/multiplex/package.json?type=application/json&id=47513fd2e8563a823b2bb9fcfafbba1cbfe017f8e1bdc1dcfc198446992ea12f:ET:load_pathI"app/assets/deveal;T:filenameI"Oapp/assets/deveal/bower_components/reveal.js/plugin/multiplex/package.json;T:	nameI"8bower_components/reveal.js/plugin/multiplex/package;T:logical_pathI"=bower_components/reveal.js/plugin/multiplex/package.json;T:content_typeI"application/json;T:sourceI"‰{
-  "name": "reveal-js-multiplex",
-  "version": "1.0.0",
-  "description": "reveal.js multiplex server",
-  "homepage": "http://lab.hakim.se/reveal-js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "engines": {
-    "node": "~4.1.1"
-  },
-  "dependencies": {
-    "express": "~4.13.3",
-    "grunt-cli": "~0.1.13",
-    "mustache": "~2.2.1",
-    "socket.io": "~1.3.7"
-  },
-  "license": "MIT"
-}
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"]file-digest://app/assets/deveal/bower_components/reveal.js/plugin/multiplex/package.json;TTF:charsetI"
-utf-8;F:digest"%X€B…n—B„„-â¡3Æ‹ßß†·?_¿:)5:lengthi‰:dependencies_digest"%ış¿Ææiúeå@`fQró%èŠƒäJÈüå4:idI"E47513fd2e8563a823b2bb9fcfafbba1cbfe017f8e1bdc1dcfc198446992ea12f;F:
-mtimel+NáW
