@@ -1,0 +1,31 @@
+{:uriI"˜file://app/assets/deveal/bower_components/reveal.js/bower.json?type=application/json&id=f3d5b464d8fb1129754b5f02873f577551c720d6da79577b98225fd427bdc078:ET:load_pathI"app/assets/deveal;T:filenameI"<app/assets/deveal/bower_components/reveal.js/bower.json;T:	nameI"%bower_components/reveal.js/bower;T:logical_pathI"*bower_components/reveal.js/bower.json;T:content_typeI"application/json;T:sourceI"{
+  "name": "reveal.js",
+  "version": "3.3.0",
+  "main": [
+    "js/reveal.js",
+    "css/reveal.css"
+  ],
+  "homepage": "http://lab.hakim.se/reveal-js/",
+  "license": "MIT",
+  "description": "The HTML Presentation Framework",
+  "authors": [
+    "Hakim El Hattab <hakim.elhattab@gmail.com>"
+  ],
+  "dependencies": {
+    "headjs": "~1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hakimel/reveal.js.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+};T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Jfile-digest://app/assets/deveal/bower_components/reveal.js/bower.json;TTF:charsetI"
+utf-8;F:digest"%™Â¾š‚­ÚNaÿ¾_­2KûO7‚Åûê´(gø:lengthi:dependencies_digest"%ùm'ÁÔêåÜ`3h/5O²Ì»d-ÏPµ7Ó#"À:idI"Ef3d5b464d8fb1129754b5f02873f577551c720d6da79577b98225fd427bdc078;F:
+mtimel+NáW
