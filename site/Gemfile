@@ -47,6 +47,10 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'mysql2'
+end
+
 # Exportar los modelos en formato json
 gem "active_model_serializers"
 
