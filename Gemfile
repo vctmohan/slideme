@@ -53,6 +53,7 @@ end
 
 group :production do
   gem 'mysql2'
+  gem 'mina-unicorn', :require => false
   gem 'unicorn'
 end
 
