@@ -3,6 +3,7 @@ lock '3.6.1'
 
 set :application, 'slideme'
 set :repo_url, 'git@gitd7.datys.cu:devops/slideme.git'
+set :bundle_gemfile, "slideme/Gemfile"
 
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
