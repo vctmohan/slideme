@@ -1,6 +1,6 @@
 #source 'https://rubygems.org'
-source 'http://localhost:9292'
-#source 'https://nexus.datys.cu/content/repositories/rubygems-mirror/'
+#source 'http://localhost:9292'
+source 'https://nexus.datys.cu/content/repositories/rubygems-mirror/'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -45,10 +45,15 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
 end
 
 group :production do
   gem 'mysql2'
+  gem 'unicorn'
 end
 
 # Exportar los modelos en formato json

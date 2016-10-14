@@ -4,7 +4,6 @@
 *.rvmrc
 site/config/additional_environment.rb
 site/config/configuration.yml
-site/config/database.yml
 site/config/email.yml
 site/config/initializers/session_store.rb
 site/config/initializers/secret_token.rb
