@@ -3787,6 +3787,13 @@ html {
     height: 100%;
     margin: 0 auto;
     padding: 0 10px;
+    .logo{
+      float: left;
+      h1{
+        margin-top: 10px;
+        color: #FFF;
+      }
+    }
   }
   h1 {
     display: inline-block;

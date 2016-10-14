@@ -255,15 +255,6 @@
 
     <section class="export">
       <div class="panel-body sl-form">
-        <div class="section promotion">
-          <h2>ZIP, PDF and Dropbox Sync</h2>
-
-          <p>
-            With a Pro account you can export your deck as a ZIP or
-            PDF. It's also possible to automatically sync your work
-            to Dropbox, giving you full offline access.
-          </p>
-        </div>
         <div class="section download-html">
           <h2>Export HTML</h2>
 
@@ -276,9 +267,27 @@
             HTML
           </button>
         </div>
-        <div class="section download-reveal">
-          <h2>Export to reveal.js</h2>
+        <div class="section download-pdf">
+          <h2>Export PDF</h2>
 
+          <p>
+            Download the PDF.
+          </p>
+          <button class="button download-pdf-button l">Download PDF
+          </button>
+        </div>
+        <div class="section download-zip">
+          <h2>Export ZIP</h2>
+
+          <p>
+            Download the ZIP.
+          </p>
+          <button class="button download-zip-button l">Download
+            ZIP
+          </button>
+        </div>
+         <div class="section download-reveal">
+          <h2>Export to reveal.js</h2>
           <p>
             This includes the markup for your content as well as the
             Slides theme CSS. To export, download a copy of the <a
@@ -418,7 +427,18 @@
 <%= javascript_include_tag '/deveal/js/editor/modes/arrange', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag '/deveal/js/editor/modes/preview', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag '/deveal/js/editor/modes/fragment', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag '/deveal/js/editor/components/sidebar', 'data-turbolinks-track' => true %>
+
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/sidebar', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/base', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/export/export', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/export/pdf', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/export/zip', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/import', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/import_file', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/import_reveal', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/revisions', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/settings', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/deveal/js/editor/components/sidebar/style', 'data-turbolinks-track' => true %>
 
 <%= javascript_include_tag '/deveal/js/editor/components/toolbars/toolbars', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag '/deveal/js/editor/components/toolbars/base', 'data-turbolinks-track' => true %>

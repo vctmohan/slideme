@@ -7,8 +7,10 @@ Ejecutar esto cada ves que se sube una imagen bundle exec rake paperclip:refresh
 Faltan los font de las letras css
 
 Ver que datos se envian en las revisiones /api/v1/decks/9/revisions.json?page=1
-Emportar
-importar
+#Emportar
+Crear el zip
+Crear el pdf
+
 
 #Socket
 Cuando emitir el evento
@@ -20,9 +22,13 @@ Cuando emitir el evento
 
 #Validaciones
 Que el slug sea unico por usuario y asignarle uno diferente cuando se copie
+Que solo pueda exportar el que tenga permiso
+Validar que en parametro params[:export][:export_type] en export solo permita pdf y zip
+
 
 #Por Hacer Completo
 kudos
 views
 speaker
 comentarios
+importar
