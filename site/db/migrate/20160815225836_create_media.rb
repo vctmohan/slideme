@@ -7,6 +7,5 @@ class CreateMedia < ActiveRecord::Migration
       t.references :tags, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
     end
-    #add_index :media, [:tags, :created_at]
   end
 end
