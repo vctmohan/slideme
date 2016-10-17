@@ -6,13 +6,16 @@ class MediaSerializer < ActiveModel::Serializer
   end
 
   attribute :url do
-    asset_url(object.file.url)
+    #asset_url(object.file.url)
     #request.protocol + request.host_with_port + object.file.url
+    "http://slideme.datys.cu/#{object.file.url}"
   end
 
   attribute :thumb_url do
-    asset_url(object.file.url(:thumb))
+    #asset_url(object.file.url(:thumb))
     #request.protocol + request.host_with_port + object.file.url(:thumb)
+    "http://slideme.datys.cu/#{object.file.url(:thumb)}"
+
   end
 
   attribute :content_type do
