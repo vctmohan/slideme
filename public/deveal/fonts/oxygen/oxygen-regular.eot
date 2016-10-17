@@ -1,0 +1,11 @@
+--2016-10-17 10:21:06--  https://s3.amazonaws.com/static.slid.es/fonts/oxygen/oxygen-regular.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 34152 (33K) [application/octet-stream]
+Saving to: ‘oxygen-regular.eot.3’
+
+     0K .......... .......... .......... ...                  100% 4,52K=7,4s
+
+2016-10-17 10:21:19 (4,52 KB/s) - ‘oxygen-regular.eot.3’ saved [34152/34152]
+

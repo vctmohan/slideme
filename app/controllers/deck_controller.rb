@@ -131,7 +131,6 @@ class DeckController < ApplicationController
     end
 
     if request.post?
-
       kit = IMGKit.new("#{request.host}/preview/#{params[:id]}", :width => 240, :height => 230)
       img = kit.to_img(:png)
 

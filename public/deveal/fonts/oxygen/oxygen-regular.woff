@@ -1,0 +1,11 @@
+--2016-10-17 10:37:03--  https://s3.amazonaws.com/static.slid.es/fonts/oxygen/oxygen-regular.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 42816 (42K) [application/x-font-woff]
+Saving to: ‘oxygen-regular.woff.1’
+
+     0K .......... .......... .......... .......... .         100% 7,94K=5,3s
+
+2016-10-17 10:37:09 (7,94 KB/s) - ‘oxygen-regular.woff.1’ saved [42816/42816]
+

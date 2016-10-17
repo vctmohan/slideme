@@ -1,0 +1,12 @@
+--2016-10-17 10:37:09--  https://s3.amazonaws.com/static.slid.es/fonts/oxygen/oxygen-regular.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 89280 (87K) [application/octet-stream]
+Saving to: ‘oxygen-regular.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 57% 9,78K 4s
+    50K .......... .......... .......... .......              100% 11,6K=8,3s
+
+2016-10-17 10:37:18 (10,5 KB/s) - ‘oxygen-regular.ttf.1’ saved [89280/89280]
+

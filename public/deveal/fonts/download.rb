@@ -1,4 +1,4 @@
-host = "http://slide.com"
+host = "https://s3.amazonaws.com/static.slid.es/fonts"
 Dir.foreach(".") do |dir|
   if dir == "." or dir == ".."
     next
@@ -13,8 +13,9 @@ Dir.foreach(".") do |dir|
         comp= /.*url\(\'(?<url>.*(\.eot|\.eot\?\#iefix|\.woff|\.ttf))\'.*/.match(line)
         if comp
           font_dir=dir + "/"+comp[1]
-          wget_comand = "wget #{host}/#{font_dir} -o #{path}/#{comp[1]}"
+          wget_comand = "https_proxy='http://localhost:3128' wget #{host}/#{font_dir} -o #{path}/#{comp[1]}"
           p wget_comand
+          system( wget_comand )
         end
       end
     end
