@@ -1,3 +1,5 @@
+include ActionView::Helpers
+
 class MediaSerializer < ActiveModel::Serializer
   attributes :id, :url, :label,:inline,:thumb_url, :content_type
 

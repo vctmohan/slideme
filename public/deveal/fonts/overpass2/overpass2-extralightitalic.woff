@@ -1,0 +1,12 @@
+--2016-10-17 11:26:09--  https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2-extralightitalic.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 64152 (63K) [application/x-font-woff]
+Saving to: ‘overpass2-extralightitalic.woff.1’
+
+     0K .......... .......... .......... .......... .......... 79% 1,17K 11s
+    50K .......... ..                                         100% 4,56K=46s
+
+2016-10-17 11:26:56 (1,37 KB/s) - ‘overpass2-extralightitalic.woff.1’ saved [64152/64152]
+
