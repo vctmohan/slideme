@@ -1,0 +1,11 @@
+--2016-10-17 10:39:52--  https://s3.amazonaws.com/static.slid.es/fonts/lato/lato-bold.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 39404 (38K) [application/x-font-woff]
+Saving to: ‘lato-bold.woff.1’
+
+     0K .......... .......... .......... ........             100% 10,2K=3,8s
+
+2016-10-17 10:39:57 (10,2 KB/s) - ‘lato-bold.woff.1’ saved [39404/39404]
+

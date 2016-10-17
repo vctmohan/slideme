@@ -1,0 +1,11 @@
+--2016-10-17 11:11:52--  https://s3.amazonaws.com/static.slid.es/fonts/josefinsans/josefinsans-regular.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 23284 (23K) [application/x-font-woff]
+Saving to: ‘josefinsans-regular.woff.1’
+
+     0K .......... .......... ..                              100% 6,71K=3,4s
+
+2016-10-17 11:11:57 (6,71 KB/s) - ‘josefinsans-regular.woff.1’ saved [23284/23284]
+

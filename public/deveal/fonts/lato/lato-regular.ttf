@@ -1,0 +1,12 @@
+--2016-10-17 10:38:25--  https://s3.amazonaws.com/static.slid.es/fonts/lato/lato-regular.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 70532 (69K) [application/octet-stream]
+Saving to: ‘lato-regular.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 72%  726  27s
+    50K .......... ........                                   100% 4,89K=74s
+
+2016-10-17 10:39:41 (948 B/s) - ‘lato-regular.ttf.1’ saved [70532/70532]
+

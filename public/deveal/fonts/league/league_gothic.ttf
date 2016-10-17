@@ -1,0 +1,11 @@
+--2016-10-17 11:05:03--  https://s3.amazonaws.com/static.slid.es/fonts/league/league_gothic.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 42324 (41K) [application/octet-stream]
+Saving to: ‘league_gothic.ttf.1’
+
+     0K .......... .......... .......... .......... .         100% 4,12K=10s
+
+2016-10-17 11:05:16 (4,12 KB/s) - ‘league_gothic.ttf.1’ saved [42324/42324]
+

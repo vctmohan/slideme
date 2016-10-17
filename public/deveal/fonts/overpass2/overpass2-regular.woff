@@ -1,0 +1,11 @@
+--2016-10-17 11:16:07--  https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2-regular.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 47420 (46K) [application/x-font-woff]
+Saving to: ‘overpass2-regular.woff.1’
+
+     0K .......... .......... .......... .......... ......    100% 4,18K=11s
+
+2016-10-17 11:16:23 (4,18 KB/s) - ‘overpass2-regular.woff.1’ saved [47420/47420]
+

@@ -1,0 +1,11 @@
+--2016-10-17 11:12:29--  https://s3.amazonaws.com/static.slid.es/fonts/josefinsans/josefinsans-bold.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 43812 (43K) [application/octet-stream]
+Saving to: ‘josefinsans-bold.ttf.1’
+
+     0K .......... .......... .......... .......... ..        100% 9,52K=4,5s
+
+2016-10-17 11:12:35 (9,52 KB/s) - ‘josefinsans-bold.ttf.1’ saved [43812/43812]
+

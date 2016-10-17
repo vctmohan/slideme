@@ -1,0 +1,11 @@
+--2016-10-17 11:06:55--  https://s3.amazonaws.com/static.slid.es/fonts/quicksand/quicksand-bold.eot?
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 21465 (21K) [application/octet-stream]
+Saving to: ‘quicksand-bold.eot?’
+
+     0K .......... ..........                                 100% 3,15K=6,7s
+
+2016-10-17 11:07:06 (3,15 KB/s) - ‘quicksand-bold.eot?’ saved [21465/21465]
+

@@ -1,0 +1,12 @@
+--2016-10-17 10:42:03--  https://s3.amazonaws.com/static.slid.es/fonts/merriweathersans/merriweathersans-bold.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 97132 (95K) [application/octet-stream]
+Saving to: ‘merriweathersans-bold.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 52% 1,07K 42s
+    50K .......... .......... .......... .......... ....      100% 3,19K=61s
+
+2016-10-17 10:43:05 (1,56 KB/s) - ‘merriweathersans-bold.ttf.1’ saved [97132/97132]
+

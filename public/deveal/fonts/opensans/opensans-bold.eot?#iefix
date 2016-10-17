@@ -1,0 +1,12 @@
+--2016-10-17 10:51:21--  https://s3.amazonaws.com/static.slid.es/fonts/opensans/opensans-bold.eot?
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 80293 (78K) [application/octet-stream]
+Saving to: ‘opensans-bold.eot?’
+
+     0K .......... .......... .......... .......... .......... 63% 7,26K 4s
+    50K .......... .......... ........                        100% 5,04K=13s
+
+2016-10-17 10:51:34 (6,26 KB/s) - ‘opensans-bold.eot?’ saved [80293/80293]
+

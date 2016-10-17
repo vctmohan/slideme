@@ -1,0 +1,11 @@
+--2016-10-17 11:06:42--  https://s3.amazonaws.com/static.slid.es/fonts/quicksand/quicksand-regular.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 42584 (42K) [application/octet-stream]
+Saving to: ‘quicksand-regular.ttf.1’
+
+     0K .......... .......... .......... .......... .         100% 5,49K=7,6s
+
+2016-10-17 11:06:51 (5,49 KB/s) - ‘quicksand-regular.ttf.1’ saved [42584/42584]
+

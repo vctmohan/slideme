@@ -1,0 +1,12 @@
+--2016-10-17 11:13:02--  https://s3.amazonaws.com/static.slid.es/fonts/josefinsans/josefinsans-italic.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 53240 (52K) [application/octet-stream]
+Saving to: ‘josefinsans-italic.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 96% 6,77K 0s
+    50K .                                                     100% 13,9M=7,4s
+
+2016-10-17 11:13:11 (7,04 KB/s) - ‘josefinsans-italic.ttf.1’ saved [53240/53240]
+

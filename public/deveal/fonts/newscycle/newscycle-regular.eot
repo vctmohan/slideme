@@ -1,0 +1,13 @@
+--2016-10-17 10:43:05--  https://s3.amazonaws.com/static.slid.es/fonts/newscycle/newscycle-regular.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 115452 (113K) [application/octet-stream]
+Saving to: ‘newscycle-regular.eot.1’
+
+     0K .......... .......... .......... .......... .......... 44% 5,09K 12s
+    50K .......... .......... .......... .......... .......... 88% 8,27K 2s
+   100K .......... ..                                         100% 16,0K=17s
+
+2016-10-17 10:43:24 (6,76 KB/s) - ‘newscycle-regular.eot.1’ saved [115452/115452]
+

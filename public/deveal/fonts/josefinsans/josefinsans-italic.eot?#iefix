@@ -1,0 +1,11 @@
+--2016-10-17 11:12:44--  https://s3.amazonaws.com/static.slid.es/fonts/josefinsans/josefinsans-italic.eot?
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 24475 (24K) [application/octet-stream]
+Saving to: ‘josefinsans-italic.eot?’
+
+     0K .......... .......... ...                             100% 4,11K=5,8s
+
+2016-10-17 11:12:52 (4,11 KB/s) - ‘josefinsans-italic.eot?’ saved [24475/24475]
+

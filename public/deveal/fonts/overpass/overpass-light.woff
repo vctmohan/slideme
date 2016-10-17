@@ -1,0 +1,11 @@
+--2016-10-17 10:47:44--  https://s3.amazonaws.com/static.slid.es/fonts/overpass/overpass-light.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 19468 (19K) [application/x-font-woff]
+Saving to: ‘overpass-light.woff.1’
+
+     0K .......... .........                                  100% 5,32K=3,6s
+
+2016-10-17 10:47:49 (5,32 KB/s) - ‘overpass-light.woff.1’ saved [19468/19468]
+

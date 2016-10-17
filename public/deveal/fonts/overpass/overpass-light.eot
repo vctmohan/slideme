@@ -1,0 +1,11 @@
+--2016-10-17 10:47:35--  https://s3.amazonaws.com/static.slid.es/fonts/overpass/overpass-light.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 18668 (18K) [application/vnd.ms-fontobject]
+Saving to: ‘overpass-light.eot.1’
+
+     0K .......... ........                                   100% 5,33K=3,4s
+
+2016-10-17 10:47:39 (5,33 KB/s) - ‘overpass-light.eot.1’ saved [18668/18668]
+

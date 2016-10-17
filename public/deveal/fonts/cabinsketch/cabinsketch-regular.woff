@@ -1,0 +1,13 @@
+--2016-10-17 11:09:51--  https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch-regular.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 112560 (110K) [application/x-font-woff]
+Saving to: ‘cabinsketch-regular.woff.2’
+
+     0K .......... .......... .......... .......... .......... 45% 1,35K 45s
+    50K .......... .......... .......... .......... .......... 90% 2,44K 6s
+   100K .........                                             100% 3,74K=60s
+
+2016-10-17 11:10:53 (1,82 KB/s) - ‘cabinsketch-regular.woff.2’ saved [112560/112560]
+

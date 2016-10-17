@@ -1,0 +1,11 @@
+--2016-10-17 11:13:21--  https://s3.amazonaws.com/static.slid.es/fonts/josefinsans/josefinsans-bolditalic.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 26536 (26K) [application/x-font-woff]
+Saving to: ‘josefinsans-bolditalic.woff.1’
+
+     0K .......... .......... .....                           100% 8,97K=2,9s
+
+2016-10-17 11:13:28 (8,97 KB/s) - ‘josefinsans-bolditalic.woff.1’ saved [26536/26536]
+

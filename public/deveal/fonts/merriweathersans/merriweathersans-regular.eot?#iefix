@@ -1,0 +1,11 @@
+--2016-10-17 10:41:02--  https://s3.amazonaws.com/static.slid.es/fonts/merriweathersans/merriweathersans-regular.eot?
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 37253 (36K) [application/octet-stream]
+Saving to: ‘merriweathersans-regular.eot?’
+
+     0K .......... .......... .......... ......               100% 8,89K=4,1s
+
+2016-10-17 10:41:08 (8,89 KB/s) - ‘merriweathersans-regular.eot?’ saved [37253/37253]
+

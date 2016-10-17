@@ -1,0 +1,12 @@
+--2016-10-17 11:09:11--  https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch-regular.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 95746 (94K) [application/octet-stream]
+Saving to: ‘cabinsketch-regular.eot.2’
+
+     0K .......... .......... .......... .......... .......... 53% 5,60K 8s
+    50K .......... .......... .......... .......... ...       100% 4,42K=19s
+
+2016-10-17 11:09:32 (4,99 KB/s) - ‘cabinsketch-regular.eot.2’ saved [95746/95746]
+

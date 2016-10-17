@@ -1,0 +1,11 @@
+--2016-10-17 11:06:36--  https://s3.amazonaws.com/static.slid.es/fonts/quicksand/quicksand-regular.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 24788 (24K) [application/x-font-woff]
+Saving to: ‘quicksand-regular.woff.1’
+
+     0K .......... .......... ....                            100% 5,94K=4,1s
+
+2016-10-17 11:06:42 (5,94 KB/s) - ‘quicksand-regular.woff.1’ saved [24788/24788]
+

@@ -1,0 +1,11 @@
+--2016-10-17 10:41:08--  https://s3.amazonaws.com/static.slid.es/fonts/merriweathersans/merriweathersans-regular.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 47280 (46K) [application/x-font-woff]
+Saving to: ‘merriweathersans-regular.woff.1’
+
+     0K .......... .......... .......... .......... ......    100% 10,4K=4,5s
+
+2016-10-17 10:41:14 (10,4 KB/s) - ‘merriweathersans-regular.woff.1’ saved [47280/47280]
+

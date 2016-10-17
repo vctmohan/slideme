@@ -1,0 +1,11 @@
+--2016-10-17 10:40:13--  https://s3.amazonaws.com/static.slid.es/fonts/lato/lato-italic.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 35908 (35K) [application/x-font-woff]
+Saving to: ‘lato-italic.woff.1’
+
+     0K .......... .......... .......... .....                100% 7,13K=4,9s
+
+2016-10-17 10:40:19 (7,13 KB/s) - ‘lato-italic.woff.1’ saved [35908/35908]
+

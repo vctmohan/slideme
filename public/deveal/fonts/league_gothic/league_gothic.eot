@@ -1,0 +1,6 @@
+--2016-10-17 11:07:32--  https://s3.amazonaws.com/static.slid.es/fonts/league_gothic/league_gothic.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 403 Forbidden
+2016-10-17 11:07:33 ERROR 403: Forbidden.
+

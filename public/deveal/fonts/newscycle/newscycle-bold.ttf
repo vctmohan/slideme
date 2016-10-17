@@ -1,0 +1,14 @@
+--2016-10-17 10:45:10--  https://s3.amazonaws.com/static.slid.es/fonts/newscycle/newscycle-bold.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 189712 (185K) [application/octet-stream]
+Saving to: ‘newscycle-bold.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 26% 7,80K 17s
+    50K .......... .......... .......... .......... .......... 53% 9,26K 10s
+   100K .......... .......... .......... .......... .......... 80% 8,32K 4s
+   150K .......... .......... .......... .....                100% 7,60K=22s
+
+2016-10-17 10:45:38 (8,25 KB/s) - ‘newscycle-bold.ttf.1’ saved [189712/189712]
+

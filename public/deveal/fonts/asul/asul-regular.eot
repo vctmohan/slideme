@@ -1,0 +1,11 @@
+--2016-10-17 11:05:16--  https://s3.amazonaws.com/static.slid.es/fonts/asul/asul-regular.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 29850 (29K) [application/octet-stream]
+Saving to: ‘asul-regular.eot.1’
+
+     0K .......... .......... .........                       100% 10,2K=2,9s
+
+2016-10-17 11:05:20 (10,2 KB/s) - ‘asul-regular.eot.1’ saved [29850/29850]
+

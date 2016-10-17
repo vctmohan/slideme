@@ -1,0 +1,12 @@
+--2016-10-17 10:37:43--  https://s3.amazonaws.com/static.slid.es/fonts/oxygen/oxygen-bold.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 89316 (87K) [application/octet-stream]
+Saving to: ‘oxygen-bold.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 57% 7,51K 5s
+    50K .......... .......... .......... .......              100% 7,52K=12s
+
+2016-10-17 10:37:56 (7,51 KB/s) - ‘oxygen-bold.ttf.1’ saved [89316/89316]
+

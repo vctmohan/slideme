@@ -6,11 +6,13 @@ class MediaSerializer < ActiveModel::Serializer
   end
 
   attribute :url do
-    request.protocol + request.host_with_port + object.file.url
+    asset_url(object.file.url)
+    #request.protocol + request.host_with_port + object.file.url
   end
 
   attribute :thumb_url do
-    request.protocol + request.host_with_port + object.file.url(:thumb)
+    asset_url(object.file.url(:thumb))
+    #request.protocol + request.host_with_port + object.file.url(:thumb)
   end
 
   attribute :content_type do

@@ -1,0 +1,11 @@
+--2016-10-17 11:07:06--  https://s3.amazonaws.com/static.slid.es/fonts/quicksand/quicksand-bold.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 25048 (24K) [application/x-font-woff]
+Saving to: ‘quicksand-bold.woff.1’
+
+     0K .......... .......... ....                            100% 1,51K=16s
+
+2016-10-17 11:07:26 (1,51 KB/s) - ‘quicksand-bold.woff.1’ saved [25048/25048]
+

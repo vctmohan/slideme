@@ -1,0 +1,12 @@
+--2016-10-17 11:05:43--  https://s3.amazonaws.com/static.slid.es/fonts/asul/asul-regular.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 59332 (58K) [application/octet-stream]
+Saving to: ‘asul-regular.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 86% 8,94K 1s
+    50K .......                                               100% 2,51K=8,8s
+
+2016-10-17 11:05:54 (6,61 KB/s) - ‘asul-regular.ttf.1’ saved [59332/59332]
+

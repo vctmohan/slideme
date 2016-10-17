@@ -1,0 +1,11 @@
+--2016-10-17 11:04:57--  https://s3.amazonaws.com/static.slid.es/fonts/league/league_gothic.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 21288 (21K) [application/x-font-woff]
+Saving to: ‘league_gothic.woff.1’
+
+     0K .......... ..........                                 100% 6,00K=3,5s
+
+2016-10-17 11:05:03 (6,00 KB/s) - ‘league_gothic.woff.1’ saved [21288/21288]
+

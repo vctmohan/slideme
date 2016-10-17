@@ -1,0 +1,11 @@
+--2016-10-17 10:37:56--  https://s3.amazonaws.com/static.slid.es/fonts/lato/lato-regular.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 33353 (33K) [application/octet-stream]
+Saving to: ‘lato-regular.eot.1’
+
+     0K .......... .......... .......... ..                   100% 2,03K=16s
+
+2016-10-17 10:38:14 (2,03 KB/s) - ‘lato-regular.eot.1’ saved [33353/33353]
+

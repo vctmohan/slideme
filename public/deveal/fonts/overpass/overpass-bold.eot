@@ -1,0 +1,11 @@
+--2016-10-17 10:45:38--  https://s3.amazonaws.com/static.slid.es/fonts/overpass/overpass-bold.eot
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 26099 (25K) [application/octet-stream]
+Saving to: ‘overpass-bold.eot.1’
+
+     0K .......... .......... .....                           100% 5,09K=5,0s
+
+2016-10-17 10:45:45 (5,09 KB/s) - ‘overpass-bold.eot.1’ saved [26099/26099]
+

@@ -1,0 +1,12 @@
+--2016-10-17 11:14:54--  https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2-bold.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 92852 (91K) [application/octet-stream]
+Saving to: ‘overpass2-bold.ttf.1’
+
+     0K .......... .......... .......... .......... .......... 55% 3,58K 11s
+    50K .......... .......... .......... ..........           100% 4,26K=24s
+
+2016-10-17 11:15:21 (3,86 KB/s) - ‘overpass2-bold.ttf.1’ saved [92852/92852]
+

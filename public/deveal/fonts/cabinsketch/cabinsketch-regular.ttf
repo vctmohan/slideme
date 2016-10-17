@@ -1,0 +1,14 @@
+--2016-10-17 11:10:53--  https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch-regular.ttf
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 197848 (193K) [application/octet-stream]
+Saving to: ‘cabinsketch-regular.ttf.2’
+
+     0K .......... .......... .......... .......... .......... 25% 7,34K 20s
+    50K .......... .......... .......... .......... .......... 51% 9,42K 11s
+   100K .......... .......... .......... .......... .......... 77% 8,37K 5s
+   150K .......... .......... .......... .......... ...       100% 1,52K=46s
+
+2016-10-17 11:11:41 (4,16 KB/s) - ‘cabinsketch-regular.ttf.2’ saved [197848/197848]
+

@@ -1,0 +1,11 @@
+--2016-10-17 11:06:04--  https://s3.amazonaws.com/static.slid.es/fonts/asul/asul-bold.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 34156 (33K) [application/x-font-woff]
+Saving to: ‘asul-bold.woff.1’
+
+     0K .......... .......... .......... ...                  100% 4,90K=6,8s
+
+2016-10-17 11:06:12 (4,90 KB/s) - ‘asul-bold.woff.1’ saved [34156/34156]
+

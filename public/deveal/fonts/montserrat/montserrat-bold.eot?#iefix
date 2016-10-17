@@ -1,0 +1,11 @@
+--2016-10-17 11:14:22--  https://s3.amazonaws.com/static.slid.es/fonts/montserrat/montserrat-bold.eot?
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 25380 (25K) [application/octet-stream]
+Saving to: ‘montserrat-bold.eot?’
+
+     0K .......... .......... ....                            100% 9,26K=2,7s
+
+2016-10-17 11:14:26 (9,26 KB/s) - ‘montserrat-bold.eot?’ saved [25380/25380]
+

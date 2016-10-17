@@ -1,0 +1,22 @@
+--2016-10-17 11:19:10--  https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2-lightitalic.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 66292 (65K) [application/x-font-woff]
+Saving to: ‘overpass2-lightitalic.woff.1’
+
+     0K .......... .......... .......... ...                   51% 2,58K=13s
+
+2016-10-17 11:24:17 (2,58 KB/s) - Connection closed at byte 34412. Retrying.
+
+--2016-10-17 11:24:18--  (try: 2)  https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2-lightitalic.woff
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 206 Partial Content
+Length: 66292 (65K), 31880 (31K) remaining [application/x-font-woff]
+Saving to: ‘overpass2-lightitalic.woff.1’
+
+     0K ,,,,,,,,,, ,,,,,,,,,, ,,,,,,,,,, ,,,....... .......... 77% 8,04K 6s
+    50K .......... ....                                       100% 2,80K=11s
+
+2016-10-17 11:24:31 (2,71 KB/s) - ‘overpass2-lightitalic.woff.1’ saved [66292/66292]
+

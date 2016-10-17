@@ -1,0 +1,14 @@
+--2016-10-17 10:43:43--  https://s3.amazonaws.com/static.slid.es/fonts/newscycle/newscycle-regular.woff
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 155224 (152K) [application/x-font-woff]
+Saving to: ‘newscycle-regular.woff.1’
+
+     0K .......... .......... .......... .......... .......... 32% 7,62K 13s
+    50K .......... .......... .......... .......... .......... 65% 10,5K 6s
+   100K .......... .......... .......... .......... .......... 98% 9,02K 0s
+   150K .                                                     100% 3025G=17s
+
+2016-10-17 10:44:02 (8,98 KB/s) - ‘newscycle-regular.woff.1’ saved [155224/155224]
+

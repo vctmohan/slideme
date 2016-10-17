@@ -4,3 +4,8 @@ Connecting to localhost (localhost)|127.0.0.1|:3128... connected.
 Proxy request sent, awaiting response... 200 OK
 Length: 43356 (42K) [application/x-font-woff]
 Saving to: ‘oxygen-bold.woff.1’
+
+     0K .......... .......... .......... .......... ..        100% 4,28K=9,9s
+
+2016-10-17 10:37:43 (4,28 KB/s) - ‘oxygen-bold.woff.1’ saved [43356/43356]
+
