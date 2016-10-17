@@ -1,0 +1,11 @@
+<div class="reveal-viewport theme-font-<%= @deck.theme_color %> theme-color-<%= @deck.theme_color %>">
+  <div class="reveal">
+    <div class="slides">
+      <% if @deck and @deck.data %>
+          <%= raw @deck.data %>
+      <% else %>
+          <section></section>
+      <% end %>
+    </div>
+  </div>
+</div>

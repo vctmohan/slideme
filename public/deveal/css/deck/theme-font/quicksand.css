@@ -1,0 +1,23 @@
+
+.theme-font-quicksand .themed, .theme-font-quicksand .reveal {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 30px;
+}
+
+.theme-font-quicksand .themed section, .theme-font-quicksand .reveal section {
+  line-height: 1.3;
+}
+
+.theme-font-quicksand .themed h1, .theme-font-quicksand .themed h2, .theme-font-quicksand .themed h3, .theme-font-quicksand .themed h4, .theme-font-quicksand .themed h5, .theme-font-quicksand .themed h6 {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  text-transform: uppercase;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.theme-font-quicksand .reveal h1, .theme-font-quicksand .reveal h2, .theme-font-quicksand .reveal h3, .theme-font-quicksand .reveal h4, .theme-font-quicksand .reveal h5, .theme-font-quicksand .reveal h6 {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  text-transform: uppercase;
+  line-height: 1.3;
+  font-weight: normal;
+}

@@ -1,0 +1,95 @@
+
+.theme-color-blue-yellow {
+  background: #44a0dd;
+}
+
+.theme-color-blue-yellow body {
+  background: transparent;
+}
+
+.theme-color-blue-yellow .theme-body-color-block {
+  background: white;
+}
+
+.theme-color-blue-yellow .theme-link-color-block {
+  background: #ecec6a;
+}
+
+.theme-color-blue-yellow .themed, .theme-color-blue-yellow .reveal {
+  color: white;
+}
+
+.theme-color-blue-yellow .themed a, .theme-color-blue-yellow .reveal a {
+  color: #ecec6a;
+}
+
+.theme-color-blue-yellow .themed a:hover {
+  color: #f8f8c4;
+}
+
+.theme-color-blue-yellow .reveal a:hover {
+  color: #f8f8c4;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-left {
+  border-right-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-left.enabled {
+  border-right-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-right {
+  border-left-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-right.enabled {
+  border-left-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-up {
+  border-bottom-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-down {
+  border-top-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-down.enabled {
+  border-top-color: #ecec6a;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #f8f8c4;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #f8f8c4;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #f8f8c4;
+}
+
+.theme-color-blue-yellow .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #f8f8c4;
+}
+
+.theme-color-blue-yellow .reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-color-blue-yellow .reveal .progress span {
+  background: #ecec6a;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.theme-color-blue-yellow .reveal .slide-number {
+  color: #111;
+  background-color: rgba(255, 255, 255, 0.3);
+}

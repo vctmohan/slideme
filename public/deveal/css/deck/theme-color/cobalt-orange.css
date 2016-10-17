@@ -1,0 +1,97 @@
+
+.theme-color-cobalt-orange {
+  background-color: #13335a;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #1a4984 0%, #13335a 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #1a4984 0%, #13335a 100%);
+}
+
+.theme-color-cobalt-orange body {
+  background: transparent;
+}
+
+.theme-color-cobalt-orange .theme-body-color-block {
+  background: white;
+}
+
+.theme-color-cobalt-orange .theme-link-color-block {
+  background: #e08c14;
+}
+
+.theme-color-cobalt-orange .themed, .theme-color-cobalt-orange .reveal {
+  color: white;
+}
+
+.theme-color-cobalt-orange .themed a, .theme-color-cobalt-orange .reveal a {
+  color: #e08c14;
+}
+
+.theme-color-cobalt-orange .themed a:hover {
+  color: #f2b968;
+}
+
+.theme-color-cobalt-orange .reveal a:hover {
+  color: #f2b968;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-left {
+  border-right-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-left.enabled {
+  border-right-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-right {
+  border-left-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-right.enabled {
+  border-left-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-up {
+  border-bottom-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-down {
+  border-top-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-down.enabled {
+  border-top-color: #e08c14;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #f2b968;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #f2b968;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #f2b968;
+}
+
+.theme-color-cobalt-orange .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #f2b968;
+}
+
+.theme-color-cobalt-orange .reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-color-cobalt-orange .reveal .progress span {
+  background: #e08c14;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.theme-color-cobalt-orange .reveal .slide-number {
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.3);
+}

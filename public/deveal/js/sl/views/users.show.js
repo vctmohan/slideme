@@ -39,7 +39,6 @@ SL("views.users").Show = SL.views.Base.extend({
         $(".deck-filters-search").on("vclick", function (t) {
             $(this).focus();
             t.preventDefault();
-            SL.analytics.track("User.show: Search");
         });
         $(".deck-filters-search").on("input", function (t) {
             this.searchDecks($(t.currentTarget).val());
@@ -248,7 +247,6 @@ SL("views.users").Show = SL.views.Base.extend({
         n.canceled.add(function () {
             t.removeClass("hover")
         });
-        SL.analytics.track("User.show: Delete deck");
     }, 
     onVisibilityClicked: function (t, e) {
         e.preventDefault(), t.addClass("hover");
@@ -257,20 +255,20 @@ SL("views.users").Show = SL.views.Base.extend({
             html: SL.locale.get("DECK_VISIBILITY_CHANGE_SELF"),
             selected: i.visibility === SL.models.Deck.VISIBILITY_SELF,
             callback: function () {
-                this.saveVisibility(t, SL.models.Deck.VISIBILITY_SELF), SL.analytics.track("User.show: Visibility changed", "self")
+                this.saveVisibility(t, SL.models.Deck.VISIBILITY_SELF);
             }.bind(this)
         }), SL.current_user.isEnterprise() && n.push({
             html: SL.locale.get("DECK_VISIBILITY_CHANGE_TEAM"),
             selected: i.visibility === SL.models.Deck.VISIBILITY_TEAM,
             className: "divider",
             callback: function () {
-                this.saveVisibility(t, SL.models.Deck.VISIBILITY_TEAM), SL.analytics.track("User.show: Visibility changed", "team")
+                this.saveVisibility(t, SL.models.Deck.VISIBILITY_TEAM);
             }.bind(this)
         }), n.push({
             html: SL.locale.get("DECK_VISIBILITY_CHANGE_ALL"),
             selected: i.visibility === SL.models.Deck.VISIBILITY_ALL,
             callback: function () {
-                this.saveVisibility(t, SL.models.Deck.VISIBILITY_ALL), SL.analytics.track("User.show: Visibility changed", "all")
+                this.saveVisibility(t, SL.models.Deck.VISIBILITY_ALL);
             }.bind(this)
         });
         var s = SL.prompt({
@@ -281,7 +279,7 @@ SL("views.users").Show = SL.views.Base.extend({
         });
         s.canceled.add(function () {
             t.removeClass("hover")
-        }), SL.analytics.track("User.show: Visibility menu opened")
+        })
     }, onShareClicked: function (t, e) {
         e.preventDefault();
         var i = this.getDeckData(t);
@@ -344,6 +342,6 @@ SL("views.users").Show = SL.views.Base.extend({
     }, onWindowScroll: function () {
         this.loadImagesInView()
     }, onSortOptionSelected: function (t) {
-        SL.analytics.track("User.show: Sort", t), this.sortDecks(t)
+        this.sortDecks(t);
     }
 });

@@ -63,15 +63,20 @@ SL("editor.components").Toolbars = Class.extend({
         });
         var t = this.settingsPrompt.getDOMElement().find("#editor-settings-grid");
         t.prop("checked", SL.current_user.settings.get("editor_grid")), t.on("change", function (e) {
-            SL.current_user.settings.set("editor_grid", e.currentTarget.checked), SL.current_user.settings.save(["editor_grid"]), SL.editor.controllers.Grid.refresh(), SL.analytics.trackEditor("Toggle Grid")
+            SL.current_user.settings.set("editor_grid", e.currentTarget.checked);
+            SL.current_user.settings.save(["editor_grid"]);
+            SL.editor.controllers.Grid.refresh();
         });
         var i = this.settingsPrompt.getDOMElement().find("#editor-settings-snap");
         i.prop("checked", SL.current_user.settings.get("editor_snap")), i.on("change", function (e) {
-            SL.current_user.settings.set("editor_snap", e.currentTarget.checked), SL.current_user.settings.save(["editor_snap"]), SL.analytics.trackEditor("Toggle Snap")
+            SL.current_user.settings.set("editor_snap", e.currentTarget.checked);
+            SL.current_user.settings.save(["editor_snap"]);
         });
         var n = this.settingsPrompt.getDOMElement().find("#editor-settings-developer-mode");
         n.prop("checked", SL.current_user.settings.get("developer_mode")), n.on("change", function (e) {
-            SL.current_user.settings.set("developer_mode", e.currentTarget.checked), SL.current_user.settings.save(["developer_mode"]), SL.view.slideOptions.configure({html: e.currentTarget.checked}), SL.analytics.trackEditor("Toggle Developer Mode")
+            SL.current_user.settings.set("developer_mode", e.currentTarget.checked);
+            SL.current_user.settings.save(["developer_mode"]);
+            SL.view.slideOptions.configure({html: e.currentTarget.checked});
         })
     }
 });

@@ -147,7 +147,7 @@ SL("components.collab").CommentThread = Class.extend({
         });
         i.confirmed.add(function (i) {
             "string" == typeof i && i.trim().length > 0 && (e.set("message", i), e.save(["message"]).done(this.refreshComment.bind(this, t)))
-        }.bind(this)), SL.analytics.trackCollaboration("Edit comment")
+        }.bind(this))
     }, onDeleteComment: function (t) {
         var e = t.data("model");
         SL.prompt({
@@ -163,7 +163,7 @@ SL("components.collab").CommentThread = Class.extend({
                     this.comments.remove(e), e.destroy()
                 }.bind(this)
             }]
-        }), SL.analytics.trackCollaboration("Delete comment")
+        })
     }, onLoadMoreClicked: function () {
         this.loadMoreButton.prop("disabled", true).text(this.strings.loadingMoreComments), this.comments.loadNextPage().then(function (t) {
             var e = this.domElement.scrollTop(), i = this.domElement.prop("scrollHeight");

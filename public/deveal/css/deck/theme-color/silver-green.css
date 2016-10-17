@@ -1,0 +1,97 @@
+
+.theme-color-silver-green {
+  background-color: #dddddd;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #fff 0%, #ddd 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #ffffff 0%, #dddddd 100%);
+}
+
+.theme-color-silver-green body {
+  background: transparent;
+}
+
+.theme-color-silver-green .theme-body-color-block {
+  background: #111111;
+}
+
+.theme-color-silver-green .theme-link-color-block {
+  background: #039426;
+}
+
+.theme-color-silver-green .themed, .theme-color-silver-green .reveal {
+  color: #111111;
+}
+
+.theme-color-silver-green .themed a, .theme-color-silver-green .reveal a {
+  color: #039426;
+}
+
+.theme-color-silver-green .themed a:hover {
+  color: #04c633;
+}
+
+.theme-color-silver-green .reveal a:hover {
+  color: #04c633;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-left {
+  border-right-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-left.enabled {
+  border-right-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-right {
+  border-left-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-right.enabled {
+  border-left-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-up {
+  border-bottom-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-down {
+  border-top-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-down.enabled {
+  border-top-color: #039426;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #04c633;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #04c633;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #04c633;
+}
+
+.theme-color-silver-green .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #04c633;
+}
+
+.theme-color-silver-green .reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-color-silver-green .reveal .progress span {
+  background: #039426;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.theme-color-silver-green .reveal .slide-number {
+  color: #111;
+  background-color: rgba(255, 255, 255, 0.3);
+}

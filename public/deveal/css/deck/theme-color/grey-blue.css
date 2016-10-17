@@ -1,0 +1,97 @@
+
+.theme-color-grey-blue {
+  background-color: #313538;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #555a5f 0%, #1c1e20 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #555a5f 0%, #1c1e20 100%);
+}
+
+.theme-color-grey-blue body {
+  background: transparent;
+}
+
+.theme-color-grey-blue .theme-body-color-block {
+  background: white;
+}
+
+.theme-color-grey-blue .theme-link-color-block {
+  background: #13daec;
+}
+
+.theme-color-grey-blue .themed, .theme-color-grey-blue .reveal {
+  color: white;
+}
+
+.theme-color-grey-blue .themed a, .theme-color-grey-blue .reveal a {
+  color: #13daec;
+}
+
+.theme-color-grey-blue .themed a:hover {
+  color: #71e9f4;
+}
+
+.theme-color-grey-blue .reveal a:hover {
+  color: #71e9f4;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-left {
+  border-right-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-left.enabled {
+  border-right-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-right {
+  border-left-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-right.enabled {
+  border-left-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-up {
+  border-bottom-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-down {
+  border-top-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-down.enabled {
+  border-top-color: #13daec;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #71e9f4;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #71e9f4;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #71e9f4;
+}
+
+.theme-color-grey-blue .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #71e9f4;
+}
+
+.theme-color-grey-blue .reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-color-grey-blue .reveal .progress span {
+  background: #13daec;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.theme-color-grey-blue .reveal .slide-number {
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.3);
+}

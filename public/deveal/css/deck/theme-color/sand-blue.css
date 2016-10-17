@@ -1,0 +1,95 @@
+
+.theme-color-sand-blue {
+  background: #f0f1eb;
+}
+
+.theme-color-sand-blue body {
+  background: transparent;
+}
+
+.theme-color-sand-blue .theme-body-color-block {
+  background: #111111;
+}
+
+.theme-color-sand-blue .theme-link-color-block {
+  background: #2f90f8;
+}
+
+.theme-color-sand-blue .themed, .theme-color-sand-blue .reveal {
+  color: #111111;
+}
+
+.theme-color-sand-blue .themed a, .theme-color-sand-blue .reveal a {
+  color: #2f90f8;
+}
+
+.theme-color-sand-blue .themed a:hover {
+  color: #92c5fb;
+}
+
+.theme-color-sand-blue .reveal a:hover {
+  color: #92c5fb;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-left {
+  border-right-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-left.enabled {
+  border-right-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-right {
+  border-left-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-right.enabled {
+  border-left-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-up {
+  border-bottom-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-down {
+  border-top-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-down.enabled {
+  border-top-color: #2f90f8;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #92c5fb;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #92c5fb;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #92c5fb;
+}
+
+.theme-color-sand-blue .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #92c5fb;
+}
+
+.theme-color-sand-blue .reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-color-sand-blue .reveal .progress span {
+  background: #2f90f8;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.theme-color-sand-blue .reveal .slide-number {
+  color: #111;
+  background-color: rgba(255, 255, 255, 0.3);
+}

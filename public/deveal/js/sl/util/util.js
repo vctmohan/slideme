@@ -56,7 +56,7 @@ SL.util = {
                 var i = [];
                 Reveal.addEventListener("slidechanged", function () {
                     var t = Reveal.getProgress();
-                    t >= .5 && !i[0] && (i[0] = true, SL.analytics.trackPresenting("Presentation progress: 50%")), t >= 1 && !i[1] && (i[1] = true, SL.analytics.trackPresenting("Presentation progress: 100%")), SL.analytics.trackCurrentSlide()
+                    t >= .5 && !i[0] && (i[0] = true), t >= 1 && !i[1] && (i[1] = true)
                 })
             }
         }
@@ -181,7 +181,7 @@ SL.util = {
                             var i = [];
                             Reveal.addEventListener("slidechanged", function () {
                                 var t = Reveal.getProgress();
-                                t >= .5 && !i[0] && (i[0] = true, SL.analytics.trackPresenting("Presentation progress: 50%")), t >= 1 && !i[1] && (i[1] = true, SL.analytics.trackPresenting("Presentation progress: 100%")), SL.analytics.trackCurrentSlide()
+                                t >= .5 && !i[0] && (i[0] = true), t >= 1 && !i[1] && (i[1] = true)
                             })
                         }
                     }

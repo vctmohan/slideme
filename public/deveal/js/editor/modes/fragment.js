@@ -20,7 +20,12 @@ SL("editor.modes").Fragment = SL.editor.modes.Base.extend({
                         n.data("target-element", $(i)), e && n.addClass("show-without-hover"), this.overlays.append(n)
                     }.bind(this))
                 }
-            }.bind(this)), this.overlays.find(".fragment-overlay-item").on("vmousedown", this.onFragmentMouseDown), this.editor.disableEditing(), this.editor.slideOptions.collapse(), this.syncOverlays(), SL.analytics.trackEditor("Fragment mode"), this._super()
+            }.bind(this));
+        this.overlays.find(".fragment-overlay-item").on("vmousedown", this.onFragmentMouseDown);
+        this.editor.disableEditing();
+        this.editor.slideOptions.collapse();
+        this.syncOverlays();
+            this._super();
         }
     }, deactivate: function () {
         this.isActive() && (this.overlays.find(".fragment-overlay-item").off(), this.overlays.off().remove(), this.overlays = null, this.editor.enableEditing(), this._super())

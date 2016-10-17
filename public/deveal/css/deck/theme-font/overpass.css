@@ -1,0 +1,45 @@
+
+.theme-font-overpass .themed, .theme-font-overpass .reveal {
+  font-family: "Overpass", sans-serif;
+  font-size: 28px;
+}
+
+.theme-font-overpass .themed section, .theme-font-overpass .reveal section {
+  line-height: 1.3;
+}
+
+.theme-font-overpass .themed h1, .theme-font-overpass .themed h2, .theme-font-overpass .themed h3, .theme-font-overpass .themed h4, .theme-font-overpass .themed h5, .theme-font-overpass .themed h6 {
+  font-family: "Overpass", sans-serif;
+  text-transform: uppercase;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.theme-font-overpass .reveal h1, .theme-font-overpass .reveal h2, .theme-font-overpass .reveal h3, .theme-font-overpass .reveal h4, .theme-font-overpass .reveal h5, .theme-font-overpass .reveal h6 {
+  font-family: "Overpass", sans-serif;
+  text-transform: uppercase;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.theme-font-overpass .themed h1, .theme-font-overpass.themed h1, .theme-font-overpass .reveal h1, .theme-font-overpass.reveal h1 {
+  font-size: 1.75em;
+  margin-bottom: .25em;
+  letter-spacing: 0.015em;
+}
+
+.theme-font-overpass .themed h2, .theme-font-overpass.themed h2, .theme-font-overpass .reveal h2, .theme-font-overpass.reveal h2 {
+  font-size: 1.15em;
+  margin-bottom: .5em;
+  letter-spacing: 0.03666em;
+}
+
+.theme-font-overpass .themed h3, .theme-font-overpass.themed h3, .theme-font-overpass .reveal h3, .theme-font-overpass.reveal h3 {
+  font-size: 1.00em;
+  margin-bottom: .5em;
+  letter-spacing: 0.041em;
+}
+
+.theme-font-overpass .themed h4, .theme-font-overpass.themed h4, .theme-font-overpass .reveal h4, .theme-font-overpass.reveal h4, .theme-font-overpass .themed h5, .theme-font-overpass.themed h5, .theme-font-overpass .reveal h5, .theme-font-overpass.reveal h5, .theme-font-overpass .themed h6, .theme-font-overpass.themed h6, .theme-font-overpass .reveal h6, .theme-font-overpass.reveal h6 {
+  font-size: 1em;
+}

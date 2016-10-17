@@ -1,0 +1,23 @@
+
+.theme-font-asul .themed, .theme-font-asul .reveal {
+  font-family: "Asul", sans-serif;
+  font-size: 30px;
+}
+
+.theme-font-asul .themed section, .theme-font-asul .reveal section {
+  line-height: 1.3;
+}
+
+.theme-font-asul .themed h1, .theme-font-asul .themed h2, .theme-font-asul .themed h3, .theme-font-asul .themed h4, .theme-font-asul .themed h5, .theme-font-asul .themed h6 {
+  font-family: "Asul", sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.theme-font-asul .reveal h1, .theme-font-asul .reveal h2, .theme-font-asul .reveal h3, .theme-font-asul .reveal h4, .theme-font-asul .reveal h5, .theme-font-asul .reveal h6 {
+  font-family: "Asul", sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: normal;
+}

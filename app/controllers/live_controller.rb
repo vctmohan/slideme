@@ -7,7 +7,11 @@ class LiveController < ApplicationController
 
     @user = User.where(:username => username).first
     @deck = Deck.where(:slug => slug, :user_id => @user.id).first
-    render "live", :layout => false
+    @preview = false
+    if request.get? and params[:preview]
+      @preview = true
+    end
+    render "deck/live", :layout => false
   end
 
   def stream

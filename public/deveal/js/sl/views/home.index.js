@@ -20,7 +20,7 @@ SL("views.home").Index = SL.views.Base.extend({
     trackScrolling: function () {
         this.scrollTracking = this.scrollTracking || {};
         var t = $(window).scrollTop(), e = window.innerHeight, i = $(document).height(), n = Math.max(Math.min(t / (i - e), 1), 0);
-        n > .1 && !this.scrollTracking[.1] && (this.scrollTracking[.1] = true, SL.analytics.track("Home: Scrolled", "10%")), n > .5 && !this.scrollTracking[.5] && (this.scrollTracking[.5] = true, SL.analytics.track("Home: Scrolled", "50%")), n > .95 && !this.scrollTracking[.95] && (this.scrollTracking[.95] = true, SL.analytics.track("Home: Scrolled", "100%"))
+        n > .1 && !this.scrollTracking[.1] && (this.scrollTracking[.1] = true), n > .5 && !this.scrollTracking[.5] && (this.scrollTracking[.5] = true), n > .95 && !this.scrollTracking[.95] && (this.scrollTracking[.95] = true)
     },
     syncScrolling: function () {
         var t = $(window).scrollTop();
@@ -40,9 +40,6 @@ SL("views.home").Index = SL.views.Base.extend({
     },
     onScrollPromotionOver: function () {
         this.stopScrollPromotion()
-    },
-    onLearnMoreClicked: function () {
-        SL.analytics.track("Home: Learn more clicked"), this.stopScrollPromotion()
     },
     onWindowResize: function () {
         this.syncScrolling()

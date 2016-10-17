@@ -55,11 +55,11 @@ SL("editor.components.toolbars.options").BlockActions = SL.editor.components.too
         }), this._super(e, $.extend({type: "block-actions", label: "Actions", items: i}, t))
     }, trigger: function (e) {
         var t = SL.editor.controllers.Blocks.getFocusedBlocks();
-        "html" === e ? (t[0].editHTML(), SL.analytics.trackEditor("Toolbar: Edit HTML")) : "expand" === e ? (t.forEach(function (e) {
+        "html" === e ? t[0].editHTML() : "expand" === e ? (t.forEach(function (e) {
             e.resize({width: SL.config.SLIDE_WIDTH, height: SL.config.SLIDE_HEIGHT}), e.moveToCenter()
-        }), SL.analytics.trackEditor("Toolbar: Expand block")) : "duplicate" === e ? (SL.editor.controllers.Blocks.copy(), SL.editor.controllers.Blocks.paste(), SL.analytics.trackEditor("Toolbar: Duplicate block")) : "delete" === e && (t.forEach(function (e) {
+        })) : "duplicate" === e ? (SL.editor.controllers.Blocks.copy(), SL.editor.controllers.Blocks.paste()) : "delete" === e && (t.forEach(function (e) {
             e.destroy()
-        }), SL.analytics.trackEditor("Toolbar: Delete block"))
+        }))
     }
 });
 SL("editor.components.toolbars.options").BlockAlignHorizontal = SL.editor.components.toolbars.options.Multi.extend({

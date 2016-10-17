@@ -47,7 +47,6 @@ Sidebar = Class.extend({
         this.publishButton.on("vclick", this.onPublishClicked.bind(this));
         this.arrangeButton.on("vclick", this.onArrangeClicked.bind(this));
         this.styleButton.on("vclick", this.onStyleClicked.bind(this));
-        this.presentButton.on("vclick", this.onPresentClicked.bind(this));
         this.panelElement.on("vclick", this.onPanelElementClicked.bind(this));
         this.sidebarSecondary.on("scroll", this.layout.bind(this));
         this.settingsPanel.onclose.add(this.close.bind(this));
@@ -65,7 +64,7 @@ Sidebar = Class.extend({
     }, renderMoreOptions: function () {
         var e = [{
             label: "Save a copy", icon: "fork", callback: function () {
-                SL.analytics.trackEditor("Sidebar: Duplicate deck"), SL.editor.controllers.API.forkDeck()
+                SL.editor.controllers.API.forkDeck();
             }.bind(this)
         }];
         if(SL.editor.controllers.Capabilities.canDeleteDeck()) {
@@ -73,7 +72,7 @@ Sidebar = Class.extend({
                 label: "Delete deck",
                 icon: "trash-fill",
                 callback: function () {
-                    SL.analytics.trackEditor("Sidebar: Delete deck"), SL.editor.controllers.API.deleteDeck()
+                    SL.editor.controllers.API.deleteDeck();
                 }.bind(this)
             });
         }
@@ -111,7 +110,7 @@ Sidebar = Class.extend({
             case"revisions":
                 this.currentPanel = this.revisionsPanel
         }
-        this.setActiveButton(e), this.currentPanel.open(), this.panelElement.addClass("visible"), SL.analytics.trackEditor("Open panel", e)
+        this.setActiveButton(e), this.currentPanel.open(), this.panelElement.addClass("visible")
     }, close: function (e) {
         this.currentPanel && (e === true && this.currentPanel.save(), this.currentPanel.close()), this.setActiveButton(null), this.panelElement.removeClass("visible")
     }, toggle: function (e) {
@@ -136,7 +135,7 @@ Sidebar = Class.extend({
     }, onPreviewClicked: function (e) {
         e.preventDefault(), this.previewClicked.dispatch()
     }, onUndoClicked: function (e) {
-        e.preventDefault(), SL.editor.controllers.History.undo({ignoreMode: true}), SL.analytics.trackEditor("Undo clicked")
+        e.preventDefault(), SL.editor.controllers.History.undo({ignoreMode: true})
     }, onExportClicked: function () {
         var e = $(".reveal .slides").children().map(function () {
             var e = $(this).clone();
@@ -162,8 +161,6 @@ Sidebar = Class.extend({
         return SL.popup.open(SL.editor.components.medialibrary.MediaLibrary), false
     }, onStyleClicked: function () {
         return this.toggle("style"), false
-    }, onPresentClicked: function () {
-        SL.analytics.trackEditor("Sidebar: Present")
     }, onPublishClicked: function (e) {
         if (e.preventDefault(), SL.util.user.isPro() || SLConfig.deck.visibility === SL.models.Deck.VISIBILITY_SELF) {
             var t = [];
@@ -171,20 +168,20 @@ Sidebar = Class.extend({
                 html: SL.locale.get("DECK_VISIBILITY_CHANGE_SELF"),
                 selected: SLConfig.deck.visibility === SL.models.Deck.VISIBILITY_SELF,
                 callback: function () {
-                    SLConfig.deck.visibility = SL.models.Deck.VISIBILITY_SELF, SL.view.saveVisibility(), this.updatePublishButton(), SL.analytics.trackEditor("Visibility changed", "self")
+                    SLConfig.deck.visibility = SL.models.Deck.VISIBILITY_SELF, SL.view.saveVisibility(), this.updatePublishButton()
                 }.bind(this)
             }), SL.current_user.isEnterprise() && t.push({
                 html: SL.locale.get("DECK_VISIBILITY_CHANGE_TEAM"),
                 selected: SLConfig.deck.visibility === SL.models.Deck.VISIBILITY_TEAM,
                 className: "divider",
                 callback: function () {
-                    SLConfig.deck.visibility = SL.models.Deck.VISIBILITY_TEAM, SL.view.saveVisibility(), this.updatePublishButton(), SL.analytics.trackEditor("Visibility changed", "team")
+                    SLConfig.deck.visibility = SL.models.Deck.VISIBILITY_TEAM, SL.view.saveVisibility(), this.updatePublishButton()
                 }.bind(this)
             }), t.push({
                 html: SL.locale.get("DECK_VISIBILITY_CHANGE_ALL"),
                 selected: SLConfig.deck.visibility === SL.models.Deck.VISIBILITY_ALL,
                 callback: function () {
-                    SLConfig.deck.visibility = SL.models.Deck.VISIBILITY_ALL, SL.view.saveVisibility(), this.updatePublishButton(), SL.analytics.trackEditor("Visibility changed", "all")
+                    SLConfig.deck.visibility = SL.models.Deck.VISIBILITY_ALL, SL.view.saveVisibility(), this.updatePublishButton()
                 }.bind(this)
             }), SL.prompt({
                 anchor: this.publishButton,
@@ -192,8 +189,8 @@ Sidebar = Class.extend({
                 type: "select",
                 className: "sl-visibility-prompt",
                 data: t
-            }), SL.analytics.trackEditor("Visibility menu opened", SLConfig.deck.visibility)
-        } else window.open("/pricing"), SL.analytics.trackEditor("Click upgrade link", "visibility button")
+            })
+        } else window.open("/pricing")
     }, onPanelElementClicked: function (e) {
         e.target == this.panelElement.get(0) && this.close()
     }
@@ -273,7 +270,7 @@ Sidebar.Settings = Sidebar.Base.extend({
         this._super()
     }, save: function () {
         var e = this.titleInput.val(), t = this.slugInput.val(), i = this.descriptionInput.val();
-        return e ? t ? (this._super(), SLConfig.deck.title = e, SLConfig.deck.description = i ? i.replace(/\n/g, " ") : "", SLConfig.deck.slug = t, SLConfig.deck.rtl = this.rtlToggle.is(":checked"), SLConfig.deck.should_loop = this.loopToggle.is(":checked"), SLConfig.deck.comments_enabled = this.commentsEnabledToggle.is(":checked"), SLConfig.deck.forking_enabled = this.forkingEnabledToggle.is(":checked"), SLConfig.deck.share_notes = this.shareNotesToggle.is(":checked"), SLConfig.deck.slide_number = this.slideNumberToggle.is(":checked"), SLConfig.deck.auto_slide_interval = parseInt(this.autoSlideInput.val(), 10) || 0, SLConfig.deck.dirty = true, SL.analytics.trackEditor("Deck.edit: Setting saved"), $("html").toggleClass("rtl", SLConfig.deck.rtl), true) : (SL.notify(SL.locale.get("DECK_EDIT_INVALID_SLUG"), "negative"), false) : (SL.notify(SL.locale.get("DECK_EDIT_INVALID_TITLE"), "negative"), false)
+        return e ? t ? (this._super(), SLConfig.deck.title = e, SLConfig.deck.description = i ? i.replace(/\n/g, " ") : "", SLConfig.deck.slug = t, SLConfig.deck.rtl = this.rtlToggle.is(":checked"), SLConfig.deck.should_loop = this.loopToggle.is(":checked"), SLConfig.deck.comments_enabled = this.commentsEnabledToggle.is(":checked"), SLConfig.deck.forking_enabled = this.forkingEnabledToggle.is(":checked"), SLConfig.deck.share_notes = this.shareNotesToggle.is(":checked"), SLConfig.deck.slide_number = this.slideNumberToggle.is(":checked"), SLConfig.deck.auto_slide_interval = parseInt(this.autoSlideInput.val(), 10) || 0, SLConfig.deck.dirty = true, $("html").toggleClass("rtl", SLConfig.deck.rtl), true) : (SL.notify(SL.locale.get("DECK_EDIT_INVALID_SLUG"), "negative"), false) : (SL.notify(SL.locale.get("DECK_EDIT_INVALID_TITLE"), "negative"), false)
     }, updateSelection: function () {
         this.rtlToggle.prop("checked", this.config.deck.rtl), this.loopToggle.prop("checked", this.config.deck.should_loop), this.commentsEnabledToggle.prop("checked", this.config.deck.comments_enabled), this.forkingEnabledToggle.prop("checked", this.config.deck.forking_enabled), this.shareNotesToggle.prop("checked", this.config.deck.share_notes), this.slideNumberToggle.prop("checked", this.config.deck.slide_number)
     }, applySelection: function () {
@@ -364,7 +361,7 @@ Sidebar.Style = Sidebar.Base.extend({
             options: []
         }), SL.util.html.generateSpinners()
     }, onAdvancedStylesCLicked: function () {
-        SL.analytics.trackEditor("Open CSS editor"), SL.editor.controllers.Mode.change("css")
+        SL.editor.controllers.Mode.change("css")
     }, onThemeOptionsChanged: function () {
         this.layout(), SL.editor.controllers.Grid.refresh()
     }

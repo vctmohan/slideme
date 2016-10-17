@@ -22,7 +22,6 @@ SL("models").Media = SL.models.Model.extend({
     },
     upload: function () {
         if (/\.svg$/i.test(this.uploadFile.name) && window.FileReader) {
-            SL.analytics.trackEditor("Media: SVG upload started");
             this.reader = new window.FileReader;
             this.reader.addEventListener("abort", this.uploadValidated.bind(this));
             this.reader.addEventListener("error", this.uploadValidated.bind(this));
@@ -44,8 +43,8 @@ SL("models").Media = SL.models.Model.extend({
                     if (a && hasWidthAndHeight) {
                         var l = '<?xml version="1.0"?>\n' + i.parentNode.innerHTML;
                         this.uploadFilename = this.uploadFile.name || "image.svg", this.uploadFile = new Blob([l], {type: "image/svg+xml"}), this.uploadValidated()
-                    } else this.uploadStatus = SL.models.Media.STATUS_UPLOAD_FAILED, this.uploadFailed.dispatch("SVG error: missing viewBox or width/height"), SL.analytics.trackEditor("Media: SVG upload error", "missing viewBox or w/h")
-                } else this.uploadStatus = SL.models.Media.STATUS_UPLOAD_FAILED, this.uploadFailed.dispatch("Invalid SVG: missing &lt;svg&gt; element"), SL.analytics.trackEditor("Media: SVG upload error", "missing svg element");
+                    } else this.uploadStatus = SL.models.Media.STATUS_UPLOAD_FAILED, this.uploadFailed.dispatch("SVG error: missing viewBox or width/height")
+                } else this.uploadStatus = SL.models.Media.STATUS_UPLOAD_FAILED, this.uploadFailed.dispatch("Invalid SVG: missing &lt;svg&gt; element");
                 this.reader = null
             }.bind(this));
             this.reader.readAsText(this.uploadFile, "UTF-8");

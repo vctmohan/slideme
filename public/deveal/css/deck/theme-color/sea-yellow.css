@@ -1,0 +1,97 @@
+
+.theme-color-sea-yellow {
+  background-color: #297477;
+  background-image: -webkit-linear-gradient(top, #6cc9cd 0%, #297477 100%);
+  background-image: linear-gradient(to bottom, #6cc9cd 0%, #297477 100%);
+}
+
+.theme-color-sea-yellow body {
+  background: transparent;
+}
+
+.theme-color-sea-yellow .theme-body-color-block {
+  background: white;
+}
+
+.theme-color-sea-yellow .theme-link-color-block {
+  background: #ffc200;
+}
+
+.theme-color-sea-yellow .themed, .theme-color-sea-yellow .reveal {
+  color: white;
+}
+
+.theme-color-sea-yellow .themed a, .theme-color-sea-yellow .reveal a {
+  color: #ffc200;
+}
+
+.theme-color-sea-yellow .themed a:hover {
+  color: #ffda66;
+}
+
+.theme-color-sea-yellow .reveal a:hover {
+  color: #ffda66;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-left {
+  border-right-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-left.enabled {
+  border-right-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-right {
+  border-left-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-right.enabled {
+  border-left-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-up {
+  border-bottom-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-down {
+  border-top-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-down.enabled {
+  border-top-color: #ffc200;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #ffda66;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #ffda66;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #ffda66;
+}
+
+.theme-color-sea-yellow .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #ffda66;
+}
+
+.theme-color-sea-yellow .reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-color-sea-yellow .reveal .progress span {
+  background: #ffc200;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.theme-color-sea-yellow .reveal .slide-number {
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.3);
+}

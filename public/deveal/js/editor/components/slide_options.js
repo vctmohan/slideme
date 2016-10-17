@@ -82,7 +82,7 @@ SL("editor.components").SlideOptions = Class.extend({
                     confirmBeforeDiscard: true
                 }
             }), this.notesPrompt.confirmed.add(function (t) {
-                SLConfig.deck.notes[e] = t, SLConfig.deck.dirty = true, SL.analytics.trackEditor("Saved notes")
+                SLConfig.deck.notes[e] = t, SLConfig.deck.dirty = true
             }), this.notesPrompt.destroyed.add(function () {
                 this.notesPrompt = null
             }.bind(this))
@@ -93,7 +93,7 @@ SL("editor.components").SlideOptions = Class.extend({
             SL.editor.controllers.Markup.writeHTMLToCurrentSlide(e), $(Reveal.getCurrentSlide()).find("style").each(function () {
                 SL.util.prefixSelectorsInStyle(this, ".reveal ")
             }), Reveal.sync()
-        }.bind(this)), SL.analytics.trackEditor("Edit per-slide HTML")
+        }.bind(this))
     }, triggerCustomClasses: function () {
         if (!this.customClassesPrompt) {
             var e = this.editor.getCurrentTheme();
@@ -168,15 +168,15 @@ SL("editor.components").SlideOptions = Class.extend({
             changeCallback: this.setBackgroundColor.bind(this),
             resetCallback: this.clearBackgroundColor.bind(this)
         }, i = Reveal.getCurrentSlide();
-        i.hasAttribute("data-background-color") && (t.color = i.getAttribute("data-background-color")), SL.view.colorpicker.toggle(t), SL.analytics.trackEditor("Toggle background color menu")
+        i.hasAttribute("data-background-color") && (t.color = i.getAttribute("data-background-color")), SL.view.colorpicker.toggle(t)
     }, onBackgroundImageClicked: function (e) {
         e.preventDefault(), this.syncBackgroundImageMenu(), this.hideBackgroundColorMenu();
         var t = 144, i = 36;
         this.backgroundImageMenu.addClass("immediate"), this.backgroundImageMenu.css("top", this.backgroundImageElement.position().top - (t - i) / 2), setTimeout(function () {
             this.backgroundImageMenu.removeClass("immediate")
-        }.bind(this), 1), "" === this.backgroundImageMenu.attr("data-state") && this.triggerBackgroundImageBrowser(), SL.analytics.trackEditor("Toggle background image menu")
+        }.bind(this), 1), "" === this.backgroundImageMenu.attr("data-state") && this.triggerBackgroundImageBrowser()
     }, onBackgroundImageRemoveClicked: function (e) {
-        Reveal.getCurrentSlide().removeAttribute("data-background-image"), Reveal.sync(), this.syncBackgroundImageMenu(), SL.analytics.trackEditor("Remove background image"), e.preventDefault()
+        Reveal.getCurrentSlide().removeAttribute("data-background-image"), Reveal.sync(), this.syncBackgroundImageMenu(), e.preventDefault()
     }, onBackgroundImageSizeChanged: function () {
         var e = this.backgroundImageMenu.find(".background-size");
         Reveal.getCurrentSlide().setAttribute("data-background-size", e.val()), Reveal.sync(), this.syncBackgroundImageMenu()

@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag '/deveal/css/deck/highlight', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
+<% if @editor %>
+    <%= render 'layouts/css/color', :editor => true %>
+    <%= render 'layouts/css/font', :editor => true %>
+<% end %>
+<% if @deck and not @editor%>
+    <%= stylesheet_link_tag "/deveal/css/deck/theme-color/#{@deck.theme_color}", media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag "/deveal/css/deck/theme-font/#{@deck.theme_font}", media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
+<%= stylesheet_link_tag '/deveal/css/deck/deck', media: 'all', 'data-turbolinks-track' => true %>

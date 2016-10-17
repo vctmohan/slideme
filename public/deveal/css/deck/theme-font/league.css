@@ -1,0 +1,23 @@
+
+.theme-font-league .themed, .theme-font-league .reveal {
+  font-family: "Lato", Helvetica, sans-serif;
+  font-size: 30px;
+}
+
+.theme-font-league .themed section, .theme-font-league .reveal section {
+  line-height: 1.3;
+}
+
+.theme-font-league .themed h1, .theme-font-league .themed h2, .theme-font-league .themed h3, .theme-font-league .themed h4, .theme-font-league .themed h5, .theme-font-league .themed h6 {
+  font-family: "League Gothic", Impact, sans-serif;
+  text-transform: uppercase;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.theme-font-league .reveal h1, .theme-font-league .reveal h2, .theme-font-league .reveal h3, .theme-font-league .reveal h4, .theme-font-league .reveal h5, .theme-font-league .reveal h6 {
+  font-family: "League Gothic", Impact, sans-serif;
+  text-transform: uppercase;
+  line-height: 1.3;
+  font-weight: normal;
+}

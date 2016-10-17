@@ -38,7 +38,7 @@ SL("editor.components.sidebar").Revisions = SL.editor.components.sidebar.Base.ex
             revisionURL: n,
             revisionTimeAgo: moment(e.created_at).fromNow()
         });
-        r.restoreRequested.add(this.onRestoreClicked.bind(this, e)), r.externalRequested.add(this.onExternalClicked.bind(this, n)), SL.analytics.trackEditor("Revision preview"), i.preventDefault()
+        r.restoreRequested.add(this.onRestoreClicked.bind(this, e)), r.externalRequested.add(this.onExternalClicked.bind(this, n)), i.preventDefault()
     }, onRestoreClicked: function (e, t) {
         SL.prompt({
             anchor: $(t.currentTarget),
@@ -52,7 +52,7 @@ SL("editor.components.sidebar").Revisions = SL.editor.components.sidebar.Base.ex
             }]
         }), t.preventDefault()
     }, onRestoreConfirmed: function (e) {
-        SL.analytics.trackEditor("Revision restore"), SL.helpers.PageLoader.show({message: "Restoring..."}), $.ajax({
+        SL.helpers.PageLoader.show({message: "Restoring..."}), $.ajax({
             type: "post",
             url: SL.config.AJAX_RESTORE_DECK_VERSION(SLConfig.deck.id, e.id),
             data: e,

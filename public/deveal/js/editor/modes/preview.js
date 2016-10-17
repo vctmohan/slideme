@@ -1,11 +1,7 @@
 SL("editor.modes").Preview = SL.editor.modes.Base.extend({
     init: function (e) {
         this._super(e, "preview");
-        if (SL.editor.controllers.Capabilities.canPresent()) {
-            $(".preview-controls-external").on("click", function () {
-                SL.analytics.trackEditor("Open external preview")
-            });
-        } else {
+        if (! SL.editor.controllers.Capabilities.canPresent()) {
             $(".preview-controls-external").remove();
         }
     },
@@ -14,7 +10,6 @@ SL("editor.modes").Preview = SL.editor.modes.Base.extend({
         this.editor.disableEditing();
         this.editor.sidebar.close();
         SL.util.openLinksInTabs($(".reveal .slides"));
-        SL.analytics.trackEditor("Preview mode");
         this._super();
         Reveal.configure({
             progress: true,

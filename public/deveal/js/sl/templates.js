@@ -24,7 +24,7 @@ Templates = Class.extend({
     renderPage: function (t, e, i) {
         var n = $('<div class="page-tab" data-page-id="' + t + '">' + e + "</div>");
         n.on("vclick", function () {
-            this.showPage(t), SL.analytics.trackEditor("Slide templates tab clicked", t)
+            this.showPage(t)
         }.bind(this)), n.appendTo(this.headerElement);
         var s = new SL.components.TemplatesPage({id: t, templates: i});
         s.templateSelected.add(this.onTemplateSelected.bind(this)), s.appendTo(this.bodyElement), this.pages.push(s), this.pagesHash[t] = s, this.domElement.attr("data-pages-total", this.pages.length)
@@ -116,7 +116,7 @@ Templates = Class.extend({
             this.addTemplateButtonLoader.stop()
         }.bind(this), function () {
             this.addTemplateButtonLoader.stop()
-        }.bind(this)), SL.analytics.trackEditor(this.currentPage.isTeamTemplates() ? "Saved team template" : "Saved user template"), false
+        }.bind(this)), false
     },
     onKeyDown: function (t) {
         return 27 === t.keyCode ? (this.hide(), false) : true

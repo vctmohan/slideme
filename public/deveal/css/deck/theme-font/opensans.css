@@ -1,0 +1,23 @@
+
+.theme-font-opensans .themed, .theme-font-opensans .reveal {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 30px;
+}
+
+.theme-font-opensans .themed section, .theme-font-opensans .reveal section {
+  line-height: 1.3;
+}
+
+.theme-font-opensans .themed h1, .theme-font-opensans .themed h2, .theme-font-opensans .themed h3, .theme-font-opensans .themed h4, .theme-font-opensans .themed h5, .theme-font-opensans .themed h6 {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.theme-font-opensans .reveal h1, .theme-font-opensans .reveal h2, .theme-font-opensans .reveal h3, .theme-font-opensans .reveal h4, .theme-font-opensans .reveal h5, .theme-font-opensans .reveal h6 {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: bold;
+}

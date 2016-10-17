@@ -15,7 +15,6 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
         if (t) {
             if (!t || "" !== t.type && !t.type.match(/powerpoint|presentationml|pdf/))return SL.notify("Only PDF or PPT files, please"), void this.createFileInput();
             if ("number" == typeof t.size && t.size / 1024 > SL.config.MAX_IMPORT_UPLOAD_SIZE.maxsize)return SL.notify("No more than " + Math.round(MAX_IMPORT_UPLOAD_SIZE / 1e3) + "mb please", "negative"), void this.createFileInput();
-            SL.analytics.trackEditor("Import PDF/PPT", "file selected");
             var i = t.name || "untitled";
             i = i.trim(), i = i.replace(/\s/g, "-").replace(/[^a-zA-Z0-9-_\.]*/g, ""), this.enterProcessingState(), $.ajax({
                 type: "POST",
@@ -31,7 +30,6 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
     }, uploadFile: function (e, t) {
         var i = this.browseFileInput.get(0).files[0];
         if ("string" != typeof t || t.length < 3)return SL.notify("Invalid upload URL, try reopening the imports page", "negative"), void this.createFileInput();
-        SL.analytics.trackEditor("Import PDF/PPT", "upload started");
         var n = new SL.helpers.FileUploader({
             file: i,
             method: "PUT",
@@ -42,15 +40,13 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
             timeout: 9e5
         });
         n.succeeded.add(function () {
-            n.destroy(), this.createFileInput(), this.startTimeout(), SL.analytics.trackEditor("Import PDF/PPT", "upload complete"), $.ajax({
+            n.destroy(), this.createFileInput(), this.startTimeout(), $.ajax({
                 type: "PUT",
                 url: SL.config.AJAX_PDF_IMPORT_UPLOADED(e),
                 data: {"import": {upload_complete: true}},
                 context: this
             }).fail(function () {
                 this.hideOverlay(), SL.notify("An error occurred while processing your file", "negative")
-            }).done(function () {
-                SL.analytics.trackEditor("Import PDF/PPT", "upload_complete sent")
             })
         }.bind(this)), n.progressed.add(function (e) {
             this.setProgress(25 * e)
@@ -70,7 +66,7 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
             this.hideOverlay()
         }.bind(this)), SL.util.html.generateSpinners()
     }, enterFinishedState: function (e) {
-        if (SL.analytics.trackEditor("Import PDF/PPT", "import complete"), this.stopTimeout(), e.output && e.output.length > 0) {
+        if (this.stopTimeout(), e.output && e.output.length > 0) {
             this.showOverlay("finished", "Finished"), this.overlayBody.html(['<p>The following <strong><span class="slide-count"></span> slides</strong> will be added.</p>', '<div class="preview"></div>', '<div class="options">', '<div class="sl-checkbox outline">', '<input id="import-append-checkbox" value="" type="checkbox">', '<label for="import-append-checkbox" data-tooltip="Append the imported slides after any existing slides instead of replacing them." data-tooltip-maxwidth="300">Append slides</label>', "</div>", '<div class="sl-checkbox outline">', '<input id="import-inline-checkbox" value="" type="checkbox">', '<label for="import-inline-checkbox" data-tooltip="Turn this on if you intend to overlay new content on top of imported slides. If left off, slides will be added as background images for the largest possible visual footprint." data-tooltip-maxwidth="300">Insert inline</label>', "</div>", "</div>"].join("")), this.overlayFooter.html(['<button class="button l outline cancel-button">Cancel</button>', '<button class="button l positive confirm-button">Import</button>'].join(""));
             var t = this.overlayBody.find(".preview"), i = function () {
                 this.overlayBody.find(".slide-count").text(t.find(".preview-slide").not(".excluded").length)

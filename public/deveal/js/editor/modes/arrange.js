@@ -8,7 +8,16 @@ SL("editor.modes").Arrange = SL.editor.modes.Base.extend({
         var t = ['<div class="arrange-controls editing-ui">', '<div class="arrange-control move-left i-arrow-left-alt1"></div>', '<div class="arrange-control move-right i-arrow-right-alt1"></div>', '<div class="arrange-control move-up i-arrow-up-alt1"></div>', '<div class="arrange-control move-down i-arrow-down-alt1"></div>', '<div class="arrange-control merge-left i-previous" data-tooltip-delay="500"></div>', '<div class="arrange-control merge-right i-next" data-tooltip-delay="500"></div>', "</div>"].join("");
         $(".reveal .slides section:not(.stack)").append(t).addClass("disabled"), $(".reveal .slides section.stack").each(function (e, t) {
             0 === $(t).find(".present").length && $(t).find("section").first().addClass("present")
-        }), $(".reveal .slides section .arrange-controls").on("click", this.onControlsClicked.bind(this)), $(".reveal .slides section .move-left").on("click", this.onMoveSlideLeft.bind(this)), $(".reveal .slides section .move-right").on("click", this.onMoveSlideRight.bind(this)), $(".reveal .slides section .move-up").on("click", this.onMoveSlideUp.bind(this)), $(".reveal .slides section .move-down").on("click", this.onMoveSlideDown.bind(this)), $(".reveal .slides section .merge-left").on("click", this.onMergeLeft.bind(this)), $(".reveal .slides section .merge-right").on("click", this.onMergeRight.bind(this)), SL.analytics.trackEditor("Arrange mode"), $(document.activeElement).blur(), this._super()
+        });
+        $(".reveal .slides section .arrange-controls").on("click", this.onControlsClicked.bind(this));
+        $(".reveal .slides section .move-left").on("click", this.onMoveSlideLeft.bind(this));
+        $(".reveal .slides section .move-right").on("click", this.onMoveSlideRight.bind(this));
+        $(".reveal .slides section .move-up").on("click", this.onMoveSlideUp.bind(this));
+        $(".reveal .slides section .move-down").on("click", this.onMoveSlideDown.bind(this));
+        $(".reveal .slides section .merge-left").on("click", this.onMergeLeft.bind(this));
+        $(".reveal .slides section .merge-right").on("click", this.onMergeRight.bind(this));
+        $(document.activeElement).blur();
+        this._super();
     }, deactivate: function (e) {
         this.active = false, e || Reveal.toggleOverview(false), this.editor.enableEditing(), this.editor.sidebar.updateArrangeButton(), $(".reveal .slides section:not(.stack)").removeClass("disabled"), $(".reveal .slides section .arrange-controls").remove(), this._super()
     }, afterSlidesChanged: function () {

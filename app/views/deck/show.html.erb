@@ -2,9 +2,7 @@
 <% provide(:html_class, "decks show") %>
 
 <% content_for :css_add do %>
-    <%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag '/deveal/css/deck-v2', media: 'all', 'data-turbolinks-track' => true %>
-
+    <%= render 'layouts/css/deck' %>
 <% end %>
 
 <% content_for :js_add do %>
@@ -14,24 +12,15 @@
 <div class="marquee">
 
   <div class="reveal-frame">
-    <div class="reveal-viewport theme-font-montserrat theme-color-white-blue">
-      <div class="reveal">
-        <div class="slides">
-          <% if @deck and @deck.data %><%= raw @deck.data %>
-          <% else %>
-              <section></section>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= render 'deck/viewport' %>
   </div>
 
   <div class="deck-kudos">
-    <button class="kudos-button kudos-trigger" data-kudos-id="769001" data-kudoed-by-user="false">
+    <button class="kudos-button kudos-trigger" data-kudos-id="<%= @deck.id %>" data-kudoed-by-user="<% if logged_in? %><%= @deck.kudo_by_user(current_user) %><% end %>">
       <div class="kudos-heart">
         <span class="kudos-icon icon i-heart-fill"></span>
       </div>
-      <div class="kudos-count" data-kudos-value="1" data-kudos-id="769001"></div>
+      <div class="kudos-count" data-kudos-value="<%= @deck.kudos %>" data-kudos-id="<%= @deck.id %>"></div>
     </button>
   </div>
 

@@ -76,13 +76,13 @@ SL("editor.controllers").Blocks = {
         var e = this.getFocusedBlocks();
         e.length && (this.clipboard.length = 0, e.forEach(function (e) {
             this.clipboard.push({block: e, measurements: e.measure()})
-        }.bind(this)), SL.analytics.trackEditor("Copy block"))
+        }.bind(this)))
     }, cut: function () {
         this.clipboardAction = "cut";
         var e = this.getFocusedBlocks();
         e.length && (this.clipboard.length = 0, e.forEach(function (e) {
             this.clipboard.push({block: e, measurements: e.measure()}), e.blur(), e.detach()
-        }.bind(this)), SL.editor.controllers.Blocks.blur(), SL.analytics.trackEditor("Cut block"))
+        }.bind(this)), SL.editor.controllers.Blocks.blur())
     }, paste: function () {
         var e = $(Reveal.getCurrentSlide()), t = 15;
         if (this.clipboard.length && e.length) {
@@ -97,7 +97,7 @@ SL("editor.controllers").Blocks = {
                 return e.get("style.z-index") - t.get("style.z-index")
             }), i.forEach(function (e) {
                 SL.editor.controllers.Blocks.moveBlocksToDepth([e], Number.MAX_VALUE)
-            }), SL.analytics.trackEditor("Paste block"), Reveal.sync()
+            }), Reveal.sync()
         }
     }, getClipboard: function () {
         return this.clipboard

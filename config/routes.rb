@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   match 'api/v1/media', :controller => 'medias', :action => 'media', :via => [:get,:post]
   match 'api/v1/media/:id', :controller => 'medias', :action => 'edit_media', :via => [:delete]
   match 'api/v1/tags', :controller => 'tags', :action => 'get_tags', :via => [:get]
+  match 'api/v1/decks/:id/kudos/kudo', :controller => 'kudos', :action => 'kudo', :via => [:post]
+  match 'api/v1/decks/:id/kudos/unkudo', :controller => 'kudos', :action => 'kudo', :via => [:delete]
 
 end

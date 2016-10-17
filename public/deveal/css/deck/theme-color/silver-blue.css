@@ -1,0 +1,97 @@
+
+.theme-color-silver-blue {
+  background-color: #dddddd;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #fff 0%, #ddd 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #ffffff 0%, #dddddd 100%);
+}
+
+.theme-color-silver-blue body {
+  background: transparent;
+}
+
+.theme-color-silver-blue .theme-body-color-block {
+  background: #111111;
+}
+
+.theme-color-silver-blue .theme-link-color-block {
+  background: #106bcc;
+}
+
+.theme-color-silver-blue .themed, .theme-color-silver-blue .reveal {
+  color: #111111;
+}
+
+.theme-color-silver-blue .themed a, .theme-color-silver-blue .reveal a {
+  color: #106bcc;
+}
+
+.theme-color-silver-blue .themed a:hover {
+  color: #2184ee;
+}
+
+.theme-color-silver-blue .reveal a:hover {
+  color: #2184ee;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-left {
+  border-right-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-left.enabled {
+  border-right-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-right {
+  border-left-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-right.enabled {
+  border-left-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-up {
+  border-bottom-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-down {
+  border-top-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-down.enabled {
+  border-top-color: #106bcc;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #2184ee;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #2184ee;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #2184ee;
+}
+
+.theme-color-silver-blue .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #2184ee;
+}
+
+.theme-color-silver-blue .reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-color-silver-blue .reveal .progress span {
+  background: #106bcc;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.theme-color-silver-blue .reveal .slide-number {
+  color: #111;
+  background-color: rgba(255, 255, 255, 0.3);
+}

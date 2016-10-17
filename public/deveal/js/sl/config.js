@@ -164,8 +164,8 @@ SL.config = {
     AJAX_SHARE_DECK_VIA_EMAIL: function (t) {
         return "/api/v1/decks/" + t + "/deck_shares.json"
     },
-    AJAX_KUDO_DECK: function (t) {
-        return "/api/v1/decks/" + t + "/kudos/kudo.json"
+    AJAX_KUDO_DECK: function (deck_id) {
+        return "/api/v1/decks/" + deck_id + "/kudos/kudo.json"
     },
     AJAX_UNKUDO_DECK: function (t) {
         return "/api/v1/decks/" + t + "/kudos/unkudo.json"
@@ -362,12 +362,11 @@ SL.config = {
     STREAM_ENGINE_LIVE_NAMESPACE: "live",
     STREAM_ENGINE_EDITOR_NAMESPACE: "editor",
     APP_HOST: "slides.com",
-    S3_HOST: "https://s3.amazonaws.com/media-p.slid.es",
     ASSET_URLS: {
         "offline-v2.css": "//assets.slid.es/assets/offline-v2-ca492d04b9e3443dd0405b145c3e57fe.css",
         "homepage-background.jpg": "//assets.slid.es/assets/homepage-background-b002e480a9b1026f07a1a3d066404640.jpg",
-        "reveal-plugins/markdown/marked.js": "//assets.slid.es/assets/reveal-plugins/markdown/marked-285d0e546e608bca75e0c8af0d6b44cd.js",
-        "reveal-plugins/markdown/markdown.js": "//assets.slid.es/assets/reveal-plugins/markdown/markdown-769f9bfbb5d81257779bf0353cc6ecd4.js",
-        "reveal-plugins/highlight/highlight.js": "//assets.slid.es/assets/reveal-plugins/highlight/highlight-9efb98b823ef2e51598faabaa51da5be.js"
+        "reveal-plugins/markdown/marked.js": "/deveal/bower_components/reveal.js/plugin/markdown/marked.js",
+        "reveal-plugins/markdown/markdown.js": "/deveal/bower_components/reveal.js/plugin/markdown/markdown.js",
+        "reveal-plugins/highlight/highlight.js": "/deveal/bower_components/reveal.js/plugin/highlight/highlight.js"
     }
 };

@@ -1,0 +1,9 @@
+
+.theme-font-no-font .themed, .theme-font-no-font.themed, .theme-font-no-font .reveal, .theme-font-no-font.reveal {
+  font-family: sans-serif;
+  font-size: 30px;
+}
+
+.theme-font-no-font .themed section font, .theme-font-no-font.themed section font, .theme-font-no-font .reveal section font, .theme-font-no-font.reveal section font {
+  line-height: 1;
+}

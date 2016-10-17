@@ -11,12 +11,43 @@ SL("views.decks").Show = SL.views.Base.extend({
         });
         this.setupDisqus();
         this.setupPills();
-        $("header .deck-promotion").length && $("header").addClass("extra-wide"), Modernizr.fullscreen === !1 && $(".deck-options .fullscreen-button").hide(), this.bind(), this.layout()
-    }, bind: function () {
-        this.editButton = $(".deck-options .edit-button"), this.editButtonOriginalLink = this.editButton.attr("href"), $(".deck-options .fork-button").on("click", this.onForkClicked.bind(this)), $(".deck-options .share-button").on("click", this.onShareClicked.bind(this)), $(".deck-options .comment-button").on("click", this.onCommentsClicked.bind(this)), $(".deck-options .fullscreen-button").on("click", this.onFullScreenClicked.bind(this)), this.visibilityButton = $(".deck-options .visibility-button"), this.visibilityButton.on("click", this.onVisibilityClicked.bind(this)), $(document).on("webkitfullscreenchange mozfullscreenchange MSFullscreenChange fullscreenchange", Reveal.layout), this.onWindowScroll = $.debounce(this.onWindowScroll, 200), $(window).on("resize", this.layout.bind(this)), $(window).on("scroll", this.onWindowScroll.bind(this)), Reveal.addEventListener("slidechanged", this.onSlideChanged.bind(this)), Reveal.addEventListener("fragmentshown", this.hideSummary), Reveal.addEventListener("fragmenthidden", this.hideSummary)
-    }, setupPills: function () {
-        this.hideSummary = this.hideSummary.bind(this), this.hideInstructions = this.hideInstructions.bind(this), this.summaryPill = $(".summary-pill"), this.instructionsPill = $(".instructions-pill"), this.summaryPill.on("click", this.hideSummary), this.instructionsPill.on("click", this.hideInstructions), this.showSummaryTimeout = setTimeout(this.showSummary.bind(this), 1e3), this.hideSummaryTimeout = setTimeout(this.hideSummary.bind(this), 6e3), this.showNavigationInstructions()
-    }, setupDisqus: function () {
+        if($("header .deck-promotion").length){
+            $("header").addClass("extra-wide");
+        }
+        if(Modernizr.fullscreen === !1 ){
+            $(".deck-options .fullscreen-button").hide();
+        }
+        this.bind();
+        this.layout();
+    },
+    bind: function () {
+        this.editButton = $(".deck-options .edit-button");
+        this.editButtonOriginalLink = this.editButton.attr("href");
+        $(".deck-options .fork-button").on("click", this.onForkClicked.bind(this));
+        $(".deck-options .share-button").on("click", this.onShareClicked.bind(this));
+        $(".deck-options .fullscreen-button").on("click", this.onFullScreenClicked.bind(this));
+        this.visibilityButton = $(".deck-options .visibility-button");
+        this.visibilityButton.on("click", this.onVisibilityClicked.bind(this));
+        $(document).on("webkitfullscreenchange mozfullscreenchange MSFullscreenChange fullscreenchange", Reveal.layout);
+        this.onWindowScroll = $.debounce(this.onWindowScroll, 200);
+        $(window).on("resize", this.layout.bind(this));
+        $(window).on("scroll", this.onWindowScroll.bind(this));
+        Reveal.addEventListener("slidechanged", this.onSlideChanged.bind(this));
+        Reveal.addEventListener("fragmentshown", this.hideSummary);
+        Reveal.addEventListener("fragmenthidden", this.hideSummary);
+    },
+    setupPills: function () {
+        this.hideSummary = this.hideSummary.bind(this);
+        this.hideInstructions = this.hideInstructions.bind(this);
+        this.summaryPill = $(".summary-pill");
+        this.instructionsPill = $(".instructions-pill");
+        this.summaryPill.on("click", this.hideSummary);
+        this.instructionsPill.on("click", this.hideInstructions);
+        this.showSummaryTimeout = setTimeout(this.showSummary.bind(this), 1e3);
+        this.hideSummaryTimeout = setTimeout(this.hideSummary.bind(this), 6e3);
+        this.showNavigationInstructions();
+    },
+    setupDisqus: function () {
         $("#disqus_thread").length ? $(window).on("load", function () {
             {
                 var t = window.disqus_shortname = "slidesapp";
@@ -51,9 +82,13 @@ SL("views.decks").Show = SL.views.Base.extend({
     }, hideInstructions: function () {
         clearTimeout(this.showInstructionsTimeout), this.instructionsPill && this.instructionsPill.removeClass("visible")
     }, layout: function () {
-        this.summaryPill && this.summaryPill.css("left", (window.innerWidth - this.summaryPill.width()) / 2), this.instructionsPill && this.instructionsPill.css("left", (window.innerWidth - this.instructionsPill.width()) / 2);
-        var t = $(".reveal .playback"), e = $(".deck-kudos"), i = {opacity: 1};
-        e.length && t.length && (i.marginLeft = t.offset().left + t.outerWidth() - 10), e.css(i)
+        this.summaryPill && this.summaryPill.css("left", (window.innerWidth - this.summaryPill.width()) / 2);
+        this.instructionsPill && this.instructionsPill.css("left", (window.innerWidth - this.instructionsPill.width()) / 2);
+        var t = $(".reveal .playback");
+        e = $(".deck-kudos");
+        i = {opacity: 1};
+        e.length && t.length && (i.marginLeft = t.offset().left + t.outerWidth() - 10);
+        e.css(i);
     }, saveVisibility: function (t) {
         var e = {
             type: "POST",
@@ -67,14 +102,15 @@ SL("views.decks").Show = SL.views.Base.extend({
             SL.notify(SL.locale.get("DECK_VISIBILITY_CHANGED_ERROR"), "negative")
         })
     }, onShareClicked: function () {
-        return "undefined" != typeof SLConfig && "string" == typeof SLConfig.deck.user.username && "string" == typeof SLConfig.deck.slug ? SL.popup.open(SL.components.decksharer.DeckSharer, {deck: SL.current_deck}) : SL.notify(SL.locale.get("GENERIC_ERROR"), "negative"), SL.analytics.trackPresenting("Share clicked"), !1
-    }, onCommentsClicked: function () {
-        SL.analytics.trackPresenting("Comments clicked")
+        return "undefined" != typeof SLConfig && "string" == typeof SLConfig.deck.user.username && "string" == typeof SLConfig.deck.slug ? SL.popup.open(SL.components.decksharer.DeckSharer, {deck: SL.current_deck}) : SL.notify(SL.locale.get("GENERIC_ERROR"), "negative"), !1
     }, onFullScreenClicked: function () {
         var t = $(".reveal-viewport").get(0);
-        return t ? (SL.helpers.Fullscreen.enter(t), !1) : void SL.analytics.trackPresenting("Fullscreen clicked")
+        if(t){
+            SL.helpers.Fullscreen.enter(t);
+        }
+        return false; 
     }, onForkClicked: function () {
-        return SL.analytics.trackPresenting("Fork clicked"), $.ajax({
+        return $.ajax({
             type: "POST",
             url: SL.config.AJAX_FORK_DECK(SLConfig.deck.id),
             context: this
@@ -90,27 +126,27 @@ SL("views.decks").Show = SL.views.Base.extend({
             html: SL.locale.get("DECK_VISIBILITY_CHANGE_SELF"),
             selected: e === SL.models.Deck.VISIBILITY_SELF,
             callback: function () {
-                this.saveVisibility(SL.models.Deck.VISIBILITY_SELF), SL.analytics.trackPresenting("Visibility changed", "self")
+                this.saveVisibility(SL.models.Deck.VISIBILITY_SELF)
             }.bind(this)
         }), SL.current_user.isEnterprise() && i.push({
             html: SL.locale.get("DECK_VISIBILITY_CHANGE_TEAM"),
             selected: e === SL.models.Deck.VISIBILITY_TEAM,
             className: "divider",
             callback: function () {
-                this.saveVisibility(SL.models.Deck.VISIBILITY_TEAM), SL.analytics.trackPresenting("Visibility changed", "team")
+                this.saveVisibility(SL.models.Deck.VISIBILITY_TEAM)
             }.bind(this)
         }), i.push({
             html: SL.locale.get("DECK_VISIBILITY_CHANGE_ALL"),
             selected: e === SL.models.Deck.VISIBILITY_ALL,
             callback: function () {
-                this.saveVisibility(SL.models.Deck.VISIBILITY_ALL), SL.analytics.trackPresenting("Visibility changed", "all")
+                this.saveVisibility(SL.models.Deck.VISIBILITY_ALL)
             }.bind(this)
         }), SL.prompt({
             anchor: $(t.currentTarget),
             type: "select",
             className: "sl-visibility-prompt",
             data: i
-        }), SL.analytics.trackPresenting("Visibility menu opened")
+        })
     }, onSlideChanged: function (t) {
         this.hideSummary(), this.hideInstructions();
         var e = "#";

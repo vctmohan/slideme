@@ -1,0 +1,12 @@
+
+.theme-color-no-color {
+  background-color: white;
+}
+
+.theme-color-no-color .theme-body-color-block, .theme-color-no-color .theme-link-color-block {
+  background: black;
+}
+
+.theme-color-no-color .themed, .theme-color-no-color.themed, .theme-color-no-color .reveal, .theme-color-no-color.reveal {
+  color: black;
+}

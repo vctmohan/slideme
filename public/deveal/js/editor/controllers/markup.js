@@ -37,7 +37,7 @@ SL("editor.controllers").Markup = {
         })
     }, removeCurrentSlide: function () {
         var e = Reveal.getIndices();
-        $(".reveal .slides .present .present").remove().length > 0 ? 1 === $(".reveal .slides .present>section").length && $(".reveal .slides .present>section:eq(0)").unwrap() : $(".reveal .slides>section").length > 1 && $(".reveal .slides>.present").remove(), Reveal.slide(e.h, e.v), Reveal.sync(), this.afterSlidesChanged(), SL.analytics.trackEditor("Remove slide")
+        $(".reveal .slides .present .present").remove().length > 0 ? 1 === $(".reveal .slides .present>section").length && $(".reveal .slides .present>section:eq(0)").unwrap() : $(".reveal .slides>section").length > 1 && $(".reveal .slides>.present").remove(), Reveal.slide(e.h, e.v), Reveal.sync(), this.afterSlidesChanged()
     }, writeHTMLToCurrentSlide: function (e) {
         Reveal.getCurrentSlide().innerHTML = e, SL.util.html.trimCode(Reveal.getCurrentSlide()), SL.editor.controllers.Blocks.sync(), SL.editor.controllers.Blocks.discoverBlockPairs()
     }, replaceHTML: function (e) {

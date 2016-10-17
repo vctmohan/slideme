@@ -1,0 +1,76 @@
+.theme-color-white-blue {
+  background: white;
+  body {
+    background: transparent;
+  }
+  .theme-body-color-block {
+    background: black;
+  }
+  .theme-link-color-block {
+    background: #106bcc;
+  }
+  .themed, .reveal {
+    color: black;
+  }
+  .themed a, .reveal a {
+    color: #106bcc;
+  }
+  .themed a:hover {
+    color: #3991ef;
+  }
+  .reveal {
+    a:hover {
+      color: #3991ef;
+    }
+    .controls {
+      .navigate-left {
+        border-right-color: #106bcc;
+        &.enabled {
+          border-right-color: #106bcc;
+        }
+      }
+      .navigate-right {
+        border-left-color: #106bcc;
+        &.enabled {
+          border-left-color: #106bcc;
+        }
+      }
+      .navigate-up {
+        border-bottom-color: #106bcc;
+        &.enabled {
+          border-bottom-color: #106bcc;
+        }
+      }
+      .navigate-down {
+        border-top-color: #106bcc;
+        &.enabled {
+          border-top-color: #106bcc;
+        }
+      }
+      .navigate-left.enabled:hover {
+        border-right-color: #3991ef;
+      }
+      .navigate-right.enabled:hover {
+        border-left-color: #3991ef;
+      }
+      .navigate-up.enabled:hover {
+        border-bottom-color: #3991ef;
+      }
+      .navigate-down.enabled:hover {
+        border-top-color: #3991ef;
+      }
+    }
+    .progress {
+      background: rgba(0, 0, 0, 0.2);
+      span {
+        background: #106bcc;
+        -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+        transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+      }
+    }
+    .slide-number {
+      color: #111;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}

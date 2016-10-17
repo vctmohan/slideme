@@ -21,7 +21,7 @@ SL("editor.components.toolbars").Add = SL.editor.components.toolbars.Base.extend
             l || (SL.editor.controllers.Blocks.add({
                 type: t.type,
                 blockOptions: {insertedFromToolbar: true}
-            }), SL.analytics.trackEditor("Insert block", t.type))
+            }))
         }
 
         function n(e) {
@@ -36,7 +36,7 @@ SL("editor.components.toolbars").Add = SL.editor.components.toolbars.Base.extend
                     silent: true,
                     center: false
                 }), n = $(".reveal .slides").offset(), r = i.measure();
-                i.move(e.clientX - n.left - r.width / 2, e.clientY - n.top - r.height / 2), i.onMouseDown(e), SL.analytics.trackEditor("Insert block via drag", t.type)
+                i.move(e.clientX - n.left - r.width / 2, e.clientY - n.top - r.height / 2), i.onMouseDown(e)
             }
             e.preventDefault()
         }

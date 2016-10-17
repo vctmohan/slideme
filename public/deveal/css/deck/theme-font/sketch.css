@@ -1,0 +1,23 @@
+
+.theme-font-sketch .themed, .theme-font-sketch .reveal {
+  font-family: "Oxygen", sans-serif;
+  font-size: 30px;
+}
+
+.theme-font-sketch .themed section, .theme-font-sketch .reveal section {
+  line-height: 1.3;
+}
+
+.theme-font-sketch .themed h1, .theme-font-sketch .themed h2, .theme-font-sketch .themed h3, .theme-font-sketch .themed h4, .theme-font-sketch .themed h5, .theme-font-sketch .themed h6 {
+  font-family: "Cabin Sketch", sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.theme-font-sketch .reveal h1, .theme-font-sketch .reveal h2, .theme-font-sketch .reveal h3, .theme-font-sketch .reveal h4, .theme-font-sketch .reveal h5, .theme-font-sketch .reveal h6 {
+  font-family: "Cabin Sketch", sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: normal;
+}

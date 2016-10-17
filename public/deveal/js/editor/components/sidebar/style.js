@@ -53,7 +53,7 @@ SL("editor.components.sidebar").Style = SL.editor.components.sidebar.Base.extend
             options: []
         }), SL.util.html.generateSpinners()
     }, onAdvancedStylesCLicked: function () {
-        SL.analytics.trackEditor("Open CSS editor"), SL.editor.controllers.Mode.change("css")
+        SL.editor.controllers.Mode.change("css")
     }, onThemeOptionsChanged: function () {
         this.layout(), SL.editor.controllers.Grid.refresh()
     }

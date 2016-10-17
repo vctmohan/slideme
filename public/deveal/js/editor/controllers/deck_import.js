@@ -106,10 +106,11 @@ SL("editor.controllers").DeckImport = {
         return this.importing
     },
     onImportCanceled: function () {
-        this.stop(), SL.analytics.trackEditor("Deck JSON import canceled"), SL.helpers.PageLoader.show({message: "Canceling import..."}), SL.view.redirect(SL.routes.USER(SL.current_user.get("username")), true)
+        this.stop(), SL.helpers.PageLoader.show({message: "Canceling import..."}), SL.view.redirect(SL.routes.USER(SL.current_user.get("username")), true)
     },
     onImportConfirmed: function () {
-        this.stop(), SL.analytics.trackEditor("Deck JSON import confirmed"), this.editor.save(function (e) {
+        this.stop();
+        this.editor.save(function (e) {
             e && SL.notify("This deck has been saved to your account!")
         })
     },

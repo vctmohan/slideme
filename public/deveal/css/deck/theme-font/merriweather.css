@@ -1,0 +1,23 @@
+
+.theme-font-merriweather .themed, .theme-font-merriweather .reveal {
+  font-family: "Oxygen", sans-serif;
+  font-size: 30px;
+}
+
+.theme-font-merriweather .themed section, .theme-font-merriweather .reveal section {
+  line-height: 1.3;
+}
+
+.theme-font-merriweather .themed h1, .theme-font-merriweather .themed h2, .theme-font-merriweather .themed h3, .theme-font-merriweather .themed h4, .theme-font-merriweather .themed h5, .theme-font-merriweather .themed h6 {
+  font-family: "Merriweather Sans", sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+.theme-font-merriweather .reveal h1, .theme-font-merriweather .reveal h2, .theme-font-merriweather .reveal h3, .theme-font-merriweather .reveal h4, .theme-font-merriweather .reveal h5, .theme-font-merriweather .reveal h6 {
+  font-family: "Merriweather Sans", sans-serif;
+  text-transform: none;
+  line-height: 1.3;
+  font-weight: normal;
+}

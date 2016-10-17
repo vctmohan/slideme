@@ -1,0 +1,78 @@
+.theme-color-asphalt-orange {
+  background-color: #2c3e50;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #415b77 0%, #2c3e50 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #415b77 0%, #2c3e50 100%);
+  body {
+    background: transparent;
+  }
+  .theme-body-color-block {
+    background: white;
+  }
+  .theme-link-color-block {
+    background: #ffc200;
+  }
+  .themed, .reveal {
+    color: white;
+  }
+  .themed a, .reveal a {
+    color: #ffc200;
+  }
+  .themed a:hover {
+    color: #ffda66;
+  }
+  .reveal {
+    a:hover {
+      color: #ffda66;
+    }
+    .controls {
+      .navigate-left {
+        border-right-color: #ffc200;
+        &.enabled {
+          border-right-color: #ffc200;
+        }
+      }
+      .navigate-right {
+        border-left-color: #ffc200;
+        &.enabled {
+          border-left-color: #ffc200;
+        }
+      }
+      .navigate-up {
+        border-bottom-color: #ffc200;
+        &.enabled {
+          border-bottom-color: #ffc200;
+        }
+      }
+      .navigate-down {
+        border-top-color: #ffc200;
+        &.enabled {
+          border-top-color: #ffc200;
+        }
+      }
+      .navigate-left.enabled:hover {
+        border-right-color: #ffda66;
+      }
+      .navigate-right.enabled:hover {
+        border-left-color: #ffda66;
+      }
+      .navigate-up.enabled:hover {
+        border-bottom-color: #ffda66;
+      }
+      .navigate-down.enabled:hover {
+        border-top-color: #ffda66;
+      }
+    }
+    .progress {
+      background: rgba(0, 0, 0, 0.2);
+      span {
+        background: #ffc200;
+        -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+        transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+      }
+    }
+    .slide-number {
+      color: #ddd;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}

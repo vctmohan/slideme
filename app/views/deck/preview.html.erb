@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="">
+<html>
 <head>
   <meta name="viewport" content="width=1024, user-scalable=no"/>
   <meta charset="utf-8">
@@ -9,27 +9,12 @@
   <meta name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"/>
   <%= csrf_meta_tags %>
-
-
   <title><%= @deck.title %></title>
-
-  <!--    <link href="css/app.css" media="all" rel="stylesheet"/>
-      <link href="css/editor/editor.css" media="all" rel="stylesheet"/>-->
   <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag '/deveal/css/deck-v2', media: 'all', 'data-turbolinks-track' => true %>
-
+  <%= render 'layouts/css/deck' %>
 </head>
 <body>
-
-<div class="reveal-viewport theme-font-montserrat theme-color-white-blue">
-  <div class="reveal">
-    <div class="slides">
-      <% if @deck and @deck.data %><%= raw @deck.data %><% else %><section></section><% end %>
-    </div>
-  </div>
-</div>
-
+<%= render 'deck/viewport' %>
 <%= javascript_include_tag '/deveal/bower_components/jquery/dist/jquery.min', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag '/deveal/bower_components/moment/moment', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag '/deveal/bower_components/headjs/dist/1.0.0/head.min', 'data-turbolinks-track' => true %>
@@ -42,6 +27,5 @@
       }
   );
 </script>
-
 </body>
 </html>

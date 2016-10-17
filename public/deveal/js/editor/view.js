@@ -182,7 +182,7 @@ SL("editor").Editor = SL.views.Base.extend({
                 context: this
             }).done(function (e) {
                 var t = SL.current_deck.get("data_updated_at"), i = e.data_updated_at, n = "number" == typeof t && !isNaN(t), r = "number" == typeof i && !isNaN(i);
-                n && r && i > t && (SL.popup.openOne(SL.components.popup.DeckOutdated), this.hasShownOutdatedMessage = true, SL.analytics.trackEditor("Warning: Newer deck on server"))
+                n && r && i > t && (SL.popup.openOne(SL.components.popup.DeckOutdated), this.hasShownOutdatedMessage = true)
             }.bind(this))
         }.bind(this))
     },

@@ -87,7 +87,7 @@ SL("editor.components.medialibrary").Filters = Class.extend({
                 selected: true,
                 className: "negative",
                 callback: function () {
-                    SL.analytics.trackEditor("Media: Delete tag"), t.destroy().done(function () {
+                    t.destroy().done(function () {
                         this.domElement.removeClass("is-editing"), this.tags.remove(t), SL.notify(SL.locale.get("MEDIA_TAG_DELETE_SUCCESS"))
                     }.bind(this)).fail(function () {
                         SL.notify(SL.locale.get("MEDIA_TAG_DELETE_ERROR"), "negative")
@@ -119,12 +119,12 @@ SL("editor.components.medialibrary").Filters = Class.extend({
             this.recount(this.getTagElementByID(e.get("id"))), this.tagsCreateLoader.stop()
         }.bind(this), function () {
             SL.notify(SL.locale.get("GENERIC_ERROR"), "negative"), this.tagsCreateLoader.stop()
-        }.bind(this)), SL.analytics.trackEditor("Media: Create tag")
+        }.bind(this))
     }, onTagClicked: function (e) {
         var t = $(e.target), i = t.closest(".media-library-filter");
         i.length && (t.closest(".edit-button").length ? this.startEditingTag(i) : t.closest(".save-button").length ? this.stopEditingTag(i) : t.closest(".delete-button").length ? this.confirmTagRemoval(i) : i.hasClass("is-editing") || this.onFilterClicked(e))
     }, onSearchClicked: function () {
-        this.selectFilter(this.searchElement.attr("data-id"), true), this.searchInput.focus(), this.onSearchInput(), SL.analytics.trackEditor("Media: Search clicked")
+        this.selectFilter(this.searchElement.attr("data-id"), true), this.searchInput.focus(), this.onSearchInput()
     }, onSearchInput: function () {
         var e = this.searchInput.val();
         this.selectedFilter = this.media.createSearchFilter(e), this.selectedFilterData = {
@@ -173,7 +173,7 @@ SL("editor.components.medialibrary").ListDrag = Class.extend({
             }.bind(this))
         }, onMouseUp: function (e) {
             if (e.preventDefault(), this.currentDropTarget) {
-                this.currentDropTarget.data("dropReceiver").call(null, this.items), SL.analytics.trackEditor("Media: Drop items on tag");
+                this.currentDropTarget.data("dropReceiver").call(null, this.items);
                 var t = this.ghostElement, i = this.currentDropTarget.get(0).getBoundingClientRect(), n = i.left + (i.width - this.ghostWidth) / 2 - this.ghostOffset.x, r = i.top + (i.height - this.ghostHeight) / 2 - this.ghostOffset.y, o = "translate(" + n + "px," + r + "px) scale(0.2)";
                 t.css({
                     webkitTransition: "all 0.2s ease",
@@ -288,7 +288,7 @@ SL("editor.components.medialibrary").List = Class.extend({
                         }.bind(this)), this.clearSelection()
                     }.bind(this)
                 }]
-            }), SL.analytics.trackEditor("Media: Delete items")
+            })
         }, editLabel: function (e) {
             e.element.addClass("hover");
             var t = SL.prompt({
@@ -307,9 +307,9 @@ SL("editor.components.medialibrary").List = Class.extend({
                 e.element.removeClass("hover"), t && "" !== t.trim() ? (e.model.set("label", t), e.model.save(["label"]), this.refreshOverlay(e)) : SL.notify("Label can't be empty", "negative")
             }.bind(this)), t.canceled.add(function () {
                 e.element.removeClass("hover")
-            }.bind(this)), SL.analytics.trackEditor("Media: Edit item label")
+            }.bind(this))
         }, toggleInline: function (e) {
-            e.model.set("inline", !e.model.get("inline")), e.model.save(["inline"]), this.refreshOverlay(e), SL.analytics.trackEditor("Media: Toggle inline SVG")
+            e.model.set("inline", !e.model.get("inline")), e.model.save(["inline"]), this.refreshOverlay(e)
         }, onMediaChanged: function (e, t) {
             e && e.length && (e.forEach(function (e) {
                 this.addItem(e, true, true)
@@ -328,7 +328,7 @@ SL("editor.components.medialibrary").List = Class.extend({
                     var n = [i.model];
                     this.selectedItems.size() > 0 && i.selected && (n = this.selectedItems.map(function (e) {
                         return e.model
-                    })), this.drag.startDrag(e, i.element, n), SL.analytics.trackEditor("Media: Start drag", n.length > 1 ? "multiple" : "single")
+                    })), this.drag.startDrag(e, i.element, n)
                 }
             }
             e.preventDefault()
@@ -393,7 +393,6 @@ SL("editor.components.medialibrary").MediaLibraryPage = Class.extend({
                     e.remove();
                     var i = t.originalEvent.dataTransfer.files;
                     if (this.isSelecting())this.uploader.enqueue(i[0]); else for (var n = 0; n < i.length; n++)this.uploader.enqueue(i[n]);
-                    SL.analytics.trackEditor("Media: Upload file", "drop from desktop")
                 }.bind(this)
             }
         }, show: function (e) {
@@ -557,7 +556,7 @@ SL("editor.components.medialibrary").Uploader = Class.extend({
         },
         onInputChanged: function (e) {
             var t = SL.util.toArray(this.fileInput.get(0).files);
-            t = t.filter(this.validateFile.bind(this)), t.length ? (t.forEach(this.enqueue.bind(this)), SL.analytics.trackEditor("Media: Upload file", "file input")) : SL.notify("Invalid file. We support <strong>PNG</strong>, <strong>JPG</strong>, <strong>GIF</strong> and <strong>SVG</strong> files up to <strong>10 MB</strong>", "negative"), this.renderInput(), e.preventDefault()
+            t = t.filter(this.validateFile.bind(this)), t.length ? (t.forEach(this.enqueue.bind(this))) : SL.notify("Invalid file. We support <strong>PNG</strong>, <strong>JPG</strong>, <strong>GIF</strong> and <strong>SVG</strong> files up to <strong>10 MB</strong>", "negative"), this.renderInput(), e.preventDefault()
         },
         destroy: function () {
             this.queue = null, this.uploadStarted.dispose(), this.uploadCompleted.dispose()

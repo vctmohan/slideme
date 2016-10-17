@@ -9,9 +9,10 @@ SL("editor.components.sidebar").Export = SL.editor.components.sidebar.Base.exten
         }), this.dropboxPollJob.polled.add(this.onDropboxPoll), this.dropboxPollJob.ended.add(this.onDropboxPollTimeout)
     }, 
     bind: function () {
-        this._super(), this.downloadHTMLButton && this.downloadHTMLButton.on("click", this.onDownloadHTMLClicked.bind(this)), this.htmlOutputElement && this.htmlOutputElement.on("click", this.onHTMLOutputClicked.bind(this)), this.cssOutputElement && this.cssOutputElement.on("click", this.onCSSOutputClicked.bind(this)), this.domElement.find(".upgrade-button").on("click", function () {
-            SL.analytics.trackEditor("Click upgrade link", "export panel")
-        })
+        this._super();
+        this.downloadHTMLButton && this.downloadHTMLButton.on("click", this.onDownloadHTMLClicked.bind(this));
+        this.htmlOutputElement && this.htmlOutputElement.on("click", this.onHTMLOutputClicked.bind(this));
+        this.cssOutputElement && this.cssOutputElement.on("click", this.onCSSOutputClicked.bind(this));
     }, 
     open: function () {
         this._super(), this.syncRevealExport(), this.checkDropboxStatus(), this.checkOnlineContent()
@@ -72,7 +73,7 @@ SL("editor.components.sidebar").Export = SL.editor.components.sidebar.Base.exten
     onDropboxPollTimeout: function () {
     }, 
     onDownloadHTMLClicked: function () {
-        window.open(SL.config.AJAX_EXPORT_DECK(SLConfig.deck.user.username, SLConfig.deck.slug || SLConfig.deck.id)), SL.analytics.trackEditor("Download as HTML")
+        window.open(SL.config.AJAX_EXPORT_DECK(SLConfig.deck.user.username, SLConfig.deck.slug || SLConfig.deck.id))
     }, 
     onHTMLOutputClicked: function () {
         this.htmlOutputElement.select()
@@ -107,7 +108,7 @@ SL("editor.components.sidebar").Export.PDF = Class.extend({
                 this.previousExport = $('<p class="previous-pdf">Recent: <a href="' + e + '" download="' + t + '" target="_blank">' + t + "</a></p>").appendTo(this.domElement), $("html").addClass("editor-exported-pdf-successfully"), this.heightChanged.dispatch()
             }
         }, onDownloadClicked: function () {
-            this.setIsLoading(true), this.startExport(), SL.analytics.trackEditor("Download as PDF")
+            this.setIsLoading(true), this.startExport()
         }, onPoll: function () {
             this.pdfStatusXHR && this.pdfStatusXHR.abort(), this.pdfStatusXHR = $.get(SL.config.AJAX_EXPORT_STATUS(SLConfig.deck.id, this.exportID)).done(function (e) {
                 if ("string" == typeof e.url && e.url.length) {
@@ -146,7 +147,7 @@ SL("editor.components.sidebar").Export.ZIP = Class.extend({
                 this.previousExport = $('<p class="previous-zip">Recent: <a href="' + e + '" download="' + t + '" target="_blank">' + t + "</a></p>").appendTo(this.domElement), $("html").addClass("editor-exported-zip-successfully"), this.heightChanged.dispatch()
             }
         }, onDownloadClicked: function () {
-            this.setIsLoading(true), this.startExport(), SL.analytics.trackEditor("Download as ZIP")
+            this.setIsLoading(true), this.startExport()
         }, onPoll: function () {
             this.zipStatusXHR && this.zipStatusXHR.abort(), this.zipStatusXHR = $.get(SL.config.AJAX_EXPORT_STATUS(SLConfig.deck.id, this.exportID)).done(function (e) {
                 if ("string" == typeof e.url && e.url.length) {
@@ -176,7 +177,6 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
             if (t) {
                 if (!t || "" !== t.type && !t.type.match(/powerpoint|presentationml|pdf/))return SL.notify("Only PDF or PPT files, please"), void this.createFileInput();
                 if ("number" == typeof t.size && t.size / 1024 > SL.config.MAX_IMPORT_UPLOAD_SIZE.maxsize)return SL.notify("No more than " + Math.round(MAX_IMPORT_UPLOAD_SIZE / 1e3) + "mb please", "negative"), void this.createFileInput();
-                SL.analytics.trackEditor("Import PDF/PPT", "file selected");
                 var i = t.name || "untitled";
                 i = i.trim(), i = i.replace(/\s/g, "-").replace(/[^a-zA-Z0-9-_\.]*/g, ""), this.enterProcessingState(), $.ajax({
                     type: "POST",
@@ -192,7 +192,6 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
         }, uploadFile: function (e, t) {
             var i = this.browseFileInput.get(0).files[0];
             if ("string" != typeof t || t.length < 3)return SL.notify("Invalid upload URL, try reopening the imports page", "negative"), void this.createFileInput();
-            SL.analytics.trackEditor("Import PDF/PPT", "upload started");
             var n = new SL.helpers.FileUploader({
                 file: i,
                 method: "PUT",
@@ -203,15 +202,16 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
                 timeout: 9e5
             });
             n.succeeded.add(function () {
-                n.destroy(), this.createFileInput(), this.startTimeout(), SL.analytics.trackEditor("Import PDF/PPT", "upload complete"), $.ajax({
+                n.destroy();
+                this.createFileInput();
+                this.startTimeout();
+                $.ajax({
                     type: "PUT",
                     url: SL.config.AJAX_PDF_IMPORT_UPLOADED(e),
                     data: {"import": {upload_complete: true}},
                     context: this
                 }).fail(function () {
                     this.hideOverlay(), SL.notify("An error occurred while processing your file", "negative")
-                }).done(function () {
-                    SL.analytics.trackEditor("Import PDF/PPT", "upload_complete sent")
                 })
             }.bind(this)), n.progressed.add(function (e) {
                 this.setProgress(25 * e)
@@ -232,7 +232,7 @@ SL("editor.components.sidebar").ImportFile = Class.extend({
             }.bind(this)), SL.util.html.generateSpinners()
         }, 
     enterFinishedState: function (e) {
-            if (SL.analytics.trackEditor("Import PDF/PPT", "import complete"), this.stopTimeout(), e.output && e.output.length > 0) {
+            if (this.stopTimeout(), e.output && e.output.length > 0) {
                 this.showOverlay("finished", "Finished"), this.overlayBody.html(['<p>The following <strong><span class="slide-count"></span> slides</strong> will be added.</p>', '<div class="preview"></div>', '<div class="options">', '<div class="sl-checkbox outline">', '<input id="import-append-checkbox" value="" type="checkbox">', '<label for="import-append-checkbox" data-tooltip="Append the imported slides after any existing slides instead of replacing them." data-tooltip-maxwidth="300">Append slides</label>', "</div>", '<div class="sl-checkbox outline">', '<input id="import-inline-checkbox" value="" type="checkbox">', '<label for="import-inline-checkbox" data-tooltip="Turn this on if you intend to overlay new content on top of imported slides. If left off, slides will be added as background images for the largest possible visual footprint." data-tooltip-maxwidth="300">Insert inline</label>', "</div>", "</div>"].join("")), this.overlayFooter.html(['<button class="button l outline cancel-button">Cancel</button>', '<button class="button l positive confirm-button">Import</button>'].join(""));
                 var t = this.overlayBody.find(".preview"), i = function () {
                     this.overlayBody.find(".slide-count").text(t.find(".preview-slide").not(".excluded").length)
@@ -399,7 +399,7 @@ SL("editor.components.sidebar").Revisions = SL.editor.components.sidebar.Base.ex
                 revisionURL: n,
                 revisionTimeAgo: moment(e.created_at).fromNow()
             });
-            r.restoreRequested.add(this.onRestoreClicked.bind(this, e)), r.externalRequested.add(this.onExternalClicked.bind(this, n)), SL.analytics.trackEditor("Revision preview"), i.preventDefault()
+            r.restoreRequested.add(this.onRestoreClicked.bind(this, e)), r.externalRequested.add(this.onExternalClicked.bind(this, n)), i.preventDefault()
         }, onRestoreClicked: function (e, t) {
             SL.prompt({
                 anchor: $(t.currentTarget),
@@ -413,7 +413,7 @@ SL("editor.components.sidebar").Revisions = SL.editor.components.sidebar.Base.ex
                 }]
             }), t.preventDefault()
         }, onRestoreConfirmed: function (e) {
-            SL.analytics.trackEditor("Revision restore"), SL.helpers.PageLoader.show({message: "Restoring..."}), $.ajax({
+           SL.helpers.PageLoader.show({message: "Restoring..."}), $.ajax({
                 type: "post",
                 url: SL.config.AJAX_RESTORE_DECK_VERSION(SLConfig.deck.id, e.id),
                 data: e,

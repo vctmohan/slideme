@@ -9,18 +9,15 @@
   <meta name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"/>
   <%= csrf_meta_tags %>
-
-
   <title><%= @title %></title>
-
-  <!--    <link href="css/app.css" media="all" rel="stylesheet"/>
-      <link href="css/editor/editor.css" media="all" rel="stylesheet"/>-->
   <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/fonticons/slides/slides', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/css/editor-v2', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag '/deveal/css/deck-v2', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= render 'layouts/css/deck', :editor => true %>
+
 
 </head>
 
