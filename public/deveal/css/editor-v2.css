@@ -5298,3 +5298,266 @@ html.decks.edit[data-mode=preview] .preview-controls {
   -ms-transform: none;
   transform: none;
 }
+
+/* line 4699, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: none;
+  transition: none;
+}
+/* line 4704, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-content {
+  cursor: pointer;
+}
+/* line 4706, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-content:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  content: '';
+  z-index: 1;
+  opacity: 0;
+  background-color: transparent;
+}
+/* line 4718, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+/* line 4725, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-message, html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-warning {
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  opacity: 0.9;
+}
+/* line 4733, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-message .vcenter-target, html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-warning .vcenter-target {
+  vertical-align: middle;
+}
+/* line 4736, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-message.below-content {
+  z-index: 0 !important;
+}
+/* line 4739, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-warning {
+  color: #ffa660;
+}
+/* line 4740, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-warning.below-content {
+  z-index: 0 !important;
+}
+/* line 4744, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-overlay-warning .icon {
+  display: block;
+  margin: 0 auto 10px auto;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  border-radius: 1em;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  background-color: #e06200;
+}
+/* line 4757, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-placeholder {
+  background-image: url(//assets.slid.es/assets/editor/block-placeholder-white-transparent-500x500-7823f1840b07555f52c57c14e21dd605.png);
+  background-size: contain;
+  background-color: #222;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  opacity: 0.9;
+}
+/* line 4765, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block.is-editing {
+  cursor: auto;
+}
+/* line 4767, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block.is-editing .sl-block-content {
+  cursor: auto;
+  outline: 1px solid rgba(27, 174, 225, 0.4);
+}
+/* line 4770, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block.is-editing .sl-block-content:before {
+  display: none;
+}
+/* line 4775, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block.intro-start {
+  opacity: 0;
+  z-index: 255;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/* line 4782, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block.intro-end {
+  z-index: 255;
+  -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+}
+/* line 4787, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  z-index: 255;
+  pointer-events: none;
+  border: 1px solid #1baee1;
+  font-size: 12px;
+}
+/* line 4798, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #1baee1;
+  cursor: pointer;
+  pointer-events: all;
+  visibility: hidden;
+}
+/* line 4808, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=n] {
+  left: 50%;
+  bottom: 100%;
+  margin-left: -0.5em;
+  margin-bottom: -0.4em;
+  cursor: row-resize;
+}
+/* line 4815, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=e] {
+  left: 100%;
+  top: 50%;
+  margin-top: -0.5em;
+  margin-left: -0.4em;
+  cursor: col-resize;
+}
+/* line 4822, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=s] {
+  left: 50%;
+  top: 100%;
+  margin-left: -0.5em;
+  margin-top: -0.4em;
+  cursor: row-resize;
+}
+/* line 4829, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=w] {
+  right: 100%;
+  top: 50%;
+  margin-top: -0.5em;
+  margin-right: -0.4em;
+  cursor: col-resize;
+}
+/* line 4836, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=nw] {
+  right: 100%;
+  bottom: 100%;
+  margin-right: -0.4em;
+  margin-bottom: -0.4em;
+  cursor: nw-resize;
+}
+/* line 4843, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=ne] {
+  left: 100%;
+  bottom: 100%;
+  margin-left: -0.4em;
+  margin-bottom: -0.4em;
+  cursor: ne-resize;
+}
+/* line 4850, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=se] {
+  left: 100%;
+  top: 100%;
+  margin-left: -0.4em;
+  margin-top: -0.4em;
+  cursor: se-resize;
+}
+/* line 4857, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=sw] {
+  right: 100%;
+  top: 100%;
+  margin-right: -0.4em;
+  margin-top: -0.4em;
+  cursor: sw-resize;
+}
+/* line 4864, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=p1], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform .anchor[data-direction=p2] {
+  width: 1.6em;
+  height: 1.6em;
+  left: 0;
+  top: 0;
+  margin-left: -0.8em;
+  margin-top: -0.8em;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-width: 2px;
+  cursor: move;
+}
+/* line 4877, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-horizontal="false"] .anchor[data-direction=e], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-horizontal="false"] .anchor[data-direction=w], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-horizontal="false"] .anchor[data-direction=nw], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-horizontal="false"] .anchor[data-direction=ne], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-horizontal="false"] .anchor[data-direction=se], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-horizontal="false"] .anchor[data-direction=sw] {
+  display: none;
+}
+/* line 4882, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-vertical="false"] .anchor[data-direction=n], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-vertical="false"] .anchor[data-direction=s], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-vertical="false"] .anchor[data-direction=nw], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-vertical="false"] .anchor[data-direction=ne], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-vertical="false"] .anchor[data-direction=se], html.decks.edit.is-editing .reveal .sl-block .sl-block-transform[data-vertical="false"] .anchor[data-direction=sw] {
+  display: none;
+}
+/* line 4886, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform.visible {
+  visibility: visible;
+}
+/* line 4888, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block .sl-block-transform.visible .anchor {
+  visibility: visible;
+}
+/* line 4893, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block.is-editing .sl-block-transform {
+  visibility: hidden;
+}
+/* line 4897, ../scss/editor-v2.scss */
+html.decks.edit.is-editing.touch-editor .reveal .sl-block .sl-block-transform {
+  font-size: 20px;
+}
+/* line 4899, ../scss/editor-v2.scss */
+html.decks.edit.is-editing.touch-editor .reveal .sl-block .sl-block-transform .anchor:before {
+  content: '';
+  position: absolute;
+  left: -0.5em;
+  top: -0.5em;
+  width: 2em;
+  height: 2em;
+}
+/* line 4908, ../scss/editor-v2.scss */
+html.decks.edit.is-editing.touch-editor-small .reveal .sl-block .sl-block-transform {
+  font-size: 30px;
+}
+/* line 4911, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block[data-block-type="text"].is-focused.is-text-overflowing .sl-block-content {
+  max-height: 700px;
+  overflow: auto;
+}
+
+/* line 4917, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block[data-block-type="line"] {
+  pointer-events: none;
+}
+/* line 4919, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block[data-block-type="line"] svg * {
+  pointer-events: auto;
+  pointer-events: all;
+}
+/* line 4923, ../scss/editor-v2.scss */
+html.decks.edit.is-editing .reveal .sl-block[data-block-type="line"] .sl-block-transform {
+  border-color: transparent;
+}

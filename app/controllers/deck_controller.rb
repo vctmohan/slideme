@@ -132,7 +132,7 @@ class DeckController < ApplicationController
 
     if request.post?
 
-      kit = IMGKit.new("http://localhost:4000/preview/#{params[:id]}", :width => 240, :height => 230)
+      kit = IMGKit.new("#{request.host}/preview/#{params[:id]}", :width => 240, :height => 230)
       img = kit.to_img(:png)
 
       file = Tempfile.new(["thumbnail_#{@deck.id}", 'png'], 'tmp',
