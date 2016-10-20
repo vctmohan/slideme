@@ -18,4 +18,5 @@ set :ssh_options, {
 }
 
 set :rails_env, :production
+set :rails_env, :development
 set :conditionally_migrate, true
