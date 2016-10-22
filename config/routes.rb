@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'application#index'
 
   match 'preview/:id', :controller => 'deck', :action => 'preview', :via => [:get], as: :preview_deck

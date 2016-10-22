@@ -66,3 +66,6 @@ gem 'paperclip', '~> 5.0.0'
 gem "imgkit"
 gem "wkhtmltoimage-binary"
 
+#autenticacion de usuarios
+gem 'devise'
+gem 'devise_ldap_authenticatable'
