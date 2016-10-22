@@ -1,28 +1,5 @@
 == README
+This is open source clone of site [slides.com](https://slides.com/). Any similarity with reality is purely coincidental.
+The goal of this project is supplied the GUI open source for [reveal.js](http://lab.hakim.se/reveal-js) and create one offline editor in the future, using [Electron](http://electron.atom.io/) y javascript.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+** I need help with this project, any help is welcome **
