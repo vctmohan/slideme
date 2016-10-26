@@ -1,0 +1,19 @@
+defaults: &defaults
+  use_ldap: true
+  host: 172.17.16.11
+  port: 389
+  attribute: mail
+  base: OU=DATYS,DC=datys,DC=cu
+  admin_user: CN=Portal del conocimiento ,OU=Services,OU=Users,OU=Global,OU=DATYS,DC=datys,DC=cu
+  admin_password: Port@lConoc1m13nto
+  ssl: false
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+

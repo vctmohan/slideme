@@ -13,7 +13,7 @@
       <div class="picture" style="background-image: url(<%= @user.avatar.url(:thumb) %>)"></div>
       <div class="text">
         <h3 class="title">
-          <%= link_to current_user.username,profile_url(current_user.username),class: "username"  %>
+          <%= link_to @user.username,profile_url(@user.username),class: "username"  %>
         </h3>
         <p class="description"></p>
         <ul class="links">

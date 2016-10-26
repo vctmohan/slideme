@@ -67,5 +67,6 @@ gem "imgkit"
 gem "wkhtmltoimage-binary"
 
 #autenticacion de usuarios
-gem 'devise'
-gem 'devise_ldap_authenticatable'
+#gem 'devise'
+#gem 'devise_ldap_authenticatable'
+gem 'net-ldap'
