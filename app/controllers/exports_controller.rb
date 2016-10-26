@@ -14,8 +14,10 @@ class ExportsController < ApplicationController
           export.deck = deck
           export.user = current_user
           export.save
-
           output = {:id => export.id}
+
+          require 'export/zip'
+          ZipJob.perform_async(export.id)
         end
       end
 

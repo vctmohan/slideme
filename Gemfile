@@ -1,6 +1,7 @@
 #source 'https://rubygems.org'
-#source 'http://localhost:9292'
-source 'https://nexus.datys.cu/content/repositories/rubygems-mirror/'
+source 'http://localhost:9292'
+#source 'https://nexus.datys.cu/content/repositories/rubygems-mirror/'
+#SSL_CERT_FILE=~/.cert/nexus.pem bundle install
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -70,3 +71,6 @@ gem "wkhtmltoimage-binary"
 #gem 'devise'
 #gem 'devise_ldap_authenticatable'
 gem 'net-ldap'
+
+gem 'rubyzip'
+gem 'sucker_punch', '~> 2.0'
