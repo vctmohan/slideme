@@ -1,12 +1,10 @@
 #Falta por descargar
 Ejecutar esto cada ves que se sube una imagen bundle exec rake paperclip:refresh:missing_styles
-
-
 Ver que datos se envian en las revisiones /api/v1/decks/9/revisions.json?page=1
+
 #Emportar
 Crear el zip
 Crear el pdf
-
 
 #Socket
 Cuando emitir el evento
