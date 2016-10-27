@@ -10,8 +10,6 @@
         <div class="auth-options">
           <div class="auth-option left">
             <%= form_for(:session, url: "/users/sign_in") do |f| %>
-                <%= render 'shared/error_messages', object: f %>
-
                 <div class="unit text" data-validate="email" data-required>
                   <%= f.label :email %>
                   <%= f.text_field :email, autofocus: "autofocus" %>

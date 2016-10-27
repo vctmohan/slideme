@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
     ldap_yml = Rails.root.join('config/ldap.yml')
     use_ldap = false
     if File.exist?(ldap_yml)
-    config = YAML.load_file(ldap_yml)[Rails.env]
-    use_ldap = config['use_ldap']
+      config = YAML.load_file(ldap_yml)[Rails.env]
+      use_ldap = config['use_ldap']
     end
     #si esta habilitado intentar autenticar en ldap
     if use_ldap
@@ -32,7 +32,6 @@ class SessionsController < ApplicationController
           end
         end
       end
-
     else
       #autenticacion en la aplicacion
       if user && user.authenticate(password)
@@ -45,7 +44,7 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to profile_url(user.username)
     else
-      # Create an error message.
+      flash[:error] = "User or password incorrect."
       render 'new'
     end
   end

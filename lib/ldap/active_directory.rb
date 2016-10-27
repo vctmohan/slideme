@@ -22,7 +22,7 @@ class ActiveDirectory
     if @ldap.bind_as(:filter => filter, :password => password)
       true
     else
-      Rails.logger.error("Active Directory validation failed for '#{login}': #{ldap.get_operation_result.message}")
+      Rails.logger.error("Active Directory validation failed for '#{login}': #{@ldap.get_operation_result.message}")
       false
     end
   end
