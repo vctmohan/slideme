@@ -1963,7 +1963,7 @@ html.has-visible-scrollbars .media-library-list-item {
   text-align: center;
   padding-top: 375px;
   cursor: default;
-  background-image: url(//assets.slid.es/assets/media-library-placeholder-a1537c14297b61360bffd9523b5253e9.png);
+  background-image: url(/deveal/images/media-library-placeholder.png);
   background-repeat: no-repeat;
   background-position: 50% 110px;
   line-height: 1.6;
@@ -3570,7 +3570,7 @@ html.decks.edit .toolbar-image .toolbar-image-inner .toolbar-image-placeholder {
   left: 0;
   top: 0;
   opacity: 0.4;
-  background-image: url(//assets.slid.es/assets/editor/image-placeholder-white-transparent-500x500-fbb1e941d141a5bfabfcb4d560f04198.png);
+  background-image: url(/deveal/images/image-placeholder-white-transparent-500x500.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% -18px;
@@ -3885,7 +3885,7 @@ html.decks.edit .toolbar-color .toolbar-color-trigger {
 }
 /* line 3429, ../scss/editor-v2.scss */
 html.decks.edit .toolbar-color .toolbar-color-trigger.transparent {
-  background-image: url(//assets.slid.es/assets/transparent-pattern-10x10-8035acdddd6726d574100326a250beb5.png);
+  background-image: url(/deveal/images/transparent-pattern-10x10.png);
   background-repeat: repeat;
 }
 /* line 3433, ../scss/editor-v2.scss */

@@ -12,19 +12,13 @@
 
 
   <title><%= yield(:title) %></title>
-
-  <!--    <link href="css/app.css" media="all" rel="stylesheet"/>
-      <link href="css/editor/editor.css" media="all" rel="stylesheet"/>-->
-  <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag '/deveal/fonticons/slides/slides', media: 'all', 'data-turbolinks-track' => true %>
-
   <%= stylesheet_link_tag '/deveal/vendor/ladda/dist/ladda.min', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/vendor/ladda/dist/ladda-themeless.min', media: 'all', 'data-turbolinks-track' => true %>
 
+  <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '/deveal/fonticons/slides/slides', media: 'all', 'data-turbolinks-track' => true %>
   <%= yield(:css_add) %>
-
 </head>
-
 
 <body>
 <div id="container" class="container">
