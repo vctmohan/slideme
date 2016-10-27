@@ -26,7 +26,8 @@ class User < ActiveRecord::Base
                         :preview => '-set colorspace sRGB -strip',
                         :large => '-set colorspace sRGB -strip',
                         :retina => '-set colorspace sRGB -strip -sharpen 0x0.5'
-                    }
+                    },
+                    default_url: "/images/user-default.png"
   validates_attachment :avatar,
                        content_type: {content_type: /^image\/(jpeg|png|svg)$/}
 

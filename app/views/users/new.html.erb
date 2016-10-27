@@ -7,7 +7,7 @@
         <div class="auth-options">
           <div class="auth-option">
             <%= form_for(@user) do |f| %>
-                <%= render 'shared/error_messages', object: f %>
+                <%= render 'shared/error_messages', object: @user %>
 
                 <div class="unit text" data-validate="username" data-required >
                   <%= f.label :username %>

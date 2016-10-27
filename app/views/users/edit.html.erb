@@ -14,7 +14,7 @@
       <h2>Account settings</h2>
 
       <%= form_for @user, :url => edit_user_url(@user), :method => :put do |f| %>
-          <%= render 'shared/error_messages' %>
+          <%= render 'shared/error_messages', object: @user %>
 
           <div class="unit name" data-required="">
             <%= f.label :name %>
