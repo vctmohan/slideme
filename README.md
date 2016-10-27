@@ -5,3 +5,6 @@ The goal of this project is supplied the GUI open source for [reveal.js](http://
 
 #Deploy 
 cap production deploy
+
+#Up Unicorn
+bundle exec unicorn -c /var/www/slideme/current/config/unicorn/production.rb -E deployment -D
