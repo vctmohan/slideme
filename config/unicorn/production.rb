@@ -1,5 +1,6 @@
-root = File.expand_path(File.dirname(__FILE__) + '/../..')
-working_directory '/var/www/slideme/current/'
+#root = File.expand_path(File.dirname(__FILE__) + '/../..')
+root = '/var/www/slideme/current/'
+working_directory root
 
 pid "#{root}/tmp/pids/unicorn.pid"
 
