@@ -3,14 +3,11 @@
 
 <div class="column wide">
       <hgroup class="funnel-intro"><h2>Create an account</h2></hgroup>
-
-
-
-      <section class="auth">
+        <section class="auth">
         <div class="auth-options">
           <div class="auth-option">
             <%= form_for(@user) do |f| %>
-                <%= render 'shared/error_messages' %>
+                <%= render 'shared/error_messages', object: f.object %>
 
                 <div class="unit text" data-validate="username" data-required >
                   <%= f.label :username %>
