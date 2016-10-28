@@ -11,11 +11,11 @@
   <%= csrf_meta_tags %>
   <title><%= @title %></title>
 
+  <%= stylesheet_link_tag '/deveal/bower_components/spectrum/spectrum', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/vendor/ladda/dist/ladda.min', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/vendor/ladda/dist/ladda-themeless.min', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/css/application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/fonticons/slides/slides', media: 'all', 'data-turbolinks-track' => true %>
-
   <%= stylesheet_link_tag '/deveal/bower_components/reveal.js/css/reveal', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '/deveal/css/editor-v2', media: 'all', 'data-turbolinks-track' => true %>
 
@@ -397,6 +397,7 @@
 </div>
 
 <%= render 'layouts/js' %>
+<%= javascript_include_tag '/deveal/bower_components/spectrum/spectrum', 'data-turbolinks-track' => true %>
 
 <%= javascript_include_tag '/deveal/js/editor/view', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag '/deveal/js/editor/blocks/base', 'data-turbolinks-track' => true %>

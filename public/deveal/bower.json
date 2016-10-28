@@ -25,8 +25,10 @@
     "reveal.js": "^3.3.0",
     "tether": "^v1.3.3",
     "moment": "^2.15.1",
-    "spectrum": "^1.8.0",
     "ckeditor": "^4.5.11",
-    "cryptojslib": "^3.1.2"
+    "cryptojslib": "^3.1.2",
+    "js-signals": "^v1.0.0",
+    "tinycolor": "^1.4.1",
+    "spectrum": "https://github.com/hakimel/slides-spectrum.git#master"
   }
 }

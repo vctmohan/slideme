@@ -7,10 +7,10 @@
     var localization = $.spectrum.localization["fr"] = {
         cancelText: "Annuler",
         chooseText: "Valider",
-        clearText: "Effacer couleur sélectionnée",
+        clearText: "Sélection de la couleur claire",
         noColorSelectedText: "Aucune couleur sélectionnée",
-        togglePaletteMoreText: "Plus",
-        togglePaletteLessText: "Moins"
+        togglePaletteMoreText: "plus",
+        togglePaletteLessText: "moins"
     };
 
     $.extend($.fn.spectrum.defaults, localization);

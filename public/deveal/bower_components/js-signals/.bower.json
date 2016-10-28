@@ -1,0 +1,36 @@
+{
+  "name": "js-signals",
+  "version": "v1.0.0",
+  "homepage": "http://millermedeiros.github.com/js-signals/",
+  "authors": [
+    "millermedeiros <miller@millermedeiros.com>"
+  ],
+  "description": "Custom Event/Messaging System",
+  "main": "dist/signals.js",
+  "keywords": [
+    "signal",
+    "signals",
+    "event",
+    "emitter",
+    "pub/sub",
+    "observer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "build",
+    "src",
+    "build.xml",
+    "package.json",
+    "updateDocs.sh"
+  ],
+  "_source": "nexus+https://nexus-3.datys.cu/repository/bower-mirror/js-signals",
+  "_target": "^v1.0.0",
+  "_release": "v1.0.0",
+  "_originalSource": "js-signals",
+  "_direct": true
+}
