@@ -10,10 +10,10 @@ This tools are use for convert HTML to image for create thumbnail to slide (deck
 ```sh
     sudo apt install wkhtmltopdf
 ```
-Download [wkhtmltox-0.12.3_linux-generic-amd64.tar.xz](http://)  
+Download [wkhtmltox-0.12.3_linux-generic-amd64.tar.xz](http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz)  
 ```sh
-    wget 
-    descomprimir 
+    wget http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+    tar -xzvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
     cd wkhtmltox
     sudo cp wkhtmltoimage /usr/bin/wkhtmltoimage
 ```
@@ -23,8 +23,11 @@ Download [wkhtmltox-0.12.3_linux-generic-amd64.tar.xz](http://)
     gem install bundle
     bundle install
     #Install bower
+    sudo apt-get install nodejs-legacy npm
+    sudo npm install bower -g
     bower install
 ```
+
 # Create configurations
 Create file for database configuration
 ```sh
@@ -57,8 +60,6 @@ production:
   password: pass
   encoding: utf8
 ```
-
-
 # Development
 ```sh
     rails server
