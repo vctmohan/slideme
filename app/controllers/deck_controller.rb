@@ -125,12 +125,7 @@ class DeckController < ApplicationController
   # Ver como manejar las peticiones al preview
   def thumbnails
     @deck = Deck.find(params[:id])
-    if request.get?
-      file = File.open(@deck.thumbnail.path, 'r')
-      send_data(file.read, :type => "image/png", :disposition => 'inline')
-    end
-
-    if request.post?
+    if request.post? or not @deck.thumbnail
       kit = IMGKit.new("#{request.host}/preview/#{params[:id]}", :width => 240, :height => 230)
       img = kit.to_img(:png)
 
@@ -141,6 +136,14 @@ class DeckController < ApplicationController
       @deck.thumbnail = file
       @deck.save
       file.unlink
+    end
+
+    if request.get?
+      file = File.open(@deck.thumbnail.path, 'r')
+      send_data(file.read, :type => "image/png", :disposition => 'inline')
+    end
+
+    if request.post?
       render :nothing => true
     end
 
