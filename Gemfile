@@ -1,6 +1,6 @@
-#source 'https://rubygems.org'
+source 'https://rubygems.org'
 #source 'http://localhost:9292'
-source 'https://nexus.datys.cu/content/repositories/rubygems-mirror/'
+#source 'https://nexus.qq.cu/content/repositories/rubygems-mirror/'
 #SSL_CERT_FILE=~/.cert/nexus.pem bundle install
 
 

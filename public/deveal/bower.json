@@ -1,7 +1,7 @@
 {
   "name": "deveal",
   "authors": [
-    "Rubisel Prieto Dupeyron <rubisel.prieto@datys.cu>"
+    "Rubisel Prieto Dupeyron <rubiselprieto@gmail.com>"
   ],
   "description": "Editor GUI for reveal.js",
   "main": "js/deveal.js",
