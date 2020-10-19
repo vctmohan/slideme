@@ -62,7 +62,7 @@ end
 gem "active_model_serializers"
 
 # Para las imagenes
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '>= 5.0.0'
 
 gem "imgkit"
 gem "wkhtmltoimage-binary"
