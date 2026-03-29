@@ -71,7 +71,7 @@
     "has-binary": "0.1.7",
     "socket.io-adapter": "0.4.0",
     "socket.io-client": "1.4.8",
-    "socket.io-parser": "2.2.6"
+    "socket.io-parser": "3.3.5"
   },
   "description": "node.js realtime framework server",
   "devDependencies": {
